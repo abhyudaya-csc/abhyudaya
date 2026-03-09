@@ -1,5 +1,5 @@
 import { ClientComponent } from "./ClientComponent";
-import { Hero } from "./Landing_page";
+import { Hero } from "./Landing_Page";
 
 const HomeX = () => {
   return (
