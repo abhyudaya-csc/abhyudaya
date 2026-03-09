@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-/*import ContactUs from "./Contact/ContactUs";
-import Members from "./Team/Members";
+import ContactUs from "./Contact/ContactUs";
+/*import Members from "./Team/Members";
 import CampusAmbassadorProgram from "./CampusAmbassador/CampusAmbassadorProgram";
 import ProfileRoute from "./Profile/ProfileRoute";
 import Events from "./Events/Events";
@@ -40,6 +40,7 @@ function Routing() {
       <Routes>
         <Route path="/" element={<Herox />} />
         
+        <Route path="/contact" element={<ContactUs />} />
         {/*<Route path="/about" element={<Members />} />
         <Route
           path="/campus-ambassador"
@@ -48,7 +49,6 @@ function Routing() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/Sponsors" element={<Sponsors />} />
         <Route path="/profile" element={<ProfileRoute />} />
-        <Route path="/contact" element={<ContactUs />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventDetail />} />*/}
       </Routes>
