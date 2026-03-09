@@ -10,7 +10,7 @@ import Gallery from "./Gallery/Gallery";
 import Sponsors from "./Sponsors/Sponsors";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Herox from "./NewHome/Landing"
+import Herox from "./NewHome/Herox"
 
 function Routing() {
   const user  =  useSelector(state=> state.user)
