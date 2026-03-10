@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import TypingText from "./SplitText";
-import { AnimatedInstagram, AnimatedWhatsApp } from "./AnimatedSocialIcons";
+import { AnimatedInstagram, AnimatedWhatsApp, AnimatedLinkedIn } from "./AnimatedSocialIcons";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -236,6 +236,17 @@ const ContactUs = () => {
                 <AnimatedWhatsApp size={16} />
                 <span className="font-medium">WhatsApp</span>
               </a>
+
+              <a
+                href="https://www.linkedin.com/company/abhyudaya-mmmut"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-[#0A66C2]/15 hover:border-[#0A66C2]/40 transition-all duration-300 text-white text-xs"
+              >
+                <AnimatedLinkedIn size={16} />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+              
             </motion.div>
 
             <motion.p
