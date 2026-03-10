@@ -2,29 +2,27 @@
 import { motion } from "framer-motion";
 
 export default function TabNavigation({ tabs, activeTab, setActiveTab }) {
-  const tabVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0 }
-  };
-
   return (
-    <div className="bg-blue-900/30 backdrop-blur-sm rounded-t-lg p-1 mb-1 border-b border-blue-700/50 flex flex-wrap">
-      {tabs.map((tab, index) => (
-        <motion.button
+    <div className="flex gap-1 bg-white/[0.03] backdrop-blur-sm rounded-t-2xl px-4 pt-3 border border-white/10 border-b-0">
+      {tabs.map((tab) => (
+        <button
           key={tab.id}
           onClick={() => setActiveTab(tab.id)}
-          className={`py-3 px-4 sm:px-6 text-sm sm:text-base font-medium rounded-t-lg transition-all duration-300 ${
+          className={`relative px-6 py-2.5 text-sm font-semibold rounded-t-xl transition-colors duration-200 ${
             activeTab === tab.id
-              ? "bg-blue-600 text-white"
-              : "text-blue-300 hover:text-white hover:bg-blue-800/50"
+              ? "text-white"
+              : "text-blue-300/60 hover:text-blue-200"
           }`}
-          variants={tabVariants}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.97 }}
         >
-          {tab.label}
-        </motion.button>
+          {activeTab === tab.id && (
+            <motion.div
+              layoutId="activeTab"
+              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-xl shadow-lg shadow-blue-500/30"
+              transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+            />
+          )}
+          <span className="relative z-10">{tab.label}</span>
+        </button>
       ))}
     </div>
   );
