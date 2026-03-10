@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
 
-  const [iconSize, setIconSize] = useState(20);
+  const [iconSize] = useState(20);
 
   const contacts = [
     {
@@ -48,17 +48,12 @@ const Footer = () => {
   const ContactCard = ({ person }) => (
     <div className="relative group w-[220px] h-[100px] flex justify-center">
 
-      {/* Photo */}
-     
-
-      {/* Folder */}
       <img
         src="/fold.png"
         alt="folder"
         className="absolute bottom-0 w-[220px] h-[110px] object-contain z-20"
       />
 
-      {/* Text */}
       <div className="absolute bottom-6 w-[220px] text-center z-30">
 
         <p className="text-xs font-semibold text-black">
@@ -85,10 +80,10 @@ const Footer = () => {
   );
 
   return (
-    <footer className="bg-gray-900  text-white pt-2 pb-2 px-4 ml-[80px]">
+    <footer className="bg-gray-900 text-white pt-2 pb-2 px-4 ml-[80px]">
 
       {/* TOP ROW */}
-      <div className="grid grid-cols-3 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
 
         {/* LEFT */}
         <div className="flex justify-center gap-4">
@@ -101,7 +96,7 @@ const Footer = () => {
         <div className="flex justify-center">
           <iframe
             src="https://www.youtube.com/embed/ziAZfHGa270"
-            className="w-[260px] h-[90px] rounded-lg"
+            className="w-full max-w-[320px] md:w-[260px] h-[180px] md:h-[90px] rounded-lg"
             allowFullScreen
             title="Abhyudaya Video"
           />
