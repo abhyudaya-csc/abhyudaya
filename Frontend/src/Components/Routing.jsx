@@ -11,6 +11,8 @@ import Sponsors from "./Sponsors/Sponsors";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Herox from "./NewHome/Herox"
+import SignInForm from "./Profile/SignInForm";
+import SignUpForm from "./Profile/SignUpForm";
 
 function Routing() {
   const user  =  useSelector(state=> state.user)
@@ -48,6 +50,8 @@ function Routing() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/Sponsors" element={<Sponsors />} />
         <Route path="/profile" element={<ProfileRoute />} />
+        <Route path="/SignInForm" element={<SignInForm />} />
+        <Route path="/SignUpForm" element={<SignUpForm />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventDetail />} />

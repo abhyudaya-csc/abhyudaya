@@ -1,14 +1,18 @@
-import React from "react";
-import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ProfileCard from "./ProfileCard";
-import AuthForm from "./AuthForm";
+
 
 function ProfileRoute() {
-  const [signIn, setSignedIN] = useState(false);
-  // // if(localStorage.getItem('token') === null){
-  // //     setSignedIN(true)
-  // // }
-  return <div>{signIn ? <ProfileCard /> : <AuthForm />}</div>;
+  const user = useSelector((state) => state.user);
+
+  // If user is not logged in → redirect to signin
+  if (!user) {
+    return <Navigate to="/SignInForm" />;
+  }
+
+  // If user exists → show profile page
+  return <ProfileCard />;
 }
 
 export default ProfileRoute;
