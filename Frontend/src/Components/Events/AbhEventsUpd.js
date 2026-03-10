@@ -255,25 +255,6 @@ const event =[
         ]
     },
     {
-        "eventId": 15,
-        "name": "Kite Runner",
-        "link": "https://bmpwmkwijlrnrrywhqsp.supabase.co/storage/v1/object/sign/Event/Kite_Runner.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJFdmVudC9LaXRlX1J1bm5lci5wbmciLCJpYXQiOjE3NDEwMTg5OTQsImV4cCI6MTgzNTYyNjk5NH0.RFD4gkW3bohVRfslgCo35sf34qwXR8rmog3Xk0UpAkY",
-        "description": "A kite flying and decoration event.",
-        "category": "Art",
-        "eventType": "Offline",
-        "teamType": "Individual",
-        "noOfRounds": 1,
-        "participationFee": 20,
-        "rules": [
-            "Two participants per team are allowed.",
-            "Raw materials (kite paper, bamboo sticks, thread, and glue) will be provided.",
-            "Participants may bring their own decorative materials.",
-            "Duration of the event will be 30 minutes.",
-            "Participants must design their kites and make them fly.",
-            "Judging will be based on creativity, design, neatness, and flight performance."
-        ]
-    },
-    {
         "eventId": 16,
         "name": "literati",
         "link": "https://bmpwmkwijlrnrrywhqsp.supabase.co/storage/v1/object/sign/Event/Literati.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJFdmVudC9MaXRlcmF0aS5wbmciLCJpYXQiOjE3NDEwMTkwMjYsImV4cCI6MTgzNTYyNzAyNn0.hOiTPAje97VAouG_r1hmzlgD_M7ncfSZ6S2KvFrV-r8",
@@ -345,7 +326,7 @@ const event =[
         "link": "https://bmpwmkwijlrnrrywhqsp.supabase.co/storage/v1/object/sign/Event/Photoholic.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJFdmVudC9QaG90b2hvbGljLnBuZyIsImlhdCI6MTc0MTAxOTE5NCwiZXhwIjoxODM1NjI3MTk0fQ.7WzslKIFJtG6pys5fWMMC7YK3DhTA1wPJtW8Zq62BWM",
         "description": "A photography competition that celebrates the art of visual storytelling. Participants will capture stunning images that convey deep messages, showcasing their creativity and perspective through the lens.",
         "category": "Photography",
-        "eventType": "Offline",
+        "eventType": "Online",
         "teamType": "Individual",
         "noOfRounds": 3,
         "participationFee": 0,
@@ -635,5 +616,96 @@ const event =[
             "Finals: Participants must perform an extended version of the play performed in prelims.",
             "Finals: Time limit is 15-20 minutes (including stage setup and clearance time). A warning bell will be given after 18 minutes and the final bell after 20 minutes."
         ]
+    },
+    {
+        "eventId": 33,
+        "name": "Farmaiye Huzoor",
+        "link": "",
+        "description": "Description coming soon.",
+        "category": "Music",
+        "eventType": "Online",
+        "teamType": "Individual",
+        "noOfRounds": 1,
+        "participationFee": 0,
+        "rules": [
+            "Participants may use a mix of Hindi and Urdu (optional), but must submit their compositions in pure Hindi fonts.",
+            "A specific theme will be provided, and participants are required to frame their compositions around it.",
+            "The maximum word limit for each composition is 50 words.",
+            "Each participant is allowed to submit up to 2 entries per theme.",
+            "For ease of Hindi typing, participants can use 'Hindi Speech-to-Text' apps and send their compositions directly as messages to our Instagram page.",
+            "The content must be meaningful; any offensive material will result in immediate DISQUALIFICATION.",
+            "Plagiarism or copying content will also lead to DISQUALIFICATION from the entire theme.",
+            "NOTE: Team Abhyudaya reserves the right to remove any post(s) and/or comment(s) without prior notice or explanation."
+        ],
+        "judgementCriteria": [
+            "Language appeal of the composition.",
+            "The number of likes garnered by the composition."
+        ]
+    },
+    {
+        "eventId": 34,
+        "name": "Scribbles",
+        "link": "",
+        "description": "Description coming soon.",
+        "category": "Art",
+        "eventType": "Online",
+        "teamType": "Individual",
+        "noOfRounds": 1,
+        "participationFee": 0,
+        "rules": [
+            "The composition must use the theme posted on the Facebook page of Abhyudaya.",
+            "The composition should not be more than 40 words. Failing to adhere with the word limit will lead to negative marking.",
+            "Plagiarism is strictly prohibited.",
+            "Participants will have to inbox their entries on our Facebook page within the specified deadline. The tale then will be posted on our Facebook page.",
+            "NOTE: Team Abhyudaya reserves the right to remove any post(s) and/or any comment(s) without further warning or explanation."
+        ],
+        "judgementCriteria": [
+            "40% number of likes on participants post.",
+            "60% on content of the composition as judged by our specific judging team."
+        ]
+    },
+    {
+        "eventId": 35,
+        "name": "Clay Modeling",
+        "link": "",
+        "description": "Description coming soon.",
+        "category": "Art",
+        "eventType": "Offline",
+        "teamType": "Individual",
+        "noOfRounds": 1,
+        "participationFee": 0,
+        "rules": [
+            "Rules will be updated soon."
+        ]
+    },
+    {
+        "eventId": 36,
+        "name": "Junk Art",
+        "link": "",
+        "description": "Description coming soon.",
+        "category": "Art",
+        "eventType": "Offline",
+        "teamType": "Individual",
+        "noOfRounds": 1,
+        "participationFee": 0,
+        "rules": [
+            "Rules will be updated soon."
+        ]
+    },
+    {
+        "eventId": 37,
+        "name": "Tote Bag",
+        "link": "",
+        "description": "Description coming soon.",
+        "category": "Art",
+        "eventType": "Offline",
+        "teamType": "Individual",
+        "noOfRounds": 1,
+        "participationFee": 0,
+        "rules": [
+            "Rules will be updated soon."
+        ]
     }
 ]
+
+export default event;

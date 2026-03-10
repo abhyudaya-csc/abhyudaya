@@ -2,7 +2,7 @@
    {
        "eventId": "art01",
        "name": "ARCHIVING EMOTIONS",
-       "link": "https://i.postimg.cc/6pQNQ152/Archiving-Emotions.png",
+       "link": "https://i.ibb.co/6cSJwJPF/Archiving-Emotions.png",
        "description": "A card-making event where participants express creativity through handmade greeting cards.",
        "category": "Art",
        "eventType": "Offline",
@@ -21,7 +21,7 @@
    {
        "eventId": "art02",
        "name": "ART-GALLERY",
-       "link": "https://i.postimg.cc/wTgpCjCk/Art-gallery.png",
+       "link": "https://i.ibb.co/B5GHxCs6/Art-gallery.png",
        "description": "An exhibition-style event where participants display their best artwork.",
        "category": "Art",
        "eventType": "Offline",
@@ -40,7 +40,7 @@
    {
        "eventId": "mus01",
        "name": "Bandish",
-       "link": "https://i.postimg.cc/3xbQ0CdL/Bandish.png",
+       "link": "https://i.ibb.co/Nnjv7mDD/Bandish.png",
        "description": "An instrumental music competition celebrating the beauty of musical harmonies.",
        "category": "Music",
        "eventType": "Offline",
@@ -63,7 +63,7 @@
    {
        "eventId": "dan01",
        "name": "Boogiethrill",
-       "link": "https://i.postimg.cc/vHhsbdMw/BOOGIETHRILL.png",
+       "link": "https://i.ibb.co/ksjdLzQ2/BOOGIETHRILL.png",
        "description": "A high-energy GROUP DANCE competition showcasing mesmerizing moves and vibrant performances.",
        "category": "Dance",
        "eventType": "Offline",
@@ -86,7 +86,7 @@
    {
        "eventId": "art03",
        "name": "Brush Hour",
-       "link": "https://i.postimg.cc/mk4vWm5r/Brush-Hour.png",
+       "link": "https://i.ibb.co/HfdHs03z/Brush-Hour.png",
        "description": "Enter into a world of colors and creativity at PAINTING PASSION, ABHYUDAYA'25's premier painting event! ",
        "category": "Art",
        "eventType": "Offline",
@@ -103,7 +103,7 @@
    {
        "eventId": "art04",
        "name": "Glare The Earthenware",
-       "link": "https://i.postimg.cc/BvrWMS5H/Glare-The-Earthenware.png",
+       "link": "https://i.ibb.co/v6PTrWmn/Glare-The-Earthenware.png",
        "description": "A pottery decoration and painting competition.",
        "category": "Art",
        "eventType": "Offline",
@@ -121,7 +121,7 @@
    {
        "eventId": "art05",
        "name": "Glittering Hands",
-       "link": "https://i.postimg.cc/05dg0qzK/Glittering-hand.png",
+       "link": "https://i.ibb.co/b5BycDS7/Glittering-hand.png",
        "description": "A hand-decoration (MEHNDI) competition using henna.",
        "category": "Art",
        "eventType": "Offline",
@@ -156,7 +156,7 @@
    {
        "eventId": "dra01",
        "name": "Gracing Gestures",
-       "link": "https://i.postimg.cc/Qx0RvkkX/Gracing-Gesture.png",
+       "link": "https://i.ibb.co/8qh5Gwp/Gracing-Gesture.png",
        "description": "A mime competition focusing on expressions and gestures.",
        "category": "Dramatics",
        "eventType": "Offline",
@@ -182,7 +182,7 @@
    {
        "eventId": "art06",
        "name": "Graffiti",
-       "link": "https://i.postimg.cc/mgk04z87/Graffiti.png",
+       "link": "https://i.ibb.co/PZjxxHRy/Graffiti.png",
        "description": "A graffiti-making competition to express creativity.",
        "category": "Art",
        "eventType": "Offline",
@@ -203,7 +203,7 @@
    {
        "eventId": "art07",
        "name": "Hair Styling",
-       "link": "https://i.postimg.cc/P5705XR9/Hair-Styling.png",
+       "link": "https://i.ibb.co/dJscGM33/Hair-Styling.png",
        "description": "A creative hair-styling competition.",
        "category": "Art",
        "eventType": "Offline",
@@ -222,7 +222,7 @@
    {
        "eventId": "oth01",
        "name": "Hermosa",
-       "link": "https://i.postimg.cc/SKz3200s/Hermosa.png",
+       "link": "https://i.ibb.co/1JqYSH6x/Hermosa.png",
        "description": "A dazzling fashion show celebrating elegance, style, and confidence as participants showcase their runway presence and creativity.",
        "category": "Other",
        "eventType": "Offline",
@@ -241,7 +241,7 @@
    {
        "eventId": "lit01",
        "name": "House Of Common",
-       "link": "https://i.postimg.cc/ZRtg6fZL/House-of-common.png",
+       "link": "https://i.ibb.co/RGRX0G5D/House-of-common.png",
        "description": "A debate competition simulating parliamentary discussions.",
        "category": "Literature",
        "eventType": "Offline",
@@ -260,7 +260,7 @@
    {
        "eventId": "art08",
        "name": "Impressions",
-       "link": "https://i.postimg.cc/HxwNzQk1/Impression.png",
+       "link": "https://i.ibb.co/tTfY3hBz/Impression.png",
        "description": "Embrace the art of self-expression with TATTOO MAKING! ",
        "category": "Art",
        "eventType": "Offline",
@@ -276,29 +276,9 @@
        ]
    },
    {
-       "eventId": "art09",
-       "name": "Kite Runner",
-       "link": "https://i.postimg.cc/XqnzzprG/Kite-Runner.png",
-       "description": "A kite flying and decoration event.",
-       "category": "Art",
-       "eventType": "Offline",
-       "teamType": "Duet",
-       "noOfRounds": 1,
-       "participationFee": 50,
-       "prizeMoney": 0,
-       "rules": [
-           "Two participants per team are allowed.",
-           "Raw materials (kite paper, bamboo sticks, thread, and glue) will be provided.",
-           "Participants may bring their own decorative materials.",
-           "Duration of the event will be 30 minutes.",
-           "Participants must design their kites and make them fly.",
-           "Judging will be based on creativity, design, neatness, and flight performance."
-       ]
-   },
-   {
        "eventId": "lit02",
        "name": "Literati",
-       "link": "https://i.postimg.cc/WzSHLTZ9/Literati.png",
+       "link": "https://i.ibb.co/67xQWR6y/Literati.png",
        "description": "An inspiring literary event celebrating poetry and articles, where creativity and expression take center stage.",
        "category": "Literature",
        "eventType": "Offline",
@@ -320,7 +300,7 @@
    {
        "eventId": "art10",
        "name": "Lively Facets",
-       "link": "https://i.postimg.cc/jdd16nVB/Lively-Facets.png",
+       "link": "https://i.ibb.co/5X259Z8D/Lively-Facets.png",
        "description": "A face-painting competition to showcase artistic creativity.",
        "category": "Art",
        "eventType": "Offline",
@@ -338,7 +318,7 @@
    {
        "eventId": "mus03",
        "name": "Mel-Jol",
-       "link": "https://i.postimg.cc/dtHx5Qw3/Mel-Jol.png",
+       "link": "https://i.ibb.co/K4GnYTM/Mel-Jol.png",
        "description": "A duet singing competition where two performers harmonize and showcase their vocal coordination and musical expression.",
        "category": "Music",
        "eventType": "Offline",
@@ -358,7 +338,7 @@
    {
        "eventId": "oth02",
        "name": "Photoholic",
-       "link": "https://i.postimg.cc/Y2xVmfP1/Photoholic.png",
+       "link": "https://i.ibb.co/Pz0Lnh3B/Photoholic.png",
        "description": "A photography competition that celebrates the art of visual storytelling. Participants will capture stunning images that convey deep messages, showcasing their creativity and perspective through the lens.",
        "category": "other",
        "eventType": "Online",
@@ -385,7 +365,7 @@
        {
            "eventId": "mus04",
            "name": "Proelium",
-           "link": "https://i.postimg.cc/Pxj3CPz3/Proelium.png",
+           "link": "https://i.ibb.co/5WBH9MTw/Proelium.png",
            "description": "A battle-of-the-bands style musical competition.",
            "category": "Music",
            "eventType": "Offline",
@@ -406,7 +386,7 @@
        {
            "eventId": "oth03",
            "name": "Quiz",
-           "link": "https://i.postimg.cc/YSgD21gL/Quiz.png",
+           "link": "https://i.ibb.co/jPb46Ktw/Quiz.png",
            "description": "A general knowledge and current affairs quiz competition.",
            "category": "Other",
            "eventType": "Offline",
@@ -424,7 +404,7 @@
        {
            "eventId": "mus05",
            "name": "Raga",
-           "link": "https://i.postimg.cc/zGyP6mGj/RAGA.png",
+           "link": "https://i.ibb.co/whXwWzPz/RAGA.png",
            "description": "A classical singing competition.",
            "category": "Music",
            "eventType": "Offline",
@@ -444,7 +424,7 @@
        {
            "eventId": "art11",
            "name": "Sketching",
-           "link": "https://i.postimg.cc/NfMN2hmc/Sketching.png",
+           "link": "https://i.ibb.co/bjXHK5yc/Sketching.png",
            "description": "An art competition focusing on creative sketching skills.",
            "category": "Art",
            "eventType": "Offline",
@@ -461,7 +441,7 @@
        {
            "eventId": "art12",
            "name": "Splash",
-           "link": "https://i.postimg.cc/wjR0Fhw4/Splash.png",
+           "link": "https://i.ibb.co/ZR76gSY4/Splash.png",
            "description": "A celebration of culture, artistry, and community through the creation of vibrant rangoli designs. Participants will use provided materials and their own creativity to craft intricate patterns.",
            "category": "Art",
            "eventType": "Offline",
@@ -479,7 +459,7 @@
        {
            "eventId": "dan02",
            "name": "Raider Zone",
-           "link": "https://i.postimg.cc/MHsd3tkN/Raider-Zone.jpg",
+           "link": "https://i.ibb.co/0xGK9Wj/Raider-Zone.jpg",
            "description": "A high-energy SOLO DANCE competition.",
            "category": "Dance",
            "eventType": "Offline",
@@ -503,7 +483,7 @@
        {
            "eventId": "dra02",
            "name": "Nukkad Natak",
-           "link": "https://i.postimg.cc/cLP5NDKN/Nukad-natak.jpg",
+           "link": "https://i.ibb.co/cS6sLCN6/Nukad-natak.jpg",
            "description": "A street play competition where teams perform to engage and captivate audiences through powerful storytelling, acting, and social messages.",
            "category": "Dramatics",
            "eventType": "Offline",
@@ -524,7 +504,7 @@
        {
            "eventId": "mus06",
            "name": "Rap-क्षेत्र",
-           "link": "https://i.postimg.cc/85myMNZ1/Rap-Shetra.jpg",
+           "link": "https://i.ibb.co/DfHWxQq2/Rap-Shetra.jpg",
            "description": "A high-energy competition where participants showcase their lyrical, rhythmic, and improvisational rap skills. The event consists of head-to-head rap battles and cypher performances, emphasizing freestyle artistry and stage presence.",
            "category": "Music",
            "eventType": "Offline",
@@ -549,7 +529,7 @@
        {
            "eventId": "dra03",
            "name": "Tarantino",
-           "link": "https://i.postimg.cc/N01bvQq1/tarantino.png",
+           "link": "https://i.ibb.co/7tGjsJs7/tarantino.png",
            "description": "A solo acting competition where participants perform a dramatic or theatrical piece using expressions, gestures, and voice modulation to captivate the audience. Creativity and originality are key to winning this event.",
            "category": "Dramatics",
            "eventType": "Offline",
@@ -574,7 +554,7 @@
        {
            "eventId": "dan03",
            "name": "Double Trouble",
-           "link": "https://i.postimg.cc/brRKy179/Double-Trouble.jpg",
+           "link": "https://i.ibb.co/hJGQ536G/Double-Trouble.jpg",
            "description": "Unleash your passion and let your steps ignite the stage! This competition is all about the electrifying synergy between DUET DANCERS. It's your time to dazzle as a dynamic duo, showcasing your virtuosity and undeniable chemistry through every move.",
            "category": "Dance",
            "eventType": "Offline",
@@ -597,7 +577,7 @@
        {
            "eventId": "dan04",
            "name": "Street Sync",
-           "link": "https://i.postimg.cc/KvH0n9Dg/street-sync.jpg",
+           "link": "https://i.ibb.co/WpRwszSP/street-sync.jpg",
            "description": "A STREET DANCE battle with freestyle moves.Abhyudaya ’25 brings forth ‘Street Sync’, to let you captivate the audience with a jamboree of pulsating and electrifying moves.",
            "category": "Dance",
            "eventType": "Offline",
@@ -627,7 +607,7 @@
        {
            "eventId": "dra04",
            "name": "Speilberg",
-           "link": "https://i.postimg.cc/ZqkjQCgb/speilberg.png",
+           "link": "https://i.ibb.co/Y7GCfyDw/speilberg.png",
            "description": "It is said that the theatre has an energy that takes us on a path of imagination, an energy that lasts only for a short period of time, leaving behind a stimulating conscience. Spielberg - the stage play competition - gives you the opportunity to immerse the audience in your emotions and actions. The stage is where dreams are born and come true; all you have to do is captivate the audience in a manner like never before.",
            "category": "Dramatics",
            "eventType": "Offline",
@@ -645,7 +625,7 @@
        {
            "eventId": "oth05",
            "name": "FEDER FETE",
-           "link": "https://i.postimg.cc/Y02dxZPQ/Set-Up-stall.png",
+           "link": "https://i.ibb.co/HfLHc3WQ/EVENT-RULEBOOK-2025-13.png",
            "description": "An opportunity to set up a stall during Abhyudaya'25, allowing participants to showcase their entrepreneurial skills and earn money while making memories.",
            "category": "Other",
            "eventType": "Offline",
@@ -685,21 +665,113 @@
                ]
            },
            {
-               "eventId": "art13",
-               "name": "PALETTE THE CLOSET",
-               "link": "https://i.postimg.cc/sxm1Nw8Z/Palette-The-Closet.webp",
-               "description": "A creative event where participants paint on T-shirts using provided materials.",
-               "category": "Art",
-               "eventType": "Offline",
-               "teamType": "Duet",
+               "eventId": "mus07",
+               "name": "Farmaiye Huzoor",
+               "link": "",
+               "description": "Description coming soon.",
+               "category": "Music",
+               "eventType": "Online",
+               "teamType": "Individual",
                "noOfRounds": 1,
-               "participationFee": 200,
+               "participationFee": 0,
                "prizeMoney": 0,
                "rules": [
-                   "Two participants per team are allowed.",
-                   "The duration of the event is 45 minutes.",
-                   "T-shirt, brushes, and three acrylic colors will be provided to the participants.",
-                   "Participants can bring their own colors and brushes."
+                   "Participants may use a mix of Hindi and Urdu (optional), but must submit their compositions in pure Hindi fonts.",
+                   "A specific theme will be provided, and participants are required to frame their compositions around it.",
+                   "The maximum word limit for each composition is 50 words.",
+                   "Each participant is allowed to submit up to 2 entries per theme.",
+                   "For ease of Hindi typing, participants can use 'Hindi Speech-to-Text' apps and send their compositions directly as messages to our Instagram page.",
+                   "The content must be meaningful; any offensive material will result in immediate DISQUALIFICATION.",
+                   "Plagiarism or copying content will also lead to DISQUALIFICATION from the entire theme.",
+                   "NOTE: Team Abhyudaya reserves the right to remove any post(s) and/or comment(s) without prior notice or explanation."
+               ],
+               "judgementCriteria": [
+                   "Language appeal of the composition.",
+                   "The number of likes garnered by the composition."
+               ]
+           },
+           {
+               "eventId": "art14",
+               "name": "Scribbles",
+               "link": "",
+               "description": "Description coming soon.",
+               "category": "Art",
+               "eventType": "Online",
+               "teamType": "Individual",
+               "noOfRounds": 1,
+               "participationFee": 0,
+               "prizeMoney": 0,
+               "rules": [
+                   "The composition must use the theme posted on the Facebook page of Abhyudaya.",
+                   "The composition should not be more than 40 words. Failing to adhere with the word limit will lead to negative marking.",
+                   "Plagiarism is strictly prohibited.",
+                   "Participants will have to inbox their entries on our Facebook page within the specified deadline. The tale then will be posted on our Facebook page.",
+                   "NOTE: Team Abhyudaya reserves the right to remove any post(s) and/or any comment(s) without further warning or explanation."
+               ],
+               "judgementCriteria": [
+                   "40% number of likes on participants post.",
+                   "60% on content of the composition as judged by our specific judging team."
+               ]
+           },
+           {
+               "eventId": "art15",
+               "name": "Clay Modeling",
+               "link": "",
+               "description": "Description coming soon.",
+               "category": "Art",
+               "eventType": "Offline",
+               "teamType": "Individual",
+               "noOfRounds": 1,
+               "participationFee": 0,
+               "prizeMoney": 0,
+               "rules": [
+                   "Rules will be updated soon."
+               ]
+           },
+           {
+               "eventId": "art16",
+               "name": "Junk Art",
+               "link": "",
+               "description": "Description coming soon.",
+               "category": "Art",
+               "eventType": "Offline",
+               "teamType": "Individual",
+               "noOfRounds": 1,
+               "participationFee": 0,
+               "prizeMoney": 0,
+               "rules": [
+                   "Rules will be updated soon."
+               ]
+           },
+           {
+               "eventId": "art17",
+               "name": "Tote Bag",
+               "link": "",
+               "description": "Description coming soon.",
+               "category": "Art",
+               "eventType": "Offline",
+               "teamType": "Individual",
+               "noOfRounds": 1,
+               "participationFee": 0,
+               "prizeMoney": 0,
+               "rules": [
+                   "Rules will be updated soon."
+               ]
+           },
+           {
+               "eventId": "dan05",
+               "name": "Rising Star",
+               "link": "https://i.ibb.co/8nJVHR8p/Rising-Star.png",
+               "description": "Description coming soon.",
+                "category": "Dance",
+               
+               "eventType": "Online",
+               "teamType": "Individual",
+               "noOfRounds": 1,
+               "participationFee": 0,
+               "prizeMoney": 0,
+               "rules": [
+                   "Rules will be updated soon."
                ]
            }
          
