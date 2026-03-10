@@ -983,8 +983,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com",
     InstaId: "/",
-    Photo: "https://i.postimg.cc/fy0NM3wH/VAIBHAV-SINGH.jpg",
-    PhotoCutout: "https://i.ibb.co/qP2GjwQ/VAIBHAV-SINGH.png",
+     Photo: "https://i.ibb.co/PsL8tsMc/SAVE-20251229-162501-jpg.jpg",
+    PhotoCutout: "https://i.ibb.co/mC1xw2N3/SAVE-20251229-162501-jpg-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1047,28 +1047,6 @@ const teamsData = [
     PhotoCutout:"https://i.ibb.co/b5bsHd2x/YG.png",
   },
   {
-      Position: "Executive member ",
-    Name: "Puneet Shukla",
-    Year: "2nd Year",
-    Branch: "CHE",
-
-    LinkedInId: "ttps://www.linkedin.com/in/puneet-shukla-61b17b327?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    InstaId: "_puneet.shukla_",
-     Photo: "https://i.ibb.co/8JHPsHn/IMG-20260305-WA0010-Puneet-Shukla.jpg",
-    PhotoCutout: "https://i.ibb.co/Pvdrg9c6/IMG-20260307-WA0007-Puneet-Shukla-removebg-preview.png",
-  },
-  {
-    Position: "Executive member ",
-    Name: "Pratyaditya Singh",
-    Year: "2nd Year",
-    Branch: "EE",
-
-    LinkedInId: "/",
-    InstaId: "/",
-    Photo: "https://i.ibb.co/ycYVJrxM/Pratyaditya-Singh.jpg",
-    PhotoCutout: "https://i.ibb.co/hFtSrfkx/PS.png",
-  },
-  {
     Position: "Executive member ",
     Name: "Shlok",
     Year: "2nd Year",
@@ -1079,7 +1057,28 @@ const teamsData = [
     Photo: "https://i.ibb.co/G4Gx2q7F/Shlok.jpg",
     PhotoCutout: "https://i.ibb.co/jPrzC14m/S.png",
   },
- 
+  {
+    Position: "Executive member ",
+    Name: "Akshansh Shukla",
+    Year: "2nd Year",
+    Branch: "ME",
+
+    LinkedInId: "https://www.linkedin.com/in/namrata-singh-043157327/",
+    InstaId: "/",
+    Photo: "https://i.ibb.co/MxwVqys0/Akshansh-Shukla.jpg",
+    PhotoCutout: "https://i.ibb.co/5Wxyr4RR/Akshansh-Shukla-removebg-preview.png",
+  },
+  {
+      Position: "Executive member ",
+    Name: "Puneet Shukla",
+    Year: "2nd Year",
+    Branch: "CHE",
+
+    LinkedInId: "ttps://www.linkedin.com/in/puneet-shukla-61b17b327?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    InstaId: "_puneet.shukla_",
+     Photo: "https://i.ibb.co/8JHPsHn/IMG-20260305-WA0010-Puneet-Shukla.jpg",
+    PhotoCutout: "https://i.ibb.co/Pvdrg9c6/IMG-20260307-WA0007-Puneet-Shukla-removebg-preview.png",
+  },
   {
     Position: "Executive member ",
     Name: "Nishant Kasana",
@@ -1159,15 +1158,16 @@ const teamsData = [
   },
   {
     Position: "Executive member ",
-    Name: "Akshansh Shukla",
+    Name: "Pratyaditya Singh",
     Year: "2nd Year",
-    Branch: "ME",
+    Branch: "EE",
 
-    LinkedInId: "https://www.linkedin.com/in/namrata-singh-043157327/",
+    LinkedInId: "/",
     InstaId: "/",
-    Photo: "https://i.ibb.co/MxwVqys0/Akshansh-Shukla.jpg",
-    PhotoCutout: "https://i.ibb.co/5Wxyr4RR/Akshansh-Shukla-removebg-preview.png",
+    Photo: "https://i.ibb.co/ycYVJrxM/Pratyaditya-Singh.jpg",
+    PhotoCutout: "https://i.ibb.co/hFtSrfkx/PS.png",
   },
+  
   {
     Position: "Executive member ",
     Name: "Aditi Mishra",

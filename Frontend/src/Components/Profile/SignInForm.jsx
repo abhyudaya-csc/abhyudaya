@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import videoBg from "../../assets/Landing/vdo.mp4";
 import backVideo from "../../assets/Landing/back.mp4";
-import logo from "../../assets/Landing/white.png";
+import logo from "../../assets/Landing/White.png";
 
 function SignInForm() {
   const [email, setEmail] = useState("");
