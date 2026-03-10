@@ -139,7 +139,7 @@ export default function Hero2Section() {
              </div>
              <div className="text-left">
                <p className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest font-semibold mb-0">Dates</p>
-               <p className="text-sm font-medium text-white tracking-wide">4 Apr - 6 Apr, 2025</p>
+               <p className="text-sm font-medium text-white tracking-wide">26 Mar - 29 Mar, 2026</p>
              </div>
           </div>
 

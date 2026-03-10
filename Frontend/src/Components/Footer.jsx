@@ -17,14 +17,14 @@ const Footer = () => {
       email: "abhyudaya.mmmut@gmail.com",
       phone: "+91-9369756579",
       role: "Cultural Secretary",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+      photo: "https://i.postimg.cc/SKrQPzsC/Shivam-rai.jpg",
     },
     {
       name: "Arsh Singh",
       email: "abhyudaya.mmmut@gmail.com",
       phone: "+91-7317439179",
       role: "Sponsorship Head",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+      photo: "https://i.postimg.cc/SKrQPzsC/Shivam-rai.jpg",
     },
     {
       name: "Satish Kumar",
