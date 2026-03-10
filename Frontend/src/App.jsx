@@ -14,7 +14,7 @@ function App() {
           <Sidebar />
           <Routing />
         </div>
-        <Footer />
+        {/*<Footer />*/}
         {/* </Routes> */}
       </BrowserRouter>
     </>
