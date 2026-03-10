@@ -1,75 +1,110 @@
-import React, { useState } from "react";
-import { FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React, { useEffect, useState } from "react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
-function TeamCards({ member }) {
-  const [isHovered, setIsHovered] = useState(false);
+function TeamCards({ member, isActive, onClick }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const hoverScale = !isMobile ? "group-hover:scale-105" : "";
+  const activeScale = isMobile && isActive ? "scale-105" : "";
+
+  const bgEffect = !isMobile
+    ? "group-hover:scale-110 group-hover:blur-xl group-hover:brightness-75 group-hover:opacity-0"
+    : isActive
+    ? "scale-110 blur-xl brightness-75 opacity-0"
+    : "";
+
+  const cutoutEffect = !isMobile
+    ? "group-hover:scale-110 group-hover:-translate-y-6 group-hover:drop-shadow-[0_40px_70px_rgba(0,0,0,0.7)]"
+    : isActive
+    ? "scale-110 -translate-y-6 drop-shadow-[0_40px_70px_rgba(0,0,0,0.7)]"
+    : "";
+
+  const overlayEffect = !isMobile
+    ? "opacity-0 group-hover:opacity-100"
+    : isActive
+    ? "opacity-100"
+    : "opacity-0";
+
+  const infoEffect = !isMobile
+    ? "opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0"
+    : isActive
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-6";
 
   return (
     <div
-      className="relative w-50 h-70 mx-auto flex justify-center items-center"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="w-full max-w-xs mx-auto group cursor-pointer relative z-0 hover:z-30 transition-all duration-300"
+      onClick={onClick}
     >
-      {/* Bottom white card with name and icons */}
-      <div className="absolute inset-0 w-full h-full rounded-lg bg-white flex flex-col justify-center items-center">
-        <div className="absolute bottom-1 left-0 right-0 px-3 pt-2 group">
-          <h3
-            className="text-md font-bold text-gray-800 text-center mb-0 
-            hover:text-gray-900 transition-colors duration-300
-            before:content-[''] before:absolute before:w-full before:h-full 
-            before:-translate-x-full hover:before:translate-x-full before:transition-transform
-            before:duration-700 before:transform group-hover:scale-102 truncate"
-          >
+      <div
+        className={`relative aspect-[3/4] rounded-3xl shadow-xl transition-all duration-500 overflow-visible hover:-translate-y-2 ${hoverScale} ${activeScale}`}
+      >
+
+        {/* Background Image */}
+        <img
+          src={member.Photo}
+          alt=""
+          className={`absolute inset-0 w-full h-full object-cover rounded-3xl transition-all duration-700 ${bgEffect}`}
+        />
+
+        {/* Cutout Image */}
+        <img
+  src={member.PhotoCutout}
+  alt={member.Name}
+  className={`absolute inset-0 w-full h-full object-cover rounded-3xl transition-all duration-700 ${cutoutEffect} z-0`}
+/>
+
+       
+
+        {/* Info Section */}
+        <div
+          className={`absolute bottom-0 w-full p-5 transition-all duration-500 ${infoEffect}`}
+        >
+          <h3 className="text-white font-bold text-lg">
             {member.Name}
           </h3>
-          <p
-            className="text-sm font-bold text-gray-600 text-center -mt-1 transform transition-all duration-300
-            group-hover:text-blue-500 group-hover:translate-y-1"
-          >
+
+          <p className="text-gray-300 text-sm mb-3">
             {member.Position}
           </p>
+
+          <div className="flex gap-4">
+            {member.LinkedInId && (
+              <a
+                href={member.LinkedInId}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-white hover:text-blue-400 transition-transform duration-300 hover:scale-110"
+              >
+                <FaLinkedin size={18} />
+              </a>
+            )}
+
+            {member.InstaId && (
+              <a
+                href={`https://www.instagram.com/${member.InstaId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-white hover:text-pink-400 transition-transform duration-300 hover:scale-110"
+              >
+                <FaInstagram size={18} />
+              </a>
+            )}
+          </div>
         </div>
 
-        <div className="absolute right-1 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-          {member.LinkedInId && (
-            <a
-              href={member.LinkedInId}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black-900 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:-translate-x-1"
-            >
-              <FaLinkedin size={20} color="#641504" />
-            </a>
-          )}
-          {member.InstaId && (
-            <a
-              href={`https://www.instagram.com/${member.InstaId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black-900 hover:text-pink-600 transition-all duration-300 transform hover:scale-110 hover:-translate-x-1"
-            >
-              <FaInstagram size={20} color="#641504" />
-            </a>
-          )}
-          
-        </div>
-      </div>
-
-      {/* Main card with image */}
-      <div
-        className={`absolute inset-0 w-full h-full bg-white rounded-lg overflow-hidden transition-all duration-300 transform
-          ${isHovered ? "-translate-x-[15%] -translate-y-[15%]" : ""}`}
-      >
-        <div className="relative w-full h-full">
-          <LazyLoadImage
-            src={member.Photo}
-            alt={member.Name}
-            className="w-full h-full object-cover  "
-          
-            loading="lazy"
-          />
-        </div>
       </div>
     </div>
   );
