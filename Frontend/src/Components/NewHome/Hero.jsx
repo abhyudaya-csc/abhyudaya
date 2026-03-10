@@ -367,7 +367,7 @@ export function Hero() {
         <div ref={mainRef}>
           <section className="scene scene-1 min-h-screen flex items-center justify-center relative">
             <img
-              src="/FirstA.png"
+              src="https://i.ibb.co/F4GdxtFk/First-A.webp"
               alt="Daytime"
               className="absolute inset-0 w-full h-full object-cover"
             />

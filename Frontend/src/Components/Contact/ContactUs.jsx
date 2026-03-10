@@ -1,9 +1,10 @@
-import React, { useState, useCallback, memo } from "react";
+import React, { useState, useCallback, memo, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import logo from "../../assets/Logo-images/logo.png";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import TypingText from "./SplitText";
 import { AnimatedInstagram, AnimatedWhatsApp } from "./AnimatedSocialIcons";
 
@@ -56,15 +57,39 @@ const ContactUs = () => {
   const [focused, setFocused] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY_HERE");
+  }, []);
+
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 800));
-    toast.success("Your query has been submitted!");
-    setSubmitted(true);
-    setLoading(false);
-    setFormData({ fullName: "", email: "", phone: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    
+    try {
+      // Send email via EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+        {
+          to_email: "abhyudaya.csc@gmail.com",
+          from_name: formData.fullName,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }
+      );
+      
+      toast.success("Your query has been submitted!");
+      setSubmitted(true);
+      setFormData({ fullName: "", email: "", phone: "", message: "" });
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      console.error("Email send error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }, [formData]);
 
   const handleChange = useCallback((e) => {
