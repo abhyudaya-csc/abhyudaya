@@ -1,0 +1,22 @@
+.sidebar::-webkit-scrollbar {
+  /* visibility: hidden; */
+  width: 0;
+}
+:root {
+  --sidebar-width: 0px; /* Set a default sidebar width */
+}
+/* App.css */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Footer styles are in Components/Footer.css */
+a {
+  color: oklch(0.551 0.027 264.364) !important;
+}
+a:hover {
+  color: #c98bb9 !important;
+  scale: 1.15;
+  transition: all ease-out 200;
+}
