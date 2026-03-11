@@ -1,0 +1,371 @@
+/* ===== Footer — Dark Premium Theme ===== */
+
+.footer {
+  position: relative;
+  background: linear-gradient(180deg, #0a0a0f 0%, #0d0d1a 50%, #0a0a0f 100%);
+  color: #e2e8f0;
+  padding: 0;
+  margin-left: 80px;
+  overflow: hidden;
+}
+
+/* Subtle purple glow at top */
+.footer__top-edge {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7c3aed, #a855f7, #7c3aed, transparent);
+}
+
+/* ===== Section Wrapper ===== */
+
+.footer__section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 1rem;
+}
+
+/* ===== Section Headings ===== */
+
+.footer__heading {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer__heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+/* ===== Hero Row: [2 cards] [video] [2 cards] ===== */
+
+.footer__hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer__cards-col {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  flex: 0 1 auto;
+  align-items: center;
+}
+
+.footer__video-col {
+  flex: 0 1 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__video-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Video ===== */
+
+.footer__video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.footer__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===== Star Border Wrapper ===== */
+
+.footer-star-wrap {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* ensure the star-border-container fills the wrapper width */
+.footer-star-wrap.star-border-container {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* ===== Contact Card ===== */
+
+/* override inner-content background for the footer card */
+.footer-star-wrap .inner-content {
+  background: linear-gradient(145deg, #13131f, #1a1a2e);
+  border-radius: 18.5px;
+  padding: 0;
+}
+
+.footer-card {
+  border-radius: 18.5px;
+  padding: 0.85rem 0.9rem 0.8rem;
+  text-align: center;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.2);
+}
+
+.footer-card__image-wrapper {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.15);
+}
+
+.footer-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-card__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.15rem;
+}
+
+.footer-card__role {
+  font-size: 0.72rem;
+  color: #a78bfa;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer-card__action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #c4b5fd !important;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.footer-card__action-btn:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: #e9d5ff !important;
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: scale(1.05);
+}
+
+/* ===== Bottom Bar ===== */
+
+.footer__bottom {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.footer__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #c4b5fd !important;
+  background: rgba(124, 58, 237, 0.06);
+  transition: all 0.3s ease;
+}
+
+.footer__social-icon:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: #a855f7;
+  color: #e9d5ff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: right;
+}
+
+.footer__love {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.footer__heart {
+  display: inline-block;
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+.footer__brand {
+  font-weight: 700;
+  background: linear-gradient(90deg, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer__copy {
+  font-size: 0.75rem;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+
+/* ===== Heartbeat Animation ===== */
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+/* ===== Responsive — Tablet (≤ 1024px) ===== */
+
+@media (max-width: 1024px) {
+  .footer__hero-row {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  /* Video goes full-width on top */
+  .footer__video-col {
+    order: -1;
+    flex: 1 1 100%;
+    max-width: 560px;
+  }
+
+  /* Left and right card columns sit side-by-side as a 2x2 grid */
+  .footer__cards-col {
+    flex-direction: row;
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .footer-star-wrap {
+    max-width: 230px;
+  }
+}
+
+/* ===== Responsive — Mobile (≤ 640px) ===== */
+
+@media (max-width: 640px) {
+  .footer {
+    margin-left: 0;
+  }
+
+  .footer__section {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .footer__heading {
+    font-size: 1.25rem;
+  }
+
+  .footer__hero-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .footer__cards-col {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-star-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .footer__video-col {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer__video-wrapper {
+    border-radius: 8px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .footer__info {
+    text-align: center;
+  }
+
+  .footer__social-icon {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ===== Sidebar Adjustment (≤ 768px) ===== */
+
+@media (max-width: 768px) {
+  .footer {
+    margin-left: 0;
+  }
+}
