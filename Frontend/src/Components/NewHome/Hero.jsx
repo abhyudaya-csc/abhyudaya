@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
 
 import { useStore } from "../../store";
@@ -61,8 +62,12 @@ const fourthSceneFrameMap = buildFrameMap(fourthSceneLinksRaw, 84);
 
 
 const Logo = () => (
-  <div
-    className="scene-content flex items-center justify-center w-full max-w-4xl mx-auto"
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.2, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="scene-content flex items-center justify-center w-full max-w-4xl mx-auto px-4"
     style={{ willChange: "transform, opacity" }}
   >
     <img
@@ -70,7 +75,7 @@ const Logo = () => (
       alt="Abhyudaya  Logo"
       className="w-full h-auto drop-shadow-[0_0_30px_rgba(135,206,235,0.6)]"
     />
-  </div>
+  </motion.div>
 );
 const GrainOverlay = () => (
     <div 
@@ -184,19 +189,8 @@ export function Hero() {
 
       const ctx = gsap.context(() => {
         if (isMobile) {
-          const scenes = gsap.utils.toArray(".scene");
-          scenes.forEach((scene) => {
-            gsap.from(scene.querySelector(".scene-content"), {
-              autoAlpha: 0,
-              y: 50,
-              scrollTrigger: {
-                trigger: scene,
-                start: "top 85%",
-                end: "top 60%",
-                scrub: 1,
-              },
-            });
-          });
+          // GSAP autoAlpha is omitted on mobile to prevent components from remaining invisible.
+          // Fallback to Framer Motion built into the individual components.
         } else {
           const setupCanvas = (canvas) => {
             if (!canvas) return null;
@@ -377,42 +371,44 @@ export function Hero() {
               alt="Daytime"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="z-10"><Logo /></div>
+            <div className="absolute inset-0 bg-black/60 z-0"></div>
+            <div className="relative z-10 w-full px-4"><Logo /></div>
           </section>
 
-          <section className="scene scene-2 min-h-screen flex items-center justify-center relative">
+          <section className="scene scene-2 min-h-[100dvh] flex flex-col justify-center relative py-12 overflow-hidden">
             <img
               src="/first_location.webp"
               alt="Cave"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="z-10"><Hero2Section /></div>
+            <div className="absolute inset-0 bg-black/70 z-0"></div>
+            <div className="relative z-10 w-full flex-1 flex items-center py-8"><Hero2Section /></div>
           </section>
 
-          <section className="gradient-section  flex items-center justify-center relative">
-            <div className="absolute inset-0 bg-[#030919]"></div>
-          </section>
-          <section className="scene scene-6 min-h-screen flex items-center justify-center bg-[#030919] relative">
-            <img src="./first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
-            <div className="z-10">
-              <h1 className="text-5xl md:text-6xl font-karantina text-white tracking-[3px] pt-8 text-center drop-shadow-[0_4px_20px_rgba(252,155,155,1)]">
-                
-              </h1>
+          <section className="scene scene-6 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
+            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="absolute inset-0 bg-black/70 z-0"></div>
+            <div className="relative z-10 w-full flex-1 py-8">
               <Aftermovies />
             </div>
           </section>
 
-          <section className="scene scene-4 min-h-screen flex items-center justify-center bg-[#030919] relative m-5">
-            <div className="z-10"><Slider /></div>
+          <section className="scene scene-4 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
+            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="absolute inset-0 bg-black/75 z-0"></div>
+            <div className="relative z-10 w-full flex-1 flex items-center py-8"><Slider /></div>
           </section>
 
+          <section className="scene scene-8 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
+            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="absolute inset-0 bg-black/80 z-0"></div>
+            <div className="relative z-10 w-full py-8"><Marchandise /></div>
+          </section>
           
-
-          <section className="scene scene-8 min-h-screen flex items-center justify-center bg-[#030919] relative">
-            <div className="z-10"><Marchandise /></div>
-          </section>
-          <section className="w-screen flex items-center justify-center bg-black relative">
-            <div className="z-10"><X /></div>
+          <section className="w-screen min-h-[50vh] flex items-center justify-center bg-black relative py-16 overflow-hidden">
+            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="absolute inset-0 bg-black/85 z-0"></div>
+            <div className="relative z-10 w-full"><X /></div>
           </section>
         </div>
       </div>
