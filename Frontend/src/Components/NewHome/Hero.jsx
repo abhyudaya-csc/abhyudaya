@@ -371,7 +371,7 @@ export function Hero() {
               alt="Daytime"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40 z-0"></div>
+            <div className="absolute inset-0 bg-black/60 z-0"></div>
             <div className="relative z-10 w-full px-4"><Logo /></div>
           </section>
 
@@ -381,13 +381,13 @@ export function Hero() {
               alt="Cave"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 z-0"></div>
+            <div className="absolute inset-0 bg-black/70 z-0"></div>
             <div className="relative z-10 w-full flex-1 flex items-center py-8"><Hero2Section /></div>
           </section>
 
           <section className="scene scene-6 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
             <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/50 z-0"></div>
+            <div className="absolute inset-0 bg-black/70 z-0"></div>
             <div className="relative z-10 w-full flex-1 py-8">
               <Aftermovies />
             </div>
@@ -395,19 +395,19 @@ export function Hero() {
 
           <section className="scene scene-4 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
             <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/60 z-0"></div>
+            <div className="absolute inset-0 bg-black/75 z-0"></div>
             <div className="relative z-10 w-full flex-1 flex items-center py-8"><Slider /></div>
           </section>
 
           <section className="scene scene-8 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
             <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/70 z-0"></div>
+            <div className="absolute inset-0 bg-black/80 z-0"></div>
             <div className="relative z-10 w-full py-8"><Marchandise /></div>
           </section>
           
           <section className="w-screen min-h-[50vh] flex items-center justify-center bg-black relative py-16 overflow-hidden">
             <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/80 z-0"></div>
+            <div className="absolute inset-0 bg-black/85 z-0"></div>
             <div className="relative z-10 w-full"><X /></div>
           </section>
         </div>

@@ -17,16 +17,16 @@ function LeaderCard({ member }) {
       {/* Details Section */}
       <div className="md:w-4/7 p-6 flex flex-col justify-start gap-4 h-full">
         <div>
-          <h3 className=" text-xl md:text-3xl font-bold text-gray-800 text-center">
+          <h3 className=" text-xl md:text-3xl font-bold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] text-center">
             {member.name}
           </h3>{" "}
           {/* Larger Name */}
-          <p className="text-md md:text-xl text-gray-600 text-center  font-bold">
+          <p className="text-md md:text-xl text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] text-center  font-bold">
             {member.position}
           </p>{" "}
           {/* Medium Position */}
         </div>
-        <p className="text-gray-700 italic text-md md:text-lg mt-4">
+        <p className="text-white/70 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] italic text-md md:text-lg mt-4">
           {member.message}
         </p>{" "}
         {/* Message at the bottom */}
