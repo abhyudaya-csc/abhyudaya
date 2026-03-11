@@ -11,10 +11,7 @@ html {
 }
 
 
-footer {
-  margin-bottom: 0;
-  padding-bottom: 10px;
-}
+/* Footer styles are in Components/Footer.css */
 a {
   color: oklch(0.551 0.027 264.364) !important;
 }
