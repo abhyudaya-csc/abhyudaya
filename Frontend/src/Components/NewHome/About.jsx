@@ -1,6 +1,7 @@
-import { CalendarDays, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Abhyudaya from "../../assets/Logo-images/Abhyudaya-combined.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Hero2Section() {
   return (
@@ -71,19 +72,14 @@ export default function Hero2Section() {
             </div>
 
             <div className="mt-7 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:mt-10">
-              <div className="flex min-h-20 flex-1 items-center gap-3 rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,27,0.84)_0%,rgba(8,8,13,0.72)_100%)] px-4 py-3 text-left shadow-[0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl">
-                <div className="rounded-lg bg-white/5 p-2">
-                  <CalendarDays className="h-4 w-4 text-[#e5d7b5]" />
-                </div>
-                <div>
-                  <p className="mb-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#dfd4b4]">
-                    Dates
-                  </p>
-                  <p className="text-base font-normal tracking-wide text-white/92">
-                    26 Mar - 29 Mar, 2026
-                  </p>
-                </div>
-              </div>
+              <Link
+                to="/SignInForm"
+                className="flex min-h-20 flex-1 items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-4 py-3 text-center shadow-[0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)]"
+              >
+                <span className="font-enchanted text-[1.05rem] tracking-[0.12em] text-[#f3e9cf] sm:text-[1.2rem]">
+                  Register Now
+                </span>
+              </Link>
 
               <div className="flex min-h-20 flex-1 items-center gap-3 rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,27,0.84)_0%,rgba(8,8,13,0.72)_100%)] px-4 py-3 text-left shadow-[0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl">
                 <div className="rounded-lg bg-white/5 p-2">
