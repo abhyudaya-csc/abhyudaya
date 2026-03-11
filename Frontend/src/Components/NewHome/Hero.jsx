@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -111,6 +111,10 @@ const sceneConfigs = {
   },
 };
 
+const BATCH_SIZE = 50;
+const BATCH_TRIGGER_RATIO = 0.7;
+const SCENE_KEYS = Object.keys(sceneConfigs);
+
 export function Hero() {
   const mainRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -126,12 +130,85 @@ export function Hero() {
   const { imagesLoaded, setImagesLoaded } = useStore();
   const [isMobile, setIsMobile] = useState(width < 768);
 
-  const imageSequences = useRef({
-    treetogate: [],
-    gatetoforest: [],
-    ForestToworld: [],
-    Last: [],
+  const frameCache = useRef({
+    treetogate: new Map(),
+    gatetoforest: new Map(),
+    ForestToworld: new Map(),
+    Last: new Map(),
   });
+  const inFlightPromises = useRef({
+    treetogate: new Map(),
+    gatetoforest: new Map(),
+    ForestToworld: new Map(),
+    Last: new Map(),
+  });
+  const lastRequestedBatch = useRef({
+    treetogate: -1,
+    gatetoforest: -1,
+    ForestToworld: -1,
+    Last: -1,
+  });
+
+  const loadFrame = useCallback((sceneKey, frameNumber) => {
+    const config = sceneConfigs[sceneKey];
+    if (!config || frameNumber < 1 || frameNumber > config.frameCount) {
+      return Promise.resolve(null);
+    }
+
+    const cacheMap = frameCache.current[sceneKey];
+    if (cacheMap.has(frameNumber)) {
+      return Promise.resolve(cacheMap.get(frameNumber));
+    }
+
+    const inFlightMap = inFlightPromises.current[sceneKey];
+    if (inFlightMap.has(frameNumber)) {
+      return inFlightMap.get(frameNumber);
+    }
+
+    const promise = new Promise((resolve) => {
+      const img = new window.Image();
+      img.decoding = "async";
+      img.src = config.path(frameNumber);
+      img.onload = () => {
+        cacheMap.set(frameNumber, img);
+        inFlightMap.delete(frameNumber);
+        resolve(img);
+      };
+      img.onerror = () => {
+        inFlightMap.delete(frameNumber);
+        resolve(null);
+      };
+    });
+
+    inFlightMap.set(frameNumber, promise);
+    return promise;
+  }, []);
+
+  const preloadBatch = useCallback(
+    (sceneKey, batchIndex) => {
+      if (batchIndex < 0) {
+        return;
+      }
+
+      const config = sceneConfigs[sceneKey];
+      if (!config) {
+        return;
+      }
+
+      const maxBatchIndex = Math.floor((config.frameCount - 1) / BATCH_SIZE);
+      if (batchIndex > maxBatchIndex) {
+        return;
+      }
+
+      const startFrame = batchIndex * BATCH_SIZE + 1;
+      const endFrame = Math.min(config.frameCount, startFrame + BATCH_SIZE - 1);
+
+      for (let frameNumber = startFrame; frameNumber <= endFrame; frameNumber++) {
+        void loadFrame(sceneKey, frameNumber);
+      }
+    },
+    [loadFrame]
+  );
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -146,36 +223,32 @@ export function Hero() {
       return;
     }
 
-    const loadImages = async () => {
-      const promises = Object.keys(sceneConfigs).flatMap((key) => {
-        const config = sceneConfigs[key];
-        const sequencePromises = [];
-        for (let i = 1; i <= config.frameCount; i++) {
-          sequencePromises.push(
-            new Promise((resolve) => {
-              const img = new window.Image();
-              img.src = config.path(i);
-              img.onload = () => resolve(img);
-              img.onerror = () => resolve(img);
-            })
-          );
-        }
-        return sequencePromises;
+    setImagesLoaded(false);
+    let cancelled = false;
+
+    const warmup = async () => {
+      const firstFrames = SCENE_KEYS.map((sceneKey) => loadFrame(sceneKey, 1));
+
+      SCENE_KEYS.forEach((sceneKey) => {
+        lastRequestedBatch.current[sceneKey] = -1;
       });
-      const loadedImages = await Promise.all(promises);
-      let offset = 0;
-      Object.keys(sceneConfigs).forEach((key) => {
-        const config = sceneConfigs[key];
-        imageSequences.current[key] = loadedImages.slice(
-          offset,
-          offset + config.frameCount
-        );
-        offset += config.frameCount;
-      });
-      setImagesLoaded(true);
+
+      preloadBatch("treetogate", 0);
+      lastRequestedBatch.current.treetogate = 0;
+
+      await Promise.all(firstFrames);
+
+      if (!cancelled) {
+        setImagesLoaded(true);
+      }
     };
-    loadImages();
-  }, [isMobile, setImagesLoaded]);
+
+    void warmup();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobile, loadFrame, preloadBatch, setImagesLoaded]);
 
   useEffect(() => {
     if ((isMobile && mainRef.current) || (!isMobile && imagesLoaded)) {
@@ -229,15 +302,25 @@ export function Hero() {
             }
             context.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
           };
-          Object.keys(canvasRefs).forEach((key) => {
-            renderFrame(contexts[key], imageSequences.current[key][0]);
+
+          SCENE_KEYS.forEach((sceneKey) => {
+            const firstFrame = frameCache.current[sceneKey].get(1);
+            if (firstFrame) {
+              renderFrame(contexts[sceneKey], firstFrame);
+            } else {
+              void loadFrame(sceneKey, 1).then((img) => {
+                if (img) {
+                  renderFrame(contexts[sceneKey], img);
+                }
+              });
+            }
           });
+
           const scenes = gsap.utils.toArray(".scene");
           gsap.set(wrapperRef.current, { height: `${scenes.length * 100}vh` });
           const ease = gsap.parseEase("power1.inOut");
 
           const handleResize = () => {
-            console.log("HI");
             Object.values(contexts).forEach((context) => {
               if (context && context.canvas) {
                 const dpr = window.devicePixelRatio || 1;
@@ -332,12 +415,41 @@ export function Hero() {
                   const frameIndex = Math.floor(
                     easedProgress * (sceneConfigs[configKey].frameCount - 1)
                   );
+                  const frameNumber = frameIndex + 1;
+
+                  const currentBatchIndex = Math.floor((frameNumber - 1) / BATCH_SIZE);
+                  if (lastRequestedBatch.current[configKey] < currentBatchIndex) {
+                    preloadBatch(configKey, currentBatchIndex);
+                    lastRequestedBatch.current[configKey] = currentBatchIndex;
+                  }
+
+                  const batchStartFrame = currentBatchIndex * BATCH_SIZE + 1;
+                  const thresholdFrame = Math.floor(
+                    batchStartFrame + BATCH_SIZE * BATCH_TRIGGER_RATIO
+                  );
+
+                  if (frameNumber >= thresholdFrame) {
+                    const nextBatchIndex = currentBatchIndex + 1;
+                    if (lastRequestedBatch.current[configKey] < nextBatchIndex) {
+                      preloadBatch(configKey, nextBatchIndex);
+                      lastRequestedBatch.current[configKey] = nextBatchIndex;
+                    }
+                  }
+
                   requestAnimationFrame(() => {
-                    if (imageSequences.current[configKey]?.[frameIndex])
+                    const frame = frameCache.current[configKey].get(frameNumber);
+                    if (frame) {
                       renderFrame(
                         contexts[configKey],
-                        imageSequences.current[configKey][frameIndex]
+                        frame
                       );
+                    } else {
+                      void loadFrame(configKey, frameNumber).then((img) => {
+                        if (img) {
+                          renderFrame(contexts[configKey], img);
+                        }
+                      });
+                    }
                   });
                 }
               };
@@ -359,7 +471,7 @@ export function Hero() {
         ctx.revert();
       };
     }
-  }, [canvasRefs, imagesLoaded, isMobile]);
+  }, [imagesLoaded, isMobile, loadFrame, preloadBatch]);
 
   if (isMobile) {
     return (
