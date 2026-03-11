@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 const Countdown = () => {
@@ -73,6 +73,34 @@ const Countdown = () => {
     return time.toString().padStart(2, "0");
   };
 
+  const renderAnimatedNumber = (value) => (
+    <div className="relative z-10 flex h-14 items-center justify-center overflow-hidden sm:h-16">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={value}
+          initial={{ y: 30, opacity: 0, filter: "blur(6px)", scale: 0.92 }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)", scale: 1 }}
+          exit={{ y: -26, opacity: 0, filter: "blur(6px)", scale: 1.08 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="block text-[2.3rem] font-semibold leading-none text-white sm:text-[2.7rem]"
+        >
+          {value}
+        </motion.span>
+      </AnimatePresence>
+
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={`flash-${value}`}
+          initial={{ opacity: 0.45, scale: 0.75 }}
+          animate={{ opacity: 0, scale: 1.25 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="pointer-events-none absolute inset-x-2 top-1/2 h-6 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(229,215,181,0.45),transparent_70%)]"
+        />
+      </AnimatePresence>
+    </div>
+  );
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -108,9 +136,7 @@ const Countdown = () => {
               }`}
             >
               <div className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(229,215,181,0.24),transparent_62%)] transition-opacity duration-700 ${animateDay ? "opacity-100" : "opacity-55"}`}></div>
-              <span className="relative z-10 text-[2.3rem] font-semibold leading-none text-white sm:text-[2.7rem]">
-                {formatTime(timeLeft.days)}
-              </span>
+              {renderAnimatedNumber(formatTime(timeLeft.days))}
               <span className="relative z-10 mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#dfd4b4] sm:text-[0.75rem]">
                 Days
               </span>
@@ -128,9 +154,7 @@ const Countdown = () => {
               }`}
             >
               <div className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(229,215,181,0.24),transparent_62%)] transition-opacity duration-700 ${animateHour ? "opacity-100" : "opacity-55"}`}></div>
-              <span className="relative z-10 text-[2.3rem] font-semibold leading-none text-white sm:text-[2.7rem]">
-                {formatTime(timeLeft.hours)}
-              </span>
+              {renderAnimatedNumber(formatTime(timeLeft.hours))}
               <span className="relative z-10 mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#dfd4b4] sm:text-[0.75rem]">
                 Hours
               </span>
@@ -148,9 +172,7 @@ const Countdown = () => {
               }`}
             >
               <div className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(229,215,181,0.24),transparent_62%)] transition-opacity duration-700 ${animateMinute ? "opacity-100" : "opacity-55"}`}></div>
-              <span className="relative z-10 text-[2.3rem] font-semibold leading-none text-white sm:text-[2.7rem]">
-                {formatTime(timeLeft.minutes)}
-              </span>
+              {renderAnimatedNumber(formatTime(timeLeft.minutes))}
               <span className="relative z-10 mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#dfd4b4] sm:text-[0.75rem]">
                 Mins
               </span>
@@ -168,9 +190,7 @@ const Countdown = () => {
               }`}
             >
               <div className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(229,215,181,0.24),transparent_62%)] transition-opacity duration-700 ${animateSecond ? "opacity-100" : "opacity-55"}`}></div>
-              <span className="relative z-10 text-[2.3rem] font-semibold leading-none text-white sm:text-[2.7rem]">
-                {formatTime(timeLeft.seconds)}
-              </span>
+              {renderAnimatedNumber(formatTime(timeLeft.seconds))}
               <span className="relative z-10 mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#dfd4b4] sm:text-[0.75rem]">
                 Secs
               </span>

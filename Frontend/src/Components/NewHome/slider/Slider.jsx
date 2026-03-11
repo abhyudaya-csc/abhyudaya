@@ -28,7 +28,7 @@ const EditorialArtistCard = ({ artistName, bio, imageUrl, tags, trackName }) => 
       )}
 
       {/* Floating Glass Content Panel */}
-      <div className="absolute bottom-5 left-5 right-5 p-5 sm:p-6 rounded-[1.5rem] backdrop-blur-xl bg-white/10 border border-white/20 transition-transform duration-500 group-hover:-translate-y-2 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+      <div className="absolute bottom-5 left-5 right-5 p-5 sm:p-6 rounded-[1.5rem] backdrop-blur-xl bg-white/10 border border-white/20 transition-all duration-500 group-hover:bg-white/20 group-hover:border-white/30 group-hover:-translate-y-2 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
         
         <div className="flex justify-between items-start mb-3 gap-3">
           <div className="flex-1">

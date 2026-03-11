@@ -19,7 +19,7 @@ import firstSceneLinksRaw from "./1st.json?raw";
 import secondSceneLinksRaw from "./2nd.json?raw";
 import thirdSceneLinksRaw from "./3rd.json?raw";
 import fourthSceneLinksRaw from "./4th.json?raw";
-import X from "./X";
+import X from "./Countdown";
 gsap.registerPlugin(ScrollTrigger);
 
 const buildFrameMap = (rawLinks, maxFrame) => {

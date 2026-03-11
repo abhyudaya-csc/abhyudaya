@@ -74,9 +74,9 @@ export default function Hero2Section() {
             <div className="mt-7 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:mt-10">
               <Link
                 to="/SignInForm"
-                className="flex min-h-20 flex-1 items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-4 py-3 text-center shadow-[0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)]"
+                className="flex min-h-20 flex-1 items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-4 py-3 text-center shadow-[0_0_22px_rgba(229,215,181,0.28),0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition duration-300 hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)] hover:shadow-[0_0_38px_rgba(229,215,181,0.55),0_20px_44px_rgba(0,0,0,0.4)]"
               >
-                <span className="font-enchanted text-[1.05rem] tracking-[0.12em] text-[#f3e9cf] sm:text-[1.2rem]">
+                <span className="font-enchanted text-[1.05rem] tracking-[0.12em] text-[#f3e9cf] drop-shadow-[0_0_10px_rgba(243,233,207,0.65)] sm:text-[1.2rem]">
                   Register Now
                 </span>
               </Link>
