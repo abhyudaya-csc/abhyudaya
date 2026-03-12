@@ -24,7 +24,7 @@ const Aftermovies = lazy(() => import("./Aftermovies"));
 const Marchandise = lazy(() => import("./merchandise/Merchandise"));
 const Hero2Section = lazy(() => import("./About"));
 const Slider = lazy(() => import("./slider/Slider"));
-const X = lazy(() => import("./X"));
+const X = lazy(() => import("./Countdown"));
 
 import firstSceneLinksRaw from "./1st.json?raw";
 import secondSceneLinksRaw from "./2nd.json?raw";
