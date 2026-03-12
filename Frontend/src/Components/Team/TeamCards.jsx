@@ -31,10 +31,13 @@ function TeamCards({ member, onClick }) {
   }, []);
 
   useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth < 768);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
+    const media = window.matchMedia("(max-width: 768px)");
+    const handleChange = () => setIsMobile(media.matches);
+
+    handleChange();
+    media.addEventListener("change", handleChange);
+
+    return () => media.removeEventListener("change", handleChange);
   }, []);
 
   return (
@@ -42,9 +45,9 @@ function TeamCards({ member, onClick }) {
       ref={cardRef}
       className="w-full max-w-xs mx-auto cursor-pointer group"
       onClick={onClick}
-      whileHover={!isMobile ? "hover" : ""}
+      whileHover={!isMobile ? "hover" : undefined}
       initial="rest"
-      animate="rest"
+      animate={isMobile ? "hover" : "rest"}
     >
       <div className="relative aspect-[3/4] rounded-3xl shadow-xl overflow-visible">
         {/* Skeleton Loader */}
@@ -110,6 +113,7 @@ function TeamCards({ member, onClick }) {
           transition={{ duration: 0.35 }}
         >
           <h3 className="text-white font-bold text-lg">{member.Name}</h3>
+
           <p className="bg-yellow-400/80 text-black text-sm font-semibold px-3 py-1 rounded-md mb-3 inline-block">
             {member.Position}
           </p>
@@ -126,6 +130,7 @@ function TeamCards({ member, onClick }) {
                 <FaLinkedin size={16} />
               </a>
             )}
+
             {member.InstaId && (
               <a
                 href={`https://www.instagram.com/${member.InstaId}`}
@@ -139,6 +144,7 @@ function TeamCards({ member, onClick }) {
             )}
           </div>
         </motion.div>
+
       </div>
     </motion.div>
   );
