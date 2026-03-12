@@ -12,43 +12,70 @@ import "./Footer.css";
 
 const contacts = [
   {
-    name: "Aryan Singh",
+    name: "Shivam Rai",
     email: "abhyudaya.mmmut@gmail.com",
-    phone: "+91-9369756579",
+    phone: "+91-9151603350",
     role: "Cultural Secretary",
-    photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+    photo:
+      "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
   },
   {
-    name: "Arsh Singh",
+    name: "Richa Mishra",
     email: "abhyudaya.mmmut@gmail.com",
-    phone: "+91-7317439179",
+    phone: "+91-7007035985",
+    role: "Co-Convener",
+    photo: "https://i.postimg.cc/VkfHn917/Richa-Mishra.jpg",
+  },
+  {
+    name: "Aastha Singh",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-7754825697",
     role: "Sponsorship Head",
-    photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+    photo: "https://i.postimg.cc/NjdPPstL/Aastha-Singh.jpg",
   },
   {
-    name: "Satish Kumar",
+    name: "Jayant Singh",
     email: "abhyudaya.mmmut@gmail.com",
-    phone: "+1234567897",
+    phone: "+91-9696148767",
     role: "Public Relations Head",
-    photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+    photo: "https://i.postimg.cc/8ck63SNP/Jayant-Singh.jpg",
   },
   {
-    name: "Pritish Tomar",
+    name: "Divyansh Gupta",
     email: "abhyudaya.mmmut@gmail.com",
-    phone: "+919520405332",
+    phone: "+91-8318883708",
+    role: "Design Lead",
+    photo:
+      "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
+  },
+  {
+    name: "Vivek Mani Tripathi",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-9341239691",
     role: "Technical Lead",
-    photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
+    photo: "https://i.postimg.cc/5t09Z2Fr/VMT.jpg",
   },
 ];
-
-const leftContacts = contacts.slice(0, 2);
-const rightContacts = contacts.slice(2, 4);
+const leftContacts = contacts.slice(0, 3);
+const rightContacts = contacts.slice(3, 6);
 
 const socialLinks = [
-  { href: "https://www.facebook.com/abhyudaya.mmmut/", icon: FaFacebookF, label: "Facebook" },
-  { href: "https://www.instagram.com/abhyudaya.mmmut", icon: FaInstagram, label: "Instagram" },
+  {
+    href: "https://www.facebook.com/abhyudaya.mmmut/",
+    icon: FaFacebookF,
+    label: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/abhyudaya.mmmut",
+    icon: FaInstagram,
+    label: "Instagram",
+  },
   { href: "https://www.linkedin.com", icon: FaLinkedinIn, label: "LinkedIn" },
-  { href: "https://www.youtube.com/@abhyudayammmut", icon: FaYoutube, label: "YouTube" },
+  {
+    href: "https://www.youtube.com/@abhyudayammmut",
+    icon: FaYoutube,
+    label: "YouTube",
+  },
   { href: "mailto:abhyudayammmut@gmail.com", icon: FaEnvelope, label: "Email" },
 ];
 
@@ -56,7 +83,11 @@ const ContactCard = ({ person }) => (
   <StarBorder color="#a855f7" speed="4s" className="footer-star-wrap">
     <div className="footer-card">
       <div className="footer-card__image-wrapper">
-        <img src={person.photo} alt={person.name} className="footer-card__image" />
+        <img
+          src={person.photo}
+          alt={person.name}
+          className="footer-card__image"
+        />
       </div>
       <h4 className="footer-card__name">{person.name}</h4>
       <p className="footer-card__role">{person.role}</p>

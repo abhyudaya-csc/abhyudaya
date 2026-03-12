@@ -7,6 +7,7 @@ import subleaderData from "./subleader.json";
 
 import teamsData from "./Team";
 import Abhyudaya from "../../assets/Logo-images/Abhyudaya.png";
+import MmmutLogo from "../../assets/Landing/mmmut.png";
 
 const Members = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -26,6 +27,15 @@ const Members = () => {
 
   return (
     <div className="min-h-screen bg-[#120c0f]">
+      {/* MMMUT Logo - Top Right Corner */}
+      <div className="absolute top-4 right-4 z-50">
+        <img
+          src={MmmutLogo}
+          alt="MMMUT Logo"
+          className="w-12 h-12 md:w-16 md:h-16 object-contain"
+        />
+      </div>
+
       <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center pointer-events-none">
         <img
           src={Abhyudaya}

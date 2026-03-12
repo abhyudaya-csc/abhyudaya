@@ -291,13 +291,16 @@ export function Hero() {
         } else {
           const setupCanvas = (canvas) => {
             if (!canvas) return null;
-            const context = canvas.getContext("2d");
-            const dpr = window.devicePixelRatio || 1;
+            const context = canvas.getContext("2d", { alpha: false });
+            const dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x for performance
             canvas.width = window.innerWidth * dpr;
             canvas.height = window.innerHeight * dpr;
             canvas.style.width = `${window.innerWidth}px`;
             canvas.style.height = `${window.innerHeight}px`;
-            context?.scale(dpr, dpr);
+            context.scale(dpr, dpr);
+            // Enable high-quality image rendering
+            context.imageSmoothingEnabled = true;
+            context.imageSmoothingQuality = "high";
             return context;
           };
           const contexts = {
@@ -308,26 +311,31 @@ export function Hero() {
           };
           const renderFrame = (context, image) => {
             if (!image || !context) return;
-            const dpr = window.devicePixelRatio || 1;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            // Ensure smooth rendering on each frame
+            context.imageSmoothingEnabled = true;
+            context.imageSmoothingQuality = "high";
             context.clearRect(
               0,
               0,
-              context.canvas.width,
-              context.canvas.height,
+              context.canvas.width / dpr,
+              context.canvas.height / dpr,
             );
-            const canvasAspect = context.canvas.width / context.canvas.height;
+            const canvasWidth = context.canvas.width / dpr;
+            const canvasHeight = context.canvas.height / dpr;
+            const canvasAspect = canvasWidth / canvasHeight;
             const imageAspect = image.width / image.height;
             let drawWidth, drawHeight, offsetX, offsetY;
             if (canvasAspect > imageAspect) {
-              drawWidth = context.canvas.width / dpr;
+              drawWidth = canvasWidth;
               drawHeight = drawWidth / imageAspect;
               offsetX = 0;
-              offsetY = (context.canvas.height / dpr - drawHeight) / 2;
+              offsetY = (canvasHeight - drawHeight) / 2;
             } else {
-              drawHeight = context.canvas.height / dpr;
+              drawHeight = canvasHeight;
               drawWidth = drawHeight * imageAspect;
               offsetY = 0;
-              offsetX = (context.canvas.width / dpr - drawWidth) / 2;
+              offsetX = (canvasWidth - drawWidth) / 2;
             }
             context.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
           };
@@ -352,12 +360,15 @@ export function Hero() {
           const handleResize = () => {
             Object.values(contexts).forEach((context) => {
               if (context && context.canvas) {
-                const dpr = window.devicePixelRatio || 1;
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
                 context.canvas.width = window.innerWidth * dpr;
                 context.canvas.height = window.innerHeight * dpr;
                 context.canvas.style.width = `${window.innerWidth}px`;
                 context.canvas.style.height = `${window.innerHeight}px`;
+                context.setTransform(1, 0, 0, 1, 0, 0);
                 context.scale(dpr, dpr);
+                context.imageSmoothingEnabled = true;
+                context.imageSmoothingQuality = "high";
               }
             });
             ScrollTrigger.refresh(true);
