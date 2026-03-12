@@ -40,21 +40,21 @@ const contacts = [
   //   role: "Public Relations Head",
   //   photo: "https://i.postimg.cc/8ck63SNP/Jayant-Singh.jpg",
   // },
-  // {
-  //   name: "Divyansh Gupta",
-  //   email: "abhyudaya.mmmut@gmail.com",
-  //   phone: "+91-8318883708",
-  //   role: "Design Lead",
-  //   photo:
-  //     "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
-  // },
-  // {
-  //   name: "Vivek Mani Tripathi",
-  //   email: "abhyudaya.mmmut@gmail.com",
-  //   phone: "+91-9341239691",
-  //   role: "Technical Lead",
-  //   photo: "https://i.postimg.cc/5t09Z2Fr/VMT.jpg",
-  // },
+  {
+    name: "Divyansh Gupta",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-8318883708",
+    role: "Design Lead",
+    photo:
+      "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
+  },
+  {
+    name: "Vivek Mani Tripathi",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-9341239691",
+    role: "Technical Lead",
+    photo: "https://i.postimg.cc/5t09Z2Fr/VMT.jpg",
+  },
 ];
 const leftContacts = contacts.slice(0, 3);
 const rightContacts = contacts.slice(3, 6);

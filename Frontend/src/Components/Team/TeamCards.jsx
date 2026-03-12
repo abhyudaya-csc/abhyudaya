@@ -20,7 +20,7 @@ function TeamCards({ member, onClick }) {
       {
         rootMargin: "100px",
         threshold: 0.1,
-      }
+      },
     );
 
     if (cardRef.current) {
@@ -61,7 +61,7 @@ function TeamCards({ member, onClick }) {
               className="absolute inset-0"
               variants={{
                 rest: { scale: 1 },
-                hover: { scale: 1.05 }
+                hover: { scale: 1.05 },
               }}
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
@@ -74,7 +74,7 @@ function TeamCards({ member, onClick }) {
                 className={`absolute inset-0 rounded-3xl w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                 variants={{
                   rest: { filter: "blur(0px) brightness(1)" },
-                  hover: { filter: "blur(6px) brightness(0.7)" }
+                  hover: { filter: "blur(6px) brightness(0.7)" },
                 }}
                 transition={{ duration: 0.4 }}
               />
@@ -88,7 +88,7 @@ function TeamCards({ member, onClick }) {
                   className={`absolute inset-0 rounded-3xl w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                   variants={{
                     rest: { y: 0 },
-                    hover: { y: -12 }
+                    hover: { y: -12 },
                   }}
                   transition={{ type: "spring", stiffness: 120, damping: 18 }}
                 />
@@ -105,7 +105,7 @@ function TeamCards({ member, onClick }) {
           className="absolute bottom-0 w-full p-5"
           variants={{
             rest: { opacity: 0, y: 20 },
-            hover: { opacity: 1, y: 0 }
+            hover: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.35 }}
         >
