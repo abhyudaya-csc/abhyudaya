@@ -7,6 +7,7 @@ import subleaderData from "./subleader.json";
 
 import teamsData from "./Team";
 import Abhyudaya from "../../assets/Logo-images/Abhyudaya.png";
+import MmmutLogo from "../../assets/Landing/mmmut.png";
 
 const Members = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -15,7 +16,6 @@ const Members = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setIsHeaderVisible(currentScrollY < lastScrollY);
       setLastScrollY(currentScrollY);
     };
@@ -26,6 +26,16 @@ const Members = () => {
 
   return (
     <div className="min-h-screen bg-[#120c0f]">
+      {/* MMMUT Logo - Top Right Corner */}
+      <div className="absolute top-4 right-4 z-50">
+        <img
+          src={MmmutLogo}
+          alt="MMMUT Logo"
+          className="w-12 h-12 md:w-16 md:h-16 object-contain"
+        />
+      </div>
+
+      {/* Background Abhyudaya Logo */}
       <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center pointer-events-none">
         <img
           src={Abhyudaya}
@@ -36,17 +46,17 @@ const Members = () => {
 
       <div className="relative z-10 container mx-auto px-4 py-12">
         <div className="text-center mb-16">
-          <h1 className="text-5xl  md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
             About Us
           </h1>
         </div>
 
-       <div className="flex justify-center ">
+        <div className="flex justify-center">
           <LeaderCard member={leaderData} />
-        </div> 
+        </div>
 
         <div className="flex justify-center mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 ml-0 gap-20 mt-12 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 ml-0 gap-20 mt-12">
             {subleaderData.map((leader, index) => (
               <SubLeaderCard key={index} faculty={leader} />
             ))}
@@ -54,20 +64,22 @@ const Members = () => {
         </div>
 
         <div className="border mt-8"></div>
-        <h2 className="text-3xl md:text-5xl mt-24 h-full  font-bold  text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
+
+        <h2 className="text-3xl md:text-5xl mt-24 h-full font-bold text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
           Team Abhyudaya
         </h2>
-       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
-  {teamsData.map((person, index) => (
-    <div
-      key={index}
-      className="animate-fade-up"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      <TeamCards member={person} />
-    </div>
-  ))}
-</div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
+          {teamsData.map((person, index) => (
+            <div
+              key={index}
+              className="animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <TeamCards member={person} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
