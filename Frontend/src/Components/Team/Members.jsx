@@ -46,7 +46,7 @@ const Members = () => {
         </div> 
 
         <div className="flex justify-center mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-4 md:gap-10 ml-0 gap-18 mt-12 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 ml-0 gap-20 mt-12 ">
             {subleaderData.map((leader, index) => (
               <SubLeaderCard key={index} faculty={leader} />
             ))}
@@ -57,7 +57,7 @@ const Members = () => {
         <h2 className="text-3xl md:text-5xl mt-24 h-full  font-bold  text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
           Team Abhyudaya
         </h2>
-        <div className="grid grid-cols-1 xs:grid-cols-2 min-[520px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-15 sm:gap-15 ">
+        <div className="grid grid-cols-1 xs:grid-cols-2 min-[520px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-x-7 gap-15 sm:gap-5 ">
           {teamsData.map((person, index) => (
             <div
               key={index}
