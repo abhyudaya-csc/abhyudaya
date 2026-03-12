@@ -5,47 +5,53 @@ import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
 
 function SignUpForm() {
-  const [step, setStep] = useState(1);
-
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
     email: "",
-    gender: "",
-    college: "",
-    course: "",
-    referral: "",
-    avatar: "",
     password: "",
-    confirmPassword: "",
+    institute: "",
+    phone: "",
+    referral: "",
   });
 
-  const avatars = [
-    "/icons/1.png",
-    "/icons/2.png",
-    "/icons/3.png",
-    "/icons/4.png",
-    "/icons/5.png",
-    "/icons/6.png",
-    "/icons/7.png",
-    "/icons/8.png",
-    "/icons/9.png",
-    "/icons/10.png",
-  ];
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear error when user starts typing
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: "" });
+    }
   };
 
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Invalid email";
+    if (!formData.password.trim()) newErrors.password = "Password is required";
+    else if (formData.password.length < 6)
+      newErrors.password = "Min 6 characters";
+    if (!formData.institute.trim())
+      newErrors.institute = "Institute is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone is required";
+    else if (!/^\d{10}$/.test(formData.phone))
+      newErrors.phone = "Invalid phone (10 digits)";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    if (validateForm()) {
+      console.log(formData);
+      // Submit form
+    }
   };
 
   return (
@@ -60,7 +66,7 @@ function SignUpForm() {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* SIGNUP CARD */}
-      <div className="relative z-10 w-[75%] sm:w-[700px] sm:h-[480px] backdrop-blur-[4px] rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
+      <div className="relative z-10 w-[75%] sm:w-[700px] backdrop-blur-[4px] rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
         {/* LEFT IMAGE PANEL (hidden on mobile) */}
         <div className="w-1/2 relative hidden sm:block">
           <img
@@ -81,177 +87,89 @@ function SignUpForm() {
           <h2 className="text-2xl font-bold text-center text-white">Sign Up</h2>
 
           <form onSubmit={handleSubmit} className="space-y-3 w-full mt-4">
-            {/* STEP 1 */}
-            {step === 1 && (
-              <>
-                <input
-                  name="name"
-                  placeholder="Full Name"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
+            <div>
+              <input
+                name="name"
+                placeholder="Full Name *"
+                value={formData.name}
+                className={`w-full border ${errors.name ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                onChange={handleChange}
+              />
+              {errors.name && (
+                <p className="text-red-400 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
 
-                <input
-                  name="phone"
-                  placeholder="Phone Number"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
+            <div>
+              <input
+                name="email"
+                type="email"
+                placeholder="Email *"
+                value={formData.email}
+                className={`w-full border ${errors.email ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                onChange={handleChange}
+              />
+              {errors.email && (
+                <p className="text-red-400 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
 
-                <input
-                  name="email"
-                  placeholder="Email"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
+            <div>
+              <input
+                name="password"
+                type="password"
+                placeholder="Password *"
+                value={formData.password}
+                className={`w-full border ${errors.password ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                onChange={handleChange}
+              />
+              {errors.password && (
+                <p className="text-red-400 text-xs mt-1">{errors.password}</p>
+              )}
+            </div>
 
-                <select
-                  name="gender"
-                  className="w-full border border-white/30 bg-white/20 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                >
-                  <option value="" className="text-gray-800">
-                    Select Gender
-                  </option>
-                  <option className="text-gray-800">Male</option>
-                  <option className="text-gray-800">Female</option>
-                  <option className="text-gray-800">Other</option>
-                </select>
+            <div>
+              <input
+                name="institute"
+                placeholder="Institute/College *"
+                value={formData.institute}
+                className={`w-full border ${errors.institute ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                onChange={handleChange}
+              />
+              {errors.institute && (
+                <p className="text-red-400 text-xs mt-1">{errors.institute}</p>
+              )}
+            </div>
 
-                <button
-                  type="button"
-                  onClick={nextStep}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                >
-                  Next
-                </button>
-              </>
-            )}
+            <div>
+              <input
+                name="phone"
+                placeholder="Phone Number *"
+                value={formData.phone}
+                className={`w-full border ${errors.phone ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                onChange={handleChange}
+              />
+              {errors.phone && (
+                <p className="text-red-400 text-xs mt-1">{errors.phone}</p>
+              )}
+            </div>
 
-            {/* STEP 2 */}
-            {step === 2 && (
-              <>
-                <input
-                  name="college"
-                  placeholder="College Name"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
+            <div>
+              <input
+                name="referral"
+                placeholder="Referral ID (Optional)"
+                value={formData.referral}
+                className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                onChange={handleChange}
+              />
+            </div>
 
-                <input
-                  name="course"
-                  placeholder="Course"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
-
-                <input
-                  name="referral"
-                  placeholder="Referral ID"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
-
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={prevStep}
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Back
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={nextStep}
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Next
-                  </button>
-                </div>
-              </>
-            )}
-
-            {/* STEP 3 */}
-            {step === 3 && (
-              <>
-                <h3 className="text-center text-lg font-semibold text-white">
-                  Choose Your Icon
-                </h3>
-
-                <div className="grid grid-cols-5 gap-3 mt-3 justify-items-center">
-                  {avatars.map((icon, index) => (
-                    <img
-                      key={index}
-                      src={icon}
-                      alt="avatar"
-                      onClick={() => setFormData({ ...formData, avatar: icon })}
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full cursor-pointer border-2 hover:scale-110 transition ${
-                        formData.avatar === icon
-                          ? "border-purple-600"
-                          : "border-white/50"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <div className="flex gap-3 mt-4">
-                  <button
-                    type="button"
-                    onClick={prevStep}
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Back
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={nextStep}
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Next
-                  </button>
-                </div>
-              </>
-            )}
-
-            {/* STEP 4 */}
-            {step === 4 && (
-              <>
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
-
-                <input
-                  name="confirmPassword"
-                  type="password"
-                  placeholder="Confirm Password"
-                  className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  onChange={handleChange}
-                />
-
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={prevStep}
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Back
-                  </button>
-
-                  <button
-                    type="submit"
-                    className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors"
-                  >
-                    Register
-                  </button>
-                </div>
-              </>
-            )}
+            <button
+              type="submit"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors mt-2"
+            >
+              Register
+            </button>
           </form>
 
           <p className="text-sm text-white/80 mt-4">Already have an account?</p>

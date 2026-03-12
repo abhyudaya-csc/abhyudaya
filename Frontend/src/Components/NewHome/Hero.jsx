@@ -1,6 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+  memo,
+} from "react";
 
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -10,16 +18,19 @@ import { useWindowSize } from "react-use";
 
 import { useStore } from "../../store";
 import { FaWhatsapp } from "react-icons/fa";
-import Aftermovies from "./Aftermovies";
 
-import Marchandise from "./merchandise/Merchandise";
-import Hero2Section from "./About";
-import Slider from "./slider/Slider";
+// Lazy load heavy components
+const Aftermovies = lazy(() => import("./Aftermovies"));
+const Marchandise = lazy(() => import("./merchandise/Merchandise"));
+const Hero2Section = lazy(() => import("./About"));
+const Slider = lazy(() => import("./slider/Slider"));
+const X = lazy(() => import("./X"));
+
 import firstSceneLinksRaw from "./1st.json?raw";
 import secondSceneLinksRaw from "./2nd.json?raw";
 import thirdSceneLinksRaw from "./3rd.json?raw";
 import fourthSceneLinksRaw from "./4th.json?raw";
-import X from "./Countdown";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const buildFrameMap = (rawLinks, maxFrame) => {
@@ -60,8 +71,7 @@ const secondSceneFrameMap = buildFrameMap(secondSceneLinksRaw, 192);
 const thirdSceneFrameMap = buildFrameMap(thirdSceneLinksRaw, 96);
 const fourthSceneFrameMap = buildFrameMap(fourthSceneLinksRaw, 84);
 
-
-const Logo = () => (
+const Logo = memo(() => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -72,48 +82,58 @@ const Logo = () => (
   >
     <img
       src="/Abhyudaya-combined.png"
-      alt="Abhyudaya  Logo"
+      alt="Abhyudaya Logo"
       className="w-full h-auto drop-shadow-[0_0_30px_rgba(135,206,235,0.6)]"
+      loading="eager"
     />
   </motion.div>
-);
-const GrainOverlay = () => (
-    <div 
-        className="fixed top-0 left-0 h-screen w-screen pointer-events-none z-10"
-        style={{
-            backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4=)',
-            opacity: 0.07,
-            animation: 'grain 8s steps(10) infinite',
-        }}
-    />
-  );
+));
 
-
-
-
+const GrainOverlay = memo(() => (
+  <div
+    className="fixed top-0 left-0 h-screen w-screen pointer-events-none z-10"
+    style={{
+      backgroundImage:
+        "url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4=)",
+      opacity: 0.07,
+      animation: "grain 8s steps(10) infinite",
+    }}
+  />
+));
 
 const sceneConfigs = {
   treetogate: {
     frameCount: 192,
-    path: (frame) => firstSceneFrameMap.get(frame) ?? firstSceneFrameMap.get(1) ?? "",
+    path: (frame) =>
+      firstSceneFrameMap.get(frame) ?? firstSceneFrameMap.get(1) ?? "",
   },
   gatetoforest: {
     frameCount: 192,
-    path: (frame) => secondSceneFrameMap.get(frame) ?? secondSceneFrameMap.get(1) ?? "",
+    path: (frame) =>
+      secondSceneFrameMap.get(frame) ?? secondSceneFrameMap.get(1) ?? "",
   },
   ForestToworld: {
     frameCount: 96,
-    path: (frame) => thirdSceneFrameMap.get(frame) ?? thirdSceneFrameMap.get(1) ?? "",
+    path: (frame) =>
+      thirdSceneFrameMap.get(frame) ?? thirdSceneFrameMap.get(1) ?? "",
   },
   Last: {
     frameCount: 84,
-    path: (frame) => fourthSceneFrameMap.get(frame) ?? fourthSceneFrameMap.get(1) ?? "",
+    path: (frame) =>
+      fourthSceneFrameMap.get(frame) ?? fourthSceneFrameMap.get(1) ?? "",
   },
 };
 
-const BATCH_SIZE = 50;
-const BATCH_TRIGGER_RATIO = 0.7;
+const BATCH_SIZE = 25;
+const BATCH_TRIGGER_RATIO = 0.6;
 const SCENE_KEYS = Object.keys(sceneConfigs);
+
+// Loading fallback for lazy components
+const ComponentLoader = () => (
+  <div className="w-full h-full flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 export function Hero() {
   const mainRef = useRef(null);
@@ -203,11 +223,15 @@ export function Hero() {
       const startFrame = batchIndex * BATCH_SIZE + 1;
       const endFrame = Math.min(config.frameCount, startFrame + BATCH_SIZE - 1);
 
-      for (let frameNumber = startFrame; frameNumber <= endFrame; frameNumber++) {
+      for (
+        let frameNumber = startFrame;
+        frameNumber <= endFrame;
+        frameNumber++
+      ) {
         void loadFrame(sceneKey, frameNumber);
       }
     },
-    [loadFrame]
+    [loadFrame],
   );
 
   useEffect(() => {
@@ -285,7 +309,12 @@ export function Hero() {
           const renderFrame = (context, image) => {
             if (!image || !context) return;
             const dpr = window.devicePixelRatio || 1;
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            context.clearRect(
+              0,
+              0,
+              context.canvas.width,
+              context.canvas.height,
+            );
             const canvasAspect = context.canvas.width / context.canvas.height;
             const imageAspect = image.width / image.height;
             let drawWidth, drawHeight, offsetX, offsetY;
@@ -346,7 +375,7 @@ export function Hero() {
               const sceneLength = 1 / scenes.length;
               const activeSceneIndex = Math.min(
                 scenes.length - 1,
-                Math.floor(progress / sceneLength)
+                Math.floor(progress / sceneLength),
               );
 
               scenes.forEach((scene, index) => {
@@ -402,7 +431,7 @@ export function Hero() {
                   z: -1000 * localProgress,
                 });
               }
- 
+
               const updateSequence = (sceneIndex, configKey) => {
                 const startProgress = sceneLength * (sceneIndex - 1);
                 if (
@@ -413,36 +442,40 @@ export function Hero() {
                     (progress - startProgress) / sceneLength;
                   const easedProgress = ease(localProgress);
                   const frameIndex = Math.floor(
-                    easedProgress * (sceneConfigs[configKey].frameCount - 1)
+                    easedProgress * (sceneConfigs[configKey].frameCount - 1),
                   );
                   const frameNumber = frameIndex + 1;
 
-                  const currentBatchIndex = Math.floor((frameNumber - 1) / BATCH_SIZE);
-                  if (lastRequestedBatch.current[configKey] < currentBatchIndex) {
+                  const currentBatchIndex = Math.floor(
+                    (frameNumber - 1) / BATCH_SIZE,
+                  );
+                  if (
+                    lastRequestedBatch.current[configKey] < currentBatchIndex
+                  ) {
                     preloadBatch(configKey, currentBatchIndex);
                     lastRequestedBatch.current[configKey] = currentBatchIndex;
                   }
 
                   const batchStartFrame = currentBatchIndex * BATCH_SIZE + 1;
                   const thresholdFrame = Math.floor(
-                    batchStartFrame + BATCH_SIZE * BATCH_TRIGGER_RATIO
+                    batchStartFrame + BATCH_SIZE * BATCH_TRIGGER_RATIO,
                   );
 
                   if (frameNumber >= thresholdFrame) {
                     const nextBatchIndex = currentBatchIndex + 1;
-                    if (lastRequestedBatch.current[configKey] < nextBatchIndex) {
+                    if (
+                      lastRequestedBatch.current[configKey] < nextBatchIndex
+                    ) {
                       preloadBatch(configKey, nextBatchIndex);
                       lastRequestedBatch.current[configKey] = nextBatchIndex;
                     }
                   }
 
                   requestAnimationFrame(() => {
-                    const frame = frameCache.current[configKey].get(frameNumber);
+                    const frame =
+                      frameCache.current[configKey].get(frameNumber);
                     if (frame) {
-                      renderFrame(
-                        contexts[configKey],
-                        frame
-                      );
+                      renderFrame(contexts[configKey], frame);
                     } else {
                       void loadFrame(configKey, frameNumber).then((img) => {
                         if (img) {
@@ -482,9 +515,12 @@ export function Hero() {
               src="https://i.ibb.co/F4GdxtFk/First-A.webp"
               alt="Daytime"
               className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-black/60 z-0"></div>
-            <div className="relative z-10 w-full px-4"><Logo /></div>
+            <div className="relative z-10 w-full px-4">
+              <Logo />
+            </div>
           </section>
 
           <section className="scene scene-2 min-h-[100dvh] flex flex-col justify-center relative py-12 overflow-hidden">
@@ -492,35 +528,74 @@ export function Hero() {
               src="/first_location.webp"
               alt="Cave"
               className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/70 z-0"></div>
-            <div className="relative z-10 w-full flex-1 flex items-center py-8"><Hero2Section /></div>
+            <div className="relative z-10 w-full flex-1 flex items-center py-8">
+              <Suspense fallback={<ComponentLoader />}>
+                <Hero2Section />
+              </Suspense>
+            </div>
           </section>
 
           <section className="scene scene-6 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
-            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <img
+              src="/first_location.webp"
+              className="absolute inset-0 w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-black/70 z-0"></div>
             <div className="relative z-10 w-full flex-1 py-8">
-              <Aftermovies />
+              <Suspense fallback={<ComponentLoader />}>
+                <Aftermovies />
+              </Suspense>
             </div>
           </section>
 
           <section className="scene scene-4 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
-            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <img
+              src="/first_location.webp"
+              className="absolute inset-0 w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-black/75 z-0"></div>
-            <div className="relative z-10 w-full flex-1 flex items-center py-8"><Slider /></div>
+            <div className="relative z-10 w-full flex-1 flex items-center py-8">
+              <Suspense fallback={<ComponentLoader />}>
+                <Slider />
+              </Suspense>
+            </div>
           </section>
 
           <section className="scene scene-8 min-h-[100dvh] h-auto flex flex-col justify-center relative py-12 overflow-hidden">
-            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <img
+              src="/first_location.webp"
+              className="absolute inset-0 w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-black/80 z-0"></div>
-            <div className="relative z-10 w-full py-8"><Marchandise /></div>
+            <div className="relative z-10 w-full py-8">
+              <Suspense fallback={<ComponentLoader />}>
+                <Marchandise />
+              </Suspense>
+            </div>
           </section>
-          
+
           <section className="w-screen min-h-[50vh] flex items-center justify-center bg-black relative py-16 overflow-hidden">
-            <img src="/first_location.webp" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <img
+              src="/first_location.webp"
+              className="absolute inset-0 w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-black/85 z-0"></div>
-            <div className="relative z-10 w-full"><X /></div>
+            <div className="relative z-10 w-full">
+              <Suspense fallback={<ComponentLoader />}>
+                <X />
+              </Suspense>
+            </div>
           </section>
         </div>
       </div>
@@ -530,7 +605,6 @@ export function Hero() {
   return (
     <div className="bg-black text-white antialiased text-center">
       <div ref={wrapperRef} className="relative">
-        
         <div
           ref={mainRef}
           className={`h-screen w-screen fixed top-0 left-0 ${
@@ -544,24 +618,29 @@ export function Hero() {
               src="https://i.ibb.co/F4GdxtFk/First-A.webp"
               alt="Daytime"
               className="w-full h-full object-cover"
+              loading="eager"
             />
             <div className="absolute inset-0 flex items-center align-center justify-center">
-							<Logo />
-						</div>
+              <Logo />
+            </div>
           </section>
           {/*SECOND CANVAS*/}
           <section className="scene scene-2 absolute inset-0 opacity-0">
             <canvas ref={canvasRefs.treetogate} />
             <div className="absolute inset-0 flex items-center justify-center">
-							<Hero2Section /> 
-						</div>
+              <Suspense fallback={<ComponentLoader />}>
+                <Hero2Section />
+              </Suspense>
+            </div>
           </section>
           <section className="scene scene-3 absolute inset-0 opacity-0">
             <canvas ref={canvasRefs.gatetoforest} />
-            
+
             <div className="scene-content absolute inset-0 flex items-center justify-center ">
-							<Aftermovies />
-						</div>
+              <Suspense fallback={<ComponentLoader />}>
+                <Aftermovies />
+              </Suspense>
+            </div>
           </section>
 
           <section className="scene scene-4 absolute inset-0 opacity-0">
@@ -569,14 +648,20 @@ export function Hero() {
               src="/first_location.webp"
               alt="Light Wizard"
               className="w-full h-full object-cover"
-            /><div className="scene-content absolute inset-0 flex items-center justify-center">
-							<Slider />
-						</div>
+              loading="lazy"
+            />
+            <div className="scene-content absolute inset-0 flex items-center justify-center">
+              <Suspense fallback={<ComponentLoader />}>
+                <Slider />
+              </Suspense>
+            </div>
           </section>
           <section className="scene scene-5 absolute inset-0 opacity-0">
             <canvas ref={canvasRefs.ForestToworld} />
             <div className="absolute scene-content inset-0 flex items-center justify-center">
-              <Marchandise />
+              <Suspense fallback={<ComponentLoader />}>
+                <Marchandise />
+              </Suspense>
             </div>
           </section>
           <section className="scene scene-6 absolute inset-0 opacity-0">
@@ -587,9 +672,10 @@ export function Hero() {
               className="w-full h-full object-cover"
             />*/}
             <div className="absolute scene-content inset-0 flex items-center justify-center">
-              <X />
+              <Suspense fallback={<ComponentLoader />}>
+                <X />
+              </Suspense>
             </div>
-            
           </section>
           {/*<section className="scene scene-8 absolute inset-0 opacity-0">
             <img
@@ -602,7 +688,6 @@ export function Hero() {
 						</div>
           </section>
           */}
-          
         </div>
       </div>
     </div>
