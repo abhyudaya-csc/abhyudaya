@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, memo } from "react";
-=======
 import React, { useEffect, useState, useRef } from "react";
->>>>>>> 7561c8672015bd8e81216dd2c79bb43d2eb31026
 import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
@@ -54,41 +50,6 @@ function TeamCards({ member, onClick }) {
       animate={isMobile ? "hover" : "rest"}
     >
       <div className="relative aspect-[3/4] rounded-3xl shadow-xl overflow-visible">
-<<<<<<< HEAD
-        
-        {/* Inner wrapper */}
-        <div className="absolute inset-0 rounded-3xl overflow-hidden">
-          <motion.div
-            className="absolute inset-0 will-change-transform"
-            variants={{
-              rest: { scale: 1 },
-              hover: { scale: 1.05 }
-            }}
-            transition={{ type: "spring", stiffness: 120, damping: 18 }}
-          >
-
-            {/* Background Image */}
-            <motion.img
-              src={member.Photo}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 rounded-3xl w-full h-full object-cover"
-              variants={{
-                rest: { filter: "blur(0px) brightness(1)" },
-                hover: { filter: "blur(6px) brightness(0.7)" }
-              }}
-              transition={{ duration: 0.4 }}
-            />
-
-            {/* Cutout Image */}
-            <motion.img
-              src={member.PhotoCutout}
-              alt={member.Name}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 rounded-3xl w-full h-full object-cover will-change-transform"
-=======
         {/* Skeleton Loader */}
         {(!isVisible || !imageLoaded) && (
           <div className="absolute inset-0 bg-gray-700 rounded-3xl animate-pulse">
@@ -101,7 +62,6 @@ function TeamCards({ member, onClick }) {
           <div className="absolute inset-0 rounded-3xl overflow-hidden">
             <motion.div
               className="absolute inset-0"
->>>>>>> 7561c8672015bd8e81216dd2c79bb43d2eb31026
               variants={{
                 rest: { scale: 1 },
                 hover: { scale: 1.05 },
@@ -147,13 +107,8 @@ function TeamCards({ member, onClick }) {
         <motion.div
           className="absolute bottom-0 w-full p-5"
           variants={{
-<<<<<<< HEAD
-            rest: { opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 20 },
-            hover: { opacity: 1, y: 0 }
-=======
             rest: { opacity: 0, y: 20 },
             hover: { opacity: 1, y: 0 },
->>>>>>> 7561c8672015bd8e81216dd2c79bb43d2eb31026
           }}
           transition={{ duration: 0.35 }}
         >
@@ -195,8 +150,4 @@ function TeamCards({ member, onClick }) {
   );
 }
 
-<<<<<<< HEAD
-export default memo(TeamCards);
-=======
 export default TeamCards;
->>>>>>> 7561c8672015bd8e81216dd2c79bb43d2eb31026
