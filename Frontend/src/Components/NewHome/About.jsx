@@ -34,7 +34,7 @@ export default function Hero2Section() {
         viewport={{ once: true, margin: "-100px" }}
         className="relative z-10 mx-auto flex w-full max-w-5xl grow flex-col items-center justify-center text-center"
       >
-        <div className="relative w-full max-w-240 overflow-hidden rounded-[2.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,13,24,0.06)_0%,rgba(11,10,19,0.32)_24%,rgba(8,8,14,0.66)_56%,rgba(5,5,10,0.82)_100%)] px-4 py-8 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-7 sm:py-10 lg:px-10 lg:py-11">
+        <div className="relative w-full max-w-4xl overflow-hidden rounded-[2.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,13,24,0.06)_0%,rgba(11,10,19,0.32)_24%,rgba(8,8,14,0.66)_56%,rgba(5,5,10,0.82)_100%)] px-4 py-7 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-6 sm:py-8 lg:px-8 lg:py-9">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_42%)]" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/40 to-transparent" />
           <div className="pointer-events-none absolute inset-x-10 bottom-0 h-24 rounded-full bg-[radial-gradient(circle,rgba(84,71,132,0.18),transparent_62%)] blur-3xl" />
@@ -74,26 +74,14 @@ export default function Hero2Section() {
             <div className="mt-7 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:mt-10">
               <Link
                 to="/SignInForm"
-                className="flex min-h-20 flex-1 items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-4 py-3 text-center shadow-[0_0_22px_rgba(229,215,181,0.28),0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition duration-300 hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)] hover:shadow-[0_0_38px_rgba(229,215,181,0.55),0_20px_44px_rgba(0,0,0,0.4)]"
+                className="inline-flex min-h-14 w-fit self-center items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-5 py-2.5 text-center shadow-[0_0_22px_rgba(229,215,181,0.28),0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition duration-300 hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)] hover:shadow-[0_0_38px_rgba(229,215,181,0.55),0_20px_44px_rgba(0,0,0,0.4)]"
               >
-                <span className="font-enchanted text-[1.05rem] tracking-[0.12em] text-[#f3e9cf] drop-shadow-[0_0_10px_rgba(243,233,207,0.65)] sm:text-[1.2rem]">
+                <span className="font-enchanted text-[0.95rem] tracking-[0.12em] text-[#f3e9cf] drop-shadow-[0_0_10px_rgba(243,233,207,0.65)] sm:text-[1.05rem]">
                   Register Now
                 </span>
               </Link>
 
-              <div className="flex min-h-20 flex-1 items-center gap-3 rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,27,0.84)_0%,rgba(8,8,13,0.72)_100%)] px-4 py-3 text-left shadow-[0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl">
-                <div className="rounded-lg bg-white/5 p-2">
-                  <MapPin className="h-4 w-4 text-[#e5d7b5]" />
-                </div>
-                <div>
-                  <p className="mb-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#dfd4b4]">
-                    Venue
-                  </p>
-                  <p className="text-base font-normal tracking-wide text-white/92">
-                    MMMUT, Gorakhpur
-                  </p>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
