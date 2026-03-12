@@ -6,8 +6,7 @@ import CurrSpons from "./CurrSpons";
 const Sponsors = () => {
   return (
     <div className="bg-gradient-to-r from-black via-gray-900">
-    <h1 className="text-4xl uppercase font-extrabold text-purple-400 sm:text-5xl text-center p-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-100 animate-pulse"
-      >
+      <h1 className="text-4xl uppercase font-extrabold text-purple-400 sm:text-5xl text-center p-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-100 animate-pulse">
         Our Current Sponsors
       </h1>
       {/* <div className="rounded bg-gradient-to-r from-black via-gray-900 p-4 w-full sm:w-[60%] text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 mx-auto">
@@ -19,7 +18,7 @@ const Sponsors = () => {
         <h2 className="text-4xl font-bold">GD Goenka</h2>
         <h3 className="text-2xl font-semibold">Titile Sponsor ABH'24</h3>
       </div> */}
-     <div className="rounded-lg bg-gradient-to-r from-black to-gray-900 p-2 w-[50%] sm:w-[30%] text-center transition-transform duration-300 hover:scale-105 hover:shadow-md hover:shadow-white mx-auto">
+      {/*<div className="rounded-lg bg-gradient-to-r from-black to-gray-900 p-2 w-[50%] sm:w-[30%] text-center transition-transform duration-300 hover:scale-105 hover:shadow-md hover:shadow-white mx-auto">
   <img
     src="https://i.postimg.cc/ncVVRq8M/tvs-Apache.jpg"
     alt="Tvs Apache"
@@ -28,8 +27,7 @@ const Sponsors = () => {
   <h2 className="text-2xl font-bold text-white mt-3">Tvs Apache</h2>
   <h3 className="text-lg font-medium text-gray-300 mt-1">Fest Sponsor</h3>
 
-</div>
-
+</div>*/}
 
       <div className="p-8 grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {CurrSpons.map((sponsor, index) => (
@@ -47,15 +45,7 @@ const Sponsors = () => {
         ))}
       </div>
 
-
-
-
-
-
-
-
-      <h1 className="text-4xl uppercase font-extrabold text-purple-400 sm:text-5xl text-center p-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-100 animate-pulse"
-      >
+      <h1 className="text-4xl uppercase font-extrabold text-purple-400 sm:text-5xl text-center p-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-100 animate-pulse">
         Our Previous Sponsors
       </h1>
       {/* <div className="rounded bg-gradient-to-r from-black via-gray-900 p-4 w-full sm:w-[60%] text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 mx-auto">

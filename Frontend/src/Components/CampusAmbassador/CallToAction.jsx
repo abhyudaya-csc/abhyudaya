@@ -12,11 +12,11 @@ export default function CallToAction({ itemVariants }) {
         Don&apos;t miss your chance. Join the growing community of campus leaders across India.
       </p>
       <a
-        href="mailto:campus@abhyudaya.in"
+        href="mailto:abhyudaya.csc@gmail.com"
         className="inline-flex items-center gap-2 bg-white/5 border border-blue-400/30 text-blue-300 hover:text-blue-200 hover:border-blue-400/60 hover:bg-blue-500/10 transition-all duration-300 text-sm font-medium px-5 py-2.5 rounded-full"
       >
         <span>✉️</span>
-        campus@abhyudaya.in
+        abhyudaya.csc@gmail.com
       </a>
     </motion.div>
   );

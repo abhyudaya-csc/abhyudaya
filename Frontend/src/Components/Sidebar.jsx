@@ -1,3 +1,134 @@
+/*import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  FaCalendarCheck,
+  FaUserGraduate,
+  FaBars,
+  FaTimes,
+  FaUser,
+} from "react-icons/fa";
+import { GoSponsorTiers } from "react-icons/go";
+import { IoMdPhotos } from "react-icons/io";
+import { MdContactMail } from "react-icons/md";
+import { RiTeamFill } from "react-icons/ri";
+import AbhLogo from "../assets/Logo-images/Abhyudaya.png";
+
+const Sidebar = () => {
+  const location = useLocation(); // Get current route
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const navbarRef = useRef(null);
+  const [active, setActive] = useState(location.pathname); // Store active tab
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    setActive(location.pathname); // Update active tab on route change
+  }, [location.pathname]);
+
+  const navItems = [
+    { id: "profile", icon: <FaUser size={20} color="white"/>, label: "Profile", path: "/profile" },
+    { id: "gallery", icon: <IoMdPhotos size={20} color="white"/>, label: "Gallery", path: "/gallery" },
+    { id: "event", icon: <FaCalendarCheck size={20} color="white"/>, label: "Event", path: "/events" },
+    { id: "sponsors", icon: <GoSponsorTiers size={25} color="white"/>, label: "Our Sponsors", path: "/Sponsors" },
+    { id: "campus-ambassador", icon: <FaUserGraduate size={20} color="white"/>, label: "Campus Ambassador", path: "/campus-ambassador" },
+    { id: "contact", icon: <MdContactMail size={20} color="white"/>, label: "Contact Us", path: "/contact" },
+    { id: "team", icon: <RiTeamFill size={20} color="white"/>, label: "About us", path: "/about" },
+  ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  return (
+    <>
+      
+      <nav
+        ref={navbarRef}
+        className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-gray-900/40 border-b border-white/10"
+      >
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-12">
+            
+            <Link to="/" className="flex items-center">
+              <img src={AbhLogo} alt="Abh-Logo" width={32} height={32} />
+            </Link>
+
+            
+            <ul className="hidden md:flex items-center space-x-1">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-200 ${
+                      active === item.path
+                        ? "bg-white/30 text-white shadow-lg"
+                        : "text-white/90 hover:bg-white/20 hover:text-white"
+                    }`}
+                  >
+                    <span>{item.icon}</span>
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            
+            <button
+              className="md:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle navigation menu"
+            >
+              {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
+        </div>
+
+        
+        {isMobileMenuOpen && (
+          <div className="md:hidden backdrop-blur-md bg-gray-900/95 border-t border-white/10">
+            <ul className="px-4 py-4 space-y-2">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                      active === item.path
+                        ? "bg-white/30 text-white shadow-lg"
+                        : "text-white/90 hover:bg-white/20 hover:text-white"
+                    }`}
+                  >
+                    <span>{item.icon}</span>
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </nav>
+
+      
+      <div className="h-12" />
+    </>
+  );
+};
+
+export default Sidebar;*/
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -82,7 +213,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`sidebar overflow-y-auto fixed top-0 left-0 h-screen bg-gray-900 z-40 transition-all duration-300 ease-in-out ${
+        className={`sidebar overflow-y-auto fixed top-0 left-0 h-screen backdrop-blur-md bg-gray-900/40 border-b border-white/10 z-40 transition-all duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } ${isMobile ? "w-64" : "w-20 md:translate-x-0"}`}
       >

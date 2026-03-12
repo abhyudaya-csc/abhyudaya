@@ -123,3 +123,99 @@ export const AnimatedWhatsApp = ({ size = 26 }) => (
     </svg>
   </motion.div>
 );
+
+// Sleek LinkedIn icon with rotating gradient border + draw-on stroke
+export const AnimatedLinkedIn = ({ size = 26 }) => {
+  const id = "li-" + Math.random().toString(36).slice(2, 6);
+
+  return (
+    <motion.div
+      className="relative flex items-center justify-center cursor-pointer"
+      style={{ width: size + 8, height: size + 8 }}
+      whileHover={{ scale: 1.15 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      {/* Rotating gradient border */}
+      <motion.div
+        className="absolute inset-0 rounded-md"
+        style={{
+          background:
+            "conic-gradient(from 0deg, #0a66c2, #0e76a8, #0077b5, #0a66c2)",
+          padding: 2,
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          maskComposite: "exclude",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* SVG Icon */}
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        className="relative z-10"
+      >
+        <defs>
+          <linearGradient id={id} x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0a66c2" />
+            <stop offset="100%" stopColor="#0077b5" />
+          </linearGradient>
+        </defs>
+
+        {/* Square */}
+        <motion.rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          rx="4"
+          stroke={`url(#${id})`}
+          strokeWidth="1.6"
+          fill="rgba(10,102,194,0.08)"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        />
+
+        {/* "i" */}
+        <motion.rect
+          x="7"
+          y="10"
+          width="2"
+          height="7"
+          rx="1"
+          fill={`url(#${id})`}
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ delay: 0.7, duration: 0.4 }}
+          style={{ transformOrigin: "bottom" }}
+        />
+
+        {/* dot of i */}
+        <motion.circle
+          cx="8"
+          cy="7"
+          r="1"
+          fill={`url(#${id})`}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 1 }}
+        />
+
+        {/* "n" */}
+        <motion.path
+          d="M12 17v-7h2v1.1c.5-.7 1.4-1.3 2.6-1.3 2 0 3.4 1.3 3.4 3.9V17h-2v-3.9c0-1.3-.5-2.1-1.7-2.1-1 0-1.7.7-2 1.4-.1.2-.1.5-.1.8V17z"
+          fill={`url(#${id})`}
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+        />
+      </svg>
+    </motion.div>
+  );
+};

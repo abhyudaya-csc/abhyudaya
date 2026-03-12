@@ -1,0 +1,43 @@
+.star-border-container {
+  position: relative;
+  border-radius: 20px;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.15),
+    rgba(168, 85, 247, 0.3),
+    rgba(124, 58, 237, 0.15)
+  );
+  overflow: hidden;
+}
+
+.star-border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--star-color, #a855f7) 20deg,
+    transparent 40deg,
+    transparent 360deg
+  );
+  animation: star-spin var(--animation-speed, 6s) linear infinite;
+  opacity: 0.5;
+}
+
+.star-border-container:hover .star-border-glow {
+  opacity: 0.85;
+}
+
+.inner-content {
+  position: relative;
+  border-radius: 18.5px;
+  background: linear-gradient(145deg, #13131f, #1a1a2e);
+  z-index: 1;
+}
+
+@keyframes star-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
