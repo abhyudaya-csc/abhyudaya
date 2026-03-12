@@ -919,8 +919,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com ",
     InstaId: "_anrggg1",
-    Photo: "https://i.postimg.cc/8cGHz9Gq/Anurag-Gangwar.jpg",
-    PhotoCutout: "https://i.ibb.co/bMFvsSB2/Anurag-Gangwar.png",
+    Photo: "https://i.ibb.co/5Xqyw9zW/Anurag-Gangwar.png",
+    PhotoCutout: "https://i.ibb.co/Wv3mTg8c/Anurag-Gangwar-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -975,8 +975,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com",
     InstaId: "utkarsh.pandey18",
-    Photo: "https://i.postimg.cc/hjYnF8qz/Utkarsh-Pandey.jpg",
-    PhotoCutout: "https://i.ibb.co/gbfnBykf/Utkarsh-Pandey.png",
+    Photo: "https://i.ibb.co/dwr5VrfS/Uttkars-Pandey.jpg",
+    PhotoCutout: "https://i.ibb.co/nNB9S3B7/Uttkars-Pandey-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1185,8 +1185,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/nishant-kasana -05289537a",
     InstaId: "nish4nt_2412",
-    Photo: "https://i.ibb.co/xth8hmd2/Nishant-Kasana.jpg",
-    PhotoCutout: "https://i.ibb.co/5g5dP48F/NK.png",
+    Photo: "https://i.ibb.co/BKZL0wc3/Nishant-Kasana.jpg",
+    PhotoCutout: "https://i.ibb.co/YFx5s93R/Nishant-Kasana-removebg-preview.png",
   },
     {
     Position: "Executive member ",
@@ -1416,8 +1416,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/abhay-gautam-8ab977324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "_abhay_gautam778",
-     Photo: "https://i.ibb.co/0pRgGXXJ/Abhay-Gautam.jpg",
-    PhotoCutout: "https://i.ibb.co/zH5y7xLt/AGU.png",
+     Photo: "https://i.ibb.co/3YCZhzqr/Whats-App-Image-2026-03-13-at-00-40-05.jpg",
+    PhotoCutout: "https://i.ibb.co/ZRwyPBMc/Screenshot-2026-03-13-012219-removebg-preview.png",
   },
   {
     Position: "Executive member ",
