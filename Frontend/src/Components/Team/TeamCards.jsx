@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
@@ -6,35 +6,42 @@ function TeamCards({ member, onClick }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth < 768);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
+    const media = window.matchMedia("(max-width: 768px)");
+    const handleChange = () => setIsMobile(media.matches);
+
+    handleChange();
+    media.addEventListener("change", handleChange);
+
+    return () => media.removeEventListener("change", handleChange);
   }, []);
 
   return (
     <motion.div
       className="w-full max-w-xs mx-auto cursor-pointer group"
       onClick={onClick}
-      whileHover={!isMobile ? "hover" : ""}
+      whileHover={!isMobile ? "hover" : undefined}
       initial="rest"
-      animate="rest"
+      animate={isMobile ? "hover" : "rest"}
     >
       <div className="relative aspect-[3/4] rounded-3xl shadow-xl overflow-visible">
+        
         {/* Inner wrapper */}
         <div className="absolute inset-0 rounded-3xl overflow-hidden">
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 will-change-transform"
             variants={{
               rest: { scale: 1 },
               hover: { scale: 1.05 }
             }}
             transition={{ type: "spring", stiffness: 120, damping: 18 }}
           >
+
             {/* Background Image */}
             <motion.img
               src={member.Photo}
               alt=""
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 rounded-3xl w-full h-full object-cover"
               variants={{
                 rest: { filter: "blur(0px) brightness(1)" },
@@ -47,7 +54,9 @@ function TeamCards({ member, onClick }) {
             <motion.img
               src={member.PhotoCutout}
               alt={member.Name}
-              className="absolute inset-0 rounded-3xl w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 rounded-3xl w-full h-full object-cover will-change-transform"
               variants={{
                 rest: { y: 0 },
                 hover: { y: -12 }
@@ -64,12 +73,13 @@ function TeamCards({ member, onClick }) {
         <motion.div
           className="absolute bottom-0 w-full p-5"
           variants={{
-            rest: { opacity: 0, y: 20 },
+            rest: { opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 20 },
             hover: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.35 }}
         >
           <h3 className="text-white font-bold text-lg">{member.Name}</h3>
+
           <p className="bg-yellow-400/80 text-black text-sm font-semibold px-3 py-1 rounded-md mb-3 inline-block">
             {member.Position}
           </p>
@@ -86,6 +96,7 @@ function TeamCards({ member, onClick }) {
                 <FaLinkedin size={16} />
               </a>
             )}
+
             {member.InstaId && (
               <a
                 href={`https://www.instagram.com/${member.InstaId}`}
@@ -99,9 +110,10 @@ function TeamCards({ member, onClick }) {
             )}
           </div>
         </motion.div>
+
       </div>
     </motion.div>
   );
 }
 
-export default TeamCards;
+export default memo(TeamCards);
