@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import authBg from "../../assets/Landing/authBg.jpg";
 import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
+import api from "../../api/axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../Redux/UserSlice";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +17,8 @@ function SignUpForm() {
     phone: "",
     referral: "",
   });
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -46,13 +51,28 @@ function SignUpForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log(formData);
-      // Submit form
-    }
-  };
+ 
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateForm()) return;
+  try {
+    const res = await api.post(`${import.meta.env.VITE_BACKEND_API_URL}/users`, {
+      fullName: formData.name,
+      email: formData.email,
+      password: formData.password,
+      institution: formData.institute,
+      phoneNumber: formData.phone,
+      referallId: formData.referral,
+      // gender: "Other", 
+      // course: "Others"
+    });
+    dispatch(setUser(res.data.data));
+    navigate("/SignInForm");
+  } catch (err) {
+    console.log(err);
+    alert(err.response?.data?.message || "Registration failed");
+  }
+};
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">

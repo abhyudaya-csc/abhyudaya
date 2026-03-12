@@ -3,21 +3,34 @@ import { Check, Copy, LogOut } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/UserSlice";
 
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
   const [copied, setCopied] = useState(false);
   const dispatch = useDispatch();
 
-  
   const handleCopy = () => {
     navigator.clipboard.writeText(user.ABH_ID);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logout());
-    window.location.reload();
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_API_URL}/users/logout`,
+        {},
+        { withCredentials: true },
+      );
+    } catch (err) {
+      console.log("Logout API failed, clearing frontend state anyway");
+    }
+
+    dispatch(logout()); // clear redux
+    navigate("/"); 
   };
 
   // const dob = new Date(user.dob).toLocaleDateString("en-US", {
@@ -47,7 +60,7 @@ const ProfileInfo = () => {
             <button
               onClick={handleCopy}
               className="bg-white/10 p-1 sm:p-2 rounded-md text-white hover:bg-white/20 transition"
-              >
+            >
               {copied ? (
                 <Check className="w-4 h-4 text-green-400" />
               ) : (
@@ -55,7 +68,9 @@ const ProfileInfo = () => {
               )}
             </button>
           </div>
-              <p className="text-xs font-semibold text-gray-400">Remember your ABH_ID for further usage.</p>
+          <p className="text-xs font-semibold text-gray-400">
+            Remember your ABH_ID for further usage.
+          </p>
         </div>
       </div>
 
