@@ -1,153 +1,186 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaEnvelope,
   FaPhone,
+  FaYoutube,
 } from "react-icons/fa";
+import StarBorder from "./StarBorder";
+import "./Footer.css";
 
-const Footer = () => {
+const contacts = [
+  {
+    name: "Shivam Rai",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-9151603350",
+    role: "Cultural Secretary",
+    photo:
+      "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
+  },
+  {
+    name: "Richa Mishra",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-7007035985",
+    role: "Co-Convener",
+    photo: "https://i.postimg.cc/VkfHn917/Richa-Mishra.jpg",
+  },
+  // {
+  //   name: "Aastha Singh",
+  //   email: "abhyudaya.mmmut@gmail.com",
+  //   phone: "+91-7754825697",
+  //   role: "Sponsorship Head",
+  //   photo: "https://i.postimg.cc/NjdPPstL/Aastha-Singh.jpg",
+  // },
+  // {
+  //   name: "Jayant Singh",
+  //   email: "abhyudaya.mmmut@gmail.com",
+  //   phone: "+91-9696148767",
+  //   role: "Public Relations Head",
+  //   photo: "https://i.postimg.cc/8ck63SNP/Jayant-Singh.jpg",
+  // },
+  {
+    name: "Divyansh Gupta",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-8318883708",
+    role: "Design Lead",
+    photo:
+      "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
+  },
+  {
+    name: "Vivek Mani Tripathi",
+    email: "abhyudaya.mmmut@gmail.com",
+    phone: "+91-9341239691",
+    role: "Technical Lead",
+    photo: "https://i.postimg.cc/5t09Z2Fr/VMT.jpg",
+  },
+];
+const leftContacts = contacts.slice(0, 3);
+const rightContacts = contacts.slice(3, 6);
 
-  const [iconSize] = useState(20);
+const socialLinks = [
+  {
+    href: "https://www.facebook.com/abhyudaya.mmmut/",
+    icon: FaFacebookF,
+    label: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/abhyudaya.mmmut",
+    icon: FaInstagram,
+    label: "Instagram",
+  },
+  { href: "https://www.linkedin.com", icon: FaLinkedinIn, label: "LinkedIn" },
+  {
+    href: "https://www.youtube.com/@abhyudayammmut",
+    icon: FaYoutube,
+    label: "YouTube",
+  },
+  { href: "mailto:abhyudayammmut@gmail.com", icon: FaEnvelope, label: "Email" },
+];
 
-  const contacts = [
-    {
-      name: "Aryan Singh",
-      email: "abhyudaya.mmmut@gmail.com",
-      phone: "+91-9369756579",
-      role: "Cultural Secretary",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
-    },
-    {
-      name: "Arsh Singh",
-      email: "abhyudaya.mmmut@gmail.com",
-      phone: "+91-7317439179",
-      role: "Sponsorship Head",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
-    },
-    {
-      name: "Satish Kumar",
-      email: "abhyudaya.mmmut@gmail.com",
-      phone: "+1234567897",
-      role: "Public Relations Head",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
-    },
-    {
-      name: "Pritish Tomar",
-      email: "abhyudaya.mmmut@gmail.com",
-      phone: "+919520405332",
-      role: "Technical Lead",
-      photo: "https://i.postimg.cc/gkDMnzn4/Amar-Yadav.jpg",
-    },
-  ];
-
-  const leftContacts = contacts.slice(0, 2);
-  const rightContacts = contacts.slice(2, 4);
-
-  const ContactCard = ({ person }) => (
-    <div className="relative group w-[220px] h-[100px] flex justify-center">
-
-      <img
-        src="/fold.png"
-        alt="folder"
-        className="absolute bottom-0 w-[220px] h-[110px] object-contain z-20"
-      />
-
-      <div className="absolute bottom-6 w-[220px] text-center z-30">
-
-        <p className="text-xs font-semibold text-black">
-          {person.name}
-        </p>
-
-        <p className="text-[11px] text-black">
-          {person.role}
-        </p>
-
-        <div className="flex justify-center gap-3 mt-1 text-black">
-          <a href={`mailto:${person.email}`}>
-            <FaEnvelope size={iconSize}/>
-          </a>
-
-          <a href={`tel:${person.phone}`}>
-            <FaPhone size={iconSize}/>
-          </a>
-        </div>
-
+const ContactCard = ({ person }) => (
+  <StarBorder color="#a855f7" speed="4s" className="footer-star-wrap">
+    <div className="footer-card">
+      <div className="footer-card__image-wrapper">
+        <img
+          src={person.photo}
+          alt={person.name}
+          className="footer-card__image"
+        />
       </div>
-
+      <h4 className="footer-card__name">{person.name}</h4>
+      <p className="footer-card__role">{person.role}</p>
+      <div className="footer-card__actions">
+        <a
+          href={`mailto:${person.email}`}
+          className="footer-card__action-btn"
+          aria-label={`Email ${person.name}`}
+        >
+          <FaEnvelope size={14} />
+          <span>Email</span>
+        </a>
+        <a
+          href={`tel:${person.phone}`}
+          className="footer-card__action-btn"
+          aria-label={`Call ${person.name}`}
+        >
+          <FaPhone size={14} />
+          <span>Call</span>
+        </a>
+      </div>
     </div>
-  );
+  </StarBorder>
+);
 
-  return (
-    <footer className="bg-gray-900 text-white pt-2 pb-2 px-4 ml-[80px]">
+const Footer = () => (
+  <footer className="footer">
+    {/* Decorative top edge */}
+    <div className="footer__top-edge" />
 
-      {/* TOP ROW */}
-      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
+    {/* Main Content: Cards + Video row on desktop */}
+    <section className="footer__section">
+      <h3 className="footer__heading">Get In Touch</h3>
 
-        {/* LEFT */}
-        <div className="flex justify-center gap-4">
-          {leftContacts.map((p,i)=>
-            <ContactCard key={i} person={p}/>
-          )}
+      <div className="footer__hero-row">
+        {/* Left 2 cards */}
+        <div className="footer__cards-col">
+          {leftContacts.map((person, i) => (
+            <ContactCard key={i} person={person} />
+          ))}
         </div>
 
-        {/* VIDEO */}
-        <div className="flex justify-center">
-          <iframe
-            src="https://www.youtube.com/embed/ziAZfHGa270"
-            className="w-full max-w-[320px] md:w-[260px] h-[180px] md:h-[90px] rounded-lg"
-            allowFullScreen
-            title="Abhyudaya Video"
-          />
+        {/* Center video */}
+        <div className="footer__video-col">
+          <p className="footer__video-label">Our Aftermovie</p>
+          <div className="footer__video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/ziAZfHGa270"
+              allowFullScreen
+              loading="lazy"
+              title="Abhyudaya Aftermovie"
+              className="footer__video"
+            />
+          </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="flex justify-center gap-4">
-          {rightContacts.map((p,i)=>
-            <ContactCard key={i} person={p}/>
-          )}
+        {/* Right 2 cards */}
+        <div className="footer__cards-col">
+          {rightContacts.map((person, i) => (
+            <ContactCard key={i + 2} person={person} />
+          ))}
         </div>
+      </div>
+    </section>
 
+    {/* Bottom Bar */}
+    <div className="footer__bottom">
+      <div className="footer__socials">
+        {socialLinks.map(({ href, icon: Icon, label }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social-icon"
+            aria-label={label}
+          >
+            <Icon size={18} />
+          </a>
+        ))}
       </div>
 
-      {/* SOCIAL */}
-      <div className="flex flex-col md:flex-row justify-between items-center mt-2 pt-2 border-t border-white/20 text-sm gap-3">
-
-        <div className="flex space-x-4">
-
-          <a href="https://www.facebook.com/abhyudaya.mmmut/">
-            <FaFacebookF size={iconSize}/>
-          </a>
-
-          <a href="https://www.instagram.com/abhyudaya.mmmut">
-            <FaInstagram size={iconSize}/>
-          </a>
-
-          <a href="https://www.linkedin.com">
-            <FaLinkedinIn size={iconSize}/>
-          </a>
-
-          <a href="mailto:abhyudayammmut@gmail.com">
-            <FaEnvelope size={iconSize}/>
-          </a>
-
-        </div>
-
-        <p>
-          Designed with ❤️ by
-          <span className="text-blue-400"> Abhyudaya</span>
+      <div className="footer__info">
+        <p className="footer__love">
+          Designed with <span className="footer__heart">❤️</span> by{" "}
+          <span className="footer__brand">Abhyudaya</span>
         </p>
-
-        <div className="text-center md:text-right">
-          <p>© {new Date().getFullYear()} Abhyudaya MMMUT</p>
-          <p>An Enchanted Escaped</p>
-        </div>
-
+        <p className="footer__copy">
+          © {new Date().getFullYear()} Abhyudaya - MMMUT | An Enchanted Escaped
+        </p>
       </div>
-
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default Footer;

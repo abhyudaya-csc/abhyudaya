@@ -1,169 +1,90 @@
-import { CalendarDays, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Abhyudaya from "../../assets/Logo-images/Abhyudaya-combined.png";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
-const Fireflies = () => {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(30)].map((_, i) => {
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
-        const animationDuration = 5 + Math.random() * 10;
-        const animationDelay = Math.random() * 5;
-
-        return (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-200 rounded-full firefly"
-            style={{
-              top: `${top}%`,
-              left: `${left}%`,
-              animation: `float ${animationDuration}s ease-in-out infinite alternate`,
-              animationDelay: `${animationDelay}s`,
-              boxShadow: '0 0 12px 3px rgba(253, 224, 71, 0.5)',
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-};
+import { Link } from "react-router-dom";
 
 export default function Hero2Section() {
-  const user = useSelector((state) => state.user);
-
   return (
-    <section className="scene-content relative w-full min-h-[100dvh] pb-16 pt-8 flex flex-col items-center justify-center font-sans text-white select-none overflow-hidden">
-      
+    <section className="scene-content relative flex min-h-dvh w-full select-none flex-col items-center justify-center overflow-hidden px-4 pb-16 pt-8 font-sans text-white sm:px-6 lg:px-8">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
 
-          @keyframes float {
-            0% { transform: translateY(0px) translateX(0px); opacity: 0.1; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-80px) translateX(30px); opacity: 0; }
-          }
-
           .font-cinzel { font-family: 'Cinzel Decorative', serif; }
           
-          .text-shadow-magic {
+          .theme-title-shadow {
             text-shadow: 
-              0 4px 24px rgba(0,0,0,0.9), 
-              0 0 40px rgba(0,0,0,0.8),
-              0 2px 4px rgba(0,0,0,1);
+              0 8px 30px rgba(0, 0, 0, 0.6),
+              0 2px 4px rgba(0, 0, 0, 0.75);
+          }
+
+          .theme-copy-shadow {
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
           }
         `}
       </style>
 
-      {/* Floating Fireflies Effect */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Fireflies />
-      </div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_28%),radial-gradient(circle_at_top,rgba(82,63,126,0.22),transparent_30%),linear-gradient(180deg,rgba(7,6,18,0.12)_0%,rgba(6,6,14,0.38)_35%,rgba(4,4,10,0.72)_70%,rgba(5,5,10,0.84)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[38vh] bg-[linear-gradient(180deg,rgba(7,7,12,0)_0%,rgba(5,5,10,0.5)_22%,rgba(5,5,10,0.86)_100%)]" />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
-        className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center justify-center text-center px-4 sm:px-6 flex-grow"
+        className="relative z-10 mx-auto flex w-full max-w-5xl grow flex-col items-center justify-center text-center"
       >
-        {/* Background glows from incoming branch */}
-        <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-amber-300/20 blur-3xl" />
-        <div className="pointer-events-none absolute -right-20 bottom-10 h-64 w-64 rounded-full bg-fuchsia-400/20 blur-3xl" />
-        
-        {/* Main Titles */}
-        <div className="mb-6 sm:mb-8 mt-2 sm:mt-4 flex flex-col items-center">
-          <img
-            src={Abhyudaya}
-            alt="Abhyudaya logo"
-            className="w-full max-w-[280px] sm:max-w-[400px] mb-4 sm:mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-          />
-          <div className="inline-block px-5 sm:px-8 py-2 sm:py-3 bg-white/80 backdrop-blur-md border border-white/40 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-black font-enchanted tracking-widest drop-shadow-sm">
+        <div className="relative w-full max-w-4xl overflow-hidden rounded-[2.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,13,24,0.06)_0%,rgba(11,10,19,0.32)_24%,rgba(8,8,14,0.66)_56%,rgba(5,5,10,0.82)_100%)] px-4 py-7 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-6 sm:py-8 lg:px-8 lg:py-9">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_42%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/40 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-10 bottom-0 h-24 rounded-full bg-[radial-gradient(circle,rgba(84,71,132,0.18),transparent_62%)] blur-3xl" />
+
+          <div className="relative z-10 flex flex-col items-center">
+            <img
+              src={Abhyudaya}
+              alt="Abhyudaya logo"
+              className="w-full max-w-52 opacity-95 drop-shadow-[0_8px_32px_rgba(255,255,255,0.2)] sm:max-w-72 lg:max-w-84"
+            />
+
+            <h2 className="theme-title-shadow mt-3 max-w-4xl font-enchanted text-[2.2rem] leading-[0.9] tracking-[0.14em] text-white sm:mt-4 sm:text-[3.45rem] md:text-[4.4rem] lg:text-[5.1rem]">
               An Enchanted Escapade
             </h2>
+
+            <div className="theme-copy-shadow mt-5 flex w-full max-w-4xl flex-col items-center gap-5 px-1 text-center sm:mt-7 sm:px-3 lg:mt-8">
+              <p className="max-w-3xl text-[0.95rem] font-light leading-relaxed text-white/88 sm:text-[1.02rem] lg:text-[1.18rem]">
+                Step into a vibrant celebration where India&apos;s timeless
+                heritage meets modern style.
+              </p>
+
+              <p className="max-w-4xl text-[0.9rem] font-light leading-[1.85] text-white/82 sm:text-[0.98rem] lg:text-[1.12rem]">
+                Abhyudaya,{" "}
+                <span className="font-enchanted text-base tracking-[0.18em] text-white sm:text-[1.45rem]">
+                  AN ENCHANTED ESCAPADE
+                </span>{" "}
+                is a kaleidoscopic fusion of tradition and innovation, where
+                ancient rhythms, contemporary beats, and vibrant colors come
+                alive.
+              </p>
+
+              <p className="max-w-3xl text-[0.9rem] font-light leading-relaxed text-white/84 sm:text-[0.98rem] lg:text-[1.1rem]">
+                Join us on this mesmerizing journey of discovery and creativity.
+              </p>
+            </div>
+
+            <div className="mt-7 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:mt-10">
+              <Link
+                to="/SignInForm"
+                className="inline-flex min-h-14 w-fit self-center items-center justify-center rounded-3xl border border-[#e5d7b5]/35 bg-[linear-gradient(180deg,rgba(229,215,181,0.2)_0%,rgba(167,139,82,0.16)_100%)] px-5 py-2.5 text-center shadow-[0_0_22px_rgba(229,215,181,0.28),0_18px_40px_rgba(0,0,0,0.34)] backdrop-blur-xl transition duration-300 hover:border-[#e5d7b5]/60 hover:bg-[linear-gradient(180deg,rgba(229,215,181,0.3)_0%,rgba(167,139,82,0.22)_100%)] hover:shadow-[0_0_38px_rgba(229,215,181,0.55),0_20px_44px_rgba(0,0,0,0.4)]"
+              >
+                <span className="font-enchanted text-[0.95rem] tracking-[0.12em] text-[#f3e9cf] drop-shadow-[0_0_10px_rgba(243,233,207,0.65)] sm:text-[1.05rem]">
+                  Register Now
+                </span>
+              </Link>
+
+              
+            </div>
           </div>
         </div>
-
-        {/* Text Description Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full text-left mb-8 block max-w-5xl mx-auto">
-          
-          {/* Card 1 */}
-          <div className="bg-black/60 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-[1.5rem] shadow-2xl hover:bg-black/70 transition-all duration-300 hover:-translate-y-1 group">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-4 border border-white/10 group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5 text-yellow-200/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-            <p className="text-sm sm:text-[15px] font-light text-gray-200 leading-relaxed">
-              Step into a vibrant celebration where India's timeless heritage meets modern style.
-            </p>
-          </div>
-          
-          {/* Card 2 (Highlight Card) */}
-          <div className="bg-black/60 backdrop-blur-md border border-[#d8b4e2]/30 p-5 sm:p-6 rounded-[1.5rem] shadow-2xl hover:bg-black/70 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#d8b4e2]/50 to-transparent"></div>
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-4 border border-[#d8b4e2]/30 group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5 text-[#d8b4e2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
-              </svg>
-            </div>
-            <p className="text-sm sm:text-[15px] font-light text-gray-200 leading-relaxed">
-              Abhyudaya, <span className="font-enchanted font-bold text-black bg-white/80 px-2 py-0.5 rounded-sm mx-1 tracking-widest drop-shadow-sm shadow-[0_0_10px_rgba(255,255,255,0.5)]">AN ENCHANTED ESCAPADE</span> is a kaleidoscopic fusion of tradition and innovation, where ancient rhythms and contemporary beats come alive.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-black/60 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-[1.5rem] shadow-2xl hover:bg-black/70 transition-all duration-300 hover:-translate-y-1 group">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-4 border border-white/10 group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5 text-blue-200/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <p className="text-sm sm:text-[15px] font-light text-gray-200 leading-relaxed">
-              Join us on this mesmerizing journey of discovery and creativity! Experience the magic firsthand.
-            </p>
-          </div>
-          
-        </div>
-
-        {/* Bottom Info Cards & Registration */}
-        <div className="relative z-10 w-full px-2 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-auto">
-          
-          <div className="flex items-center gap-3 px-4 py-3 bg-black/60 backdrop-blur-lg border border-white/10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] min-w-[220px]">
-             <div className="p-1.5 bg-white/5 rounded pl-2">
-                 <CalendarDays className="h-4 w-4 text-amber-100" />
-             </div>
-             <div className="text-left">
-               <p className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest font-semibold mb-0">Dates</p>
-               <p className="text-sm font-medium text-white tracking-wide">4 Apr - 6 Apr, 2025</p>
-             </div>
-          </div>
-
-          <div className="flex items-center gap-3 px-4 py-3 bg-black/60 backdrop-blur-lg border border-white/10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] min-w-[220px]">
-            <div className="p-1.5 bg-white/5 rounded pl-2">
-              <MapPin className="h-4 w-4 text-amber-100" />
-            </div>
-            <div className="text-left">
-              <p className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest font-semibold mb-0">Venue</p>
-              <p className="text-sm font-medium text-white tracking-wide">MMMUT, Gorakhpur</p>
-            </div>
-          </div>
-
-          {!user && (
-            <Link
-              to="/profile"
-              className="rounded-full bg-linear-to-r from-amber-200 to-rose-200 px-6 py-3 text-sm font-bold tracking-widest uppercase text-gray-900 shadow-[0_0_20px_rgba(253,224,71,0.3)] transition-all duration-300 hover:scale-105 hover:from-rose-300 hover:to-amber-300 mx-2"
-            >
-              Register Now
-            </Link>
-          )}
-
-        </div>
-
       </motion.div>
     </section>
   );

@@ -4,7 +4,7 @@ import artistsData from './Artist';
 
 const EditorialArtistCard = ({ artistName, bio, imageUrl, tags, trackName }) => {
   return (
-    <div className="relative flex-none w-[85vw] sm:w-[320px] h-[400px] sm:h-[480px] rounded-[2rem] overflow-hidden group snap-center cursor-pointer shadow-2xl">
+    <div className="relative flex-none w-[85vw] sm:w-[320px] h-[400px] sm:h-[480px] rounded-[2rem] overflow-hidden group snap-center cursor-pointer shadow-2xl ">
       
       {/* Background Image */}
       <img
@@ -16,7 +16,7 @@ const EditorialArtistCard = ({ artistName, bio, imageUrl, tags, trackName }) => 
       
       {/* Vignette Overlays for readability */}
       <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/90"></div>
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       {/* Top Tag */}
       {tags && tags.length > 0 && (

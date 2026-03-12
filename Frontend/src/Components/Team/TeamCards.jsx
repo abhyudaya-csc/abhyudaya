@@ -1,80 +1,116 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
-function TeamCards({ member, isActive, onClick }) {
+function TeamCards({ member, onClick }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const cardRef = useRef(null);
+
+  // Intersection Observer for sliding window loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "100px",
+        threshold: 0.1,
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
     checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const hoverScale = !isMobile ? "group-hover:scale-105" : "";
-  const activeScale = isMobile && isActive ? "scale-105" : "";
-
-  const bgEffect = !isMobile
-    ? "group-hover:scale-110 group-hover:blur-xl group-hover:brightness-75 group-hover:opacity-0"
-    : isActive
-    ? "scale-110 blur-xl brightness-75 opacity-0"
-    : "";
-
-  const cutoutEffect = !isMobile
-    ? "group-hover:scale-110 group-hover:-translate-y-6 group-hover:drop-shadow-[0_40px_70px_rgba(0,0,0,0.7)]"
-    : isActive
-    ? "scale-110 -translate-y-6 drop-shadow-[0_40px_70px_rgba(0,0,0,0.7)]"
-    : "";
-
-  const overlayEffect = !isMobile
-    ? "opacity-0 group-hover:opacity-100"
-    : isActive
-    ? "opacity-100"
-    : "opacity-0";
-
-  const infoEffect = !isMobile
-    ? "opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0"
-    : isActive
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-6";
-
   return (
-    <div
-      className="w-full max-w-xs mx-auto group cursor-pointer relative z-0 hover:z-30 transition-all duration-300"
+    <motion.div
+      ref={cardRef}
+      className="w-full max-w-xs mx-auto cursor-pointer group"
       onClick={onClick}
+      whileHover={!isMobile ? "hover" : ""}
+      initial="rest"
+      animate="rest"
     >
-      <div
-        className={`relative aspect-[3/4] rounded-3xl shadow-xl transition-all duration-500 overflow-visible hover:-translate-y-2 ${hoverScale} ${activeScale}`}
-      >
+      <div className="relative aspect-[3/4] rounded-3xl shadow-xl overflow-visible">
+        {/* Skeleton Loader */}
+        {(!isVisible || !imageLoaded) && (
+          <div className="absolute inset-0 bg-gray-700 rounded-3xl animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 rounded-3xl animate-shimmer" />
+          </div>
+        )}
 
-        {/* Background Image */}
-        <img
-          src={member.Photo}
-          alt=""
-          className={`absolute inset-0 w-full h-full object-cover rounded-3xl transition-all duration-700 ${bgEffect}`}
-        />
+        {/* Inner wrapper */}
+        {isVisible && (
+          <div className="absolute inset-0 rounded-3xl overflow-hidden">
+            <motion.div
+              className="absolute inset-0"
+              variants={{
+                rest: { scale: 1 },
+                hover: { scale: 1.05 },
+              }}
+              transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            >
+              {/* Background Image */}
+              <motion.img
+                src={member.Photo}
+                alt=""
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+                className={`absolute inset-0 rounded-3xl w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                variants={{
+                  rest: { filter: "blur(0px) brightness(1)" },
+                  hover: { filter: "blur(6px) brightness(0.7)" },
+                }}
+                transition={{ duration: 0.4 }}
+              />
 
-        {/* Cutout Image */}
-        <img
-  src={member.PhotoCutout}
-  alt={member.Name}
-  className={`absolute inset-0 w-full h-full object-cover rounded-3xl transition-all duration-700 ${cutoutEffect} z-0`}
-/>
+              {/* Cutout Image */}
+              {member.PhotoCutout && (
+                <motion.img
+                  src={member.PhotoCutout}
+                  alt={member.Name}
+                  loading="lazy"
+                  className={`absolute inset-0 rounded-3xl w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                  variants={{
+                    rest: { y: 0 },
+                    hover: { y: -12 },
+                  }}
+                  transition={{ type: "spring", stiffness: 120, damping: 18 }}
+                />
+              )}
+            </motion.div>
+          </div>
+        )}
 
-       
+        {/* Gradient */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
         {/* Info Section */}
-        <div
-          className={`absolute bottom-0 w-full p-5 transition-all duration-500 ${infoEffect}`}
+        <motion.div
+          className="absolute bottom-0 w-full p-5"
+          variants={{
+            rest: { opacity: 0, y: 20 },
+            hover: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.35 }}
         >
-          <h3 className="text-white font-bold text-lg">
-            {member.Name}
-          </h3>
-
-          <p className="text-gray-300 text-sm mb-3">
+          <h3 className="text-white font-bold text-lg">{member.Name}</h3>
+          <p className="bg-yellow-400/80 text-black text-sm font-semibold px-3 py-1 rounded-md mb-3 inline-block">
             {member.Position}
           </p>
 
@@ -85,28 +121,26 @@ function TeamCards({ member, isActive, onClick }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-white hover:text-blue-400 transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center w-9 h-9 bg-white/90 text-blue-600 rounded-full shadow-md hover:scale-110 transition-transform duration-300"
               >
-                <FaLinkedin size={18} />
+                <FaLinkedin size={16} />
               </a>
             )}
-
             {member.InstaId && (
               <a
                 href={`https://www.instagram.com/${member.InstaId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-white hover:text-pink-400 transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center w-9 h-9 bg-white/90 text-pink-500 rounded-full shadow-md hover:scale-110 transition-transform duration-300"
               >
-                <FaInstagram size={18} />
+                <FaInstagram size={16} />
               </a>
             )}
           </div>
-        </div>
-
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

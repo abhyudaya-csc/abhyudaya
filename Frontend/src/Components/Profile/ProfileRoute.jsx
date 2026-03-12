@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ProfileCard from "./ProfileCard";
 
 
 function ProfileRoute() {
