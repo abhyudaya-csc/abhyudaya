@@ -58,7 +58,7 @@ const Members = () => {
 
         {/* Sub-Leader Cards */}
         <div className="flex justify-center mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 ml-0 gap-20 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12">
             {subleaderData.map((leader, index) => (
               <SubLeaderCard key={index} faculty={leader} />
             ))}
@@ -68,7 +68,7 @@ const Members = () => {
         <div className="border mt-8"></div>
 
         {/* Team Section */}
-        <h2 className="text-3xl md:text-5xl mt-24 h-full font-bold text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
+        <h2 className="text-3xl md:text-5xl mt-24 font-bold text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
           Team Abhyudaya
         </h2>
 

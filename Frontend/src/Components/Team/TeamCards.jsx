@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function TeamCards({ member, onClick }) {
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,26 +20,17 @@ function TeamCards({ member, onClick }) {
       initial="rest"
       animate="rest"
     >
-
       <div className="relative aspect-[3/4] rounded-3xl shadow-xl overflow-visible">
-
-        {/* Inner wrapper to prevent grey overflow */}
+        {/* Inner wrapper */}
         <div className="absolute inset-0 rounded-3xl overflow-hidden">
-
-          {/* Portrait container */}
           <motion.div
             className="absolute inset-0"
             variants={{
               rest: { scale: 1 },
               hover: { scale: 1.05 }
             }}
-            transition={{
-              type: "spring",
-              stiffness: 120,
-              damping: 18
-            }}
+            transition={{ type: "spring", stiffness: 120, damping: 18 }}
           >
-
             {/* Background Image */}
             <motion.img
               src={member.Photo}
@@ -62,18 +52,12 @@ function TeamCards({ member, onClick }) {
                 rest: { y: 0 },
                 hover: { y: -12 }
               }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 18
-              }}
+              transition={{ type: "spring", stiffness: 120, damping: 18 }}
             />
-
           </motion.div>
-
         </div>
 
-        {/* Gradient for readability */}
+        {/* Gradient */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
         {/* Info Section */}
@@ -85,17 +69,12 @@ function TeamCards({ member, onClick }) {
           }}
           transition={{ duration: 0.35 }}
         >
-
-          <h3 className="text-white font-bold text-lg drop-shadow-[0px]">
-            {member.Name}
-          </h3>
-
-          <p className="bg-yellow-400/80 text-black text-sm font-semibold px-3 py-1 rounded-md mb-3 shadow-sm inline-block">
+          <h3 className="text-white font-bold text-lg">{member.Name}</h3>
+          <p className="bg-yellow-400/80 text-black text-sm font-semibold px-3 py-1 rounded-md mb-3 inline-block">
             {member.Position}
           </p>
 
           <div className="flex gap-4">
-
             {member.LinkedInId && (
               <a
                 href={member.LinkedInId}
@@ -104,10 +83,9 @@ function TeamCards({ member, onClick }) {
                 onClick={(e) => e.stopPropagation()}
                 className="flex items-center justify-center w-9 h-9 bg-white/90 text-blue-600 rounded-full shadow-md hover:scale-110 transition-transform duration-300"
               >
-                <FaLinkedin size={18} />
+                <FaLinkedin size={16} />
               </a>
             )}
-
             {member.InstaId && (
               <a
                 href={`https://www.instagram.com/${member.InstaId}`}
@@ -116,16 +94,12 @@ function TeamCards({ member, onClick }) {
                 onClick={(e) => e.stopPropagation()}
                 className="flex items-center justify-center w-9 h-9 bg-white/90 text-pink-500 rounded-full shadow-md hover:scale-110 transition-transform duration-300"
               >
-                <FaInstagram size={18} />
+                <FaInstagram size={16} />
               </a>
             )}
-
           </div>
-
         </motion.div>
-
       </div>
-
     </motion.div>
   );
 }
