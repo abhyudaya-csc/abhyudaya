@@ -49,6 +49,20 @@ html {
   background: #6d28d9;
 }
 
+/* Shimmer animation for skeleton loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
 /* Add pulse animation for the register button */
 @keyframes pulse-border {
   0% {
