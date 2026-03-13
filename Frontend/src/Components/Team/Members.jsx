@@ -13,6 +13,9 @@ const Members = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // NEW: active card state
+  const [activeCard, setActiveCard] = useState(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -24,9 +27,15 @@ const Members = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Handle card click
+  const handleCardClick = (id) => {
+    setActiveCard((prev) => (prev === id ? null : id));
+  };
+
   return (
     <div className="min-h-screen bg-[#120c0f]">
-      {/* MMMUT Logo - Top Right Corner */}
+
+      {/* MMMUT Logo */}
       <div className="absolute top-4 right-4 z-50">
         <img
           src={MmmutLogo}
@@ -35,7 +44,7 @@ const Members = () => {
         />
       </div>
 
-      {/* Background Abhyudaya Logo */}
+      {/* Background Logo */}
       <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center pointer-events-none">
         <img
           src={Abhyudaya}
@@ -45,18 +54,20 @@ const Members = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-12">
+
+        {/* Title */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
             About Us
           </h1>
         </div>
 
-        {/* Leader Card */}
+        {/* Leader */}
         <div className="flex justify-center">
           <LeaderCard member={leaderData} />
         </div>
 
-        {/* Sub-Leader Cards */}
+        {/* Sub Leaders */}
         <div className="flex justify-center mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12">
             {subleaderData.map((leader, index) => (
@@ -67,11 +78,12 @@ const Members = () => {
 
         <div className="border mt-8"></div>
 
-        {/* Team Section */}
+        {/* Team Title */}
         <h2 className="text-3xl md:text-5xl mt-24 font-bold text-center mb-24 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-pulse">
           Team Abhyudaya
         </h2>
 
+        {/* Team Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
           {teamsData.map((person, index) => (
             <div
@@ -79,10 +91,15 @@ const Members = () => {
               className="animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <TeamCards member={person} />
+              <TeamCards
+                member={person}
+                isOpen={activeCard === index}
+                onClick={() => handleCardClick(index)}
+              />
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );
