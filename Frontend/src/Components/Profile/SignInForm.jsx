@@ -3,14 +3,33 @@ import { Link } from "react-router-dom";
 import authBg from "../../assets/Landing/authBg.jpg";
 import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
-
+import api from "../../api/axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../Redux/UserSlice";
+import { useNavigate } from "react-router-dom";
 function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
+
+    try {
+      const res = await api.post(`${import.meta.env.VITE_BACKEND_API_URL}/users/login`, {
+        email,
+        password,
+      },{
+          withCredentials: true, // This sends cookies to backend
+        });
+
+      dispatch(setUser(res.data.data));
+      navigate("/profile");
+
+    } catch (err) {
+      console.log(err);
+      alert(err.response?.data?.message || "Login failed");
+    }
   };
 
   return (
