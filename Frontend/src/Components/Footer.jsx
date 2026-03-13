@@ -49,7 +49,7 @@ const contacts = [
       "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
   },
   {
-    name: "Vivek Mani Tripathi",
+    name: "Vivek Mani Tripathy",
     email: "abhyudaya.mmmut@gmail.com",
     phone: "+91-9341239691",
     role: "Technical Lead",
