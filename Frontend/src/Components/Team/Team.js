@@ -938,7 +938,7 @@ const teamsData = [
     Name: "Muskan Singh",
     Year: "3rd Year",
     Branch: "CE",
-
+    InstaId: "muskansingh_.26",
     LinkedInId: "-https://www.linkedin.com/in/muskan-singh-920155368",
     Photo: "https://i.ibb.co/MD0xWQnk/Whats-App-Image-2026-03-12-at-9-41-45-PM.jpg",
     PhotoCutout: "https://i.ibb.co/Tx4qc4ZQ/Whats-App-Image-2026-03-12-at-9-41-45-PM-removebg-preview.png",
