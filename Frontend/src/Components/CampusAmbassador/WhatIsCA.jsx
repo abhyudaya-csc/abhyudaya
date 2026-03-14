@@ -38,7 +38,7 @@ export default function WhatIsCA({ contentVariants, itemVariants, setActiveTab }
             Become the Face of Abhyudaya&apos;25
           </h2>
           <p className="text-blue-100/80 text-lg leading-relaxed mb-3">
-            As a Campus Ambassador, you&apos;ll be the official representative of Abhyudaya&apos;25 at your
+            As a Campus Ambassador, you&apos;ll be the official representative of Abhyudaya&apos;26 at your
             college. Help spread the word, coordinate your peers, and connect talented students to
             the biggest technical fest in the region.
           </p>
