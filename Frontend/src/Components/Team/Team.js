@@ -978,7 +978,7 @@ const teamsData = [
     Photo: "https://i.ibb.co/dwr5VrfS/Uttkars-Pandey.jpg",
     PhotoCutout: "https://i.ibb.co/nNB9S3B7/Uttkars-Pandey-removebg-preview.png",
   },
-  {
+ {
     Position: "Executive member ",
     Name: "Shristi Pandey ",
     Year: "3rd Year",
@@ -988,8 +988,8 @@ const teamsData = [
       "https://www.linkedin.com/in/shristi-pandey-452078294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId:
       "hey.shristii_?igsh=MWwyMWtrcGVueWg1cA==",
-    Photo: "https://i.postimg.cc/GhyLCftc/Shristi-Pandey.jpg",
-    PhotoCutout: "https://i.ibb.co/SDpKbcLm/Shristi-Pandey.png",
+    Photo: "https://i.ibb.co/cKDLZh88/Whats-App-Image-2026-03-14-at-10-06-55.jpg",
+    PhotoCutout: "https://i.ibb.co/HDW35B6h/Whats-App-Image-2026-03-14-at-10-06-55-removebg-preview.png",
   },
   {
     Position: "Executive member ",
