@@ -988,8 +988,8 @@ const teamsData = [
       "https://www.linkedin.com/in/shristi-pandey-452078294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId:
       "hey.shristii_?igsh=MWwyMWtrcGVueWg1cA==",
-    Photo: "https://i.postimg.cc/GhyLCftc/Shristi-Pandey.jpg",
-    PhotoCutout: "https://i.ibb.co/SDpKbcLm/Shristi-Pandey.png",
+    Photo: "https://i.ibb.co/cKDLZh88/Whats-App-Image-2026-03-14-at-10-06-55.jpg",
+    PhotoCutout: "https://i.ibb.co/HDW35B6h/Whats-App-Image-2026-03-14-at-10-06-55-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1116,7 +1116,7 @@ const teamsData = [
     Branch: "EE",
 
     LinkedInId: "https://www.linkedin.com/in/yash-gauba-7a1bb9328?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    InstaId: "https://www.instagram.com/yash_gauba?igsh=Z2l2YzFkcjY2aW5za",
+    InstaId: "yash_gauba",
     Photo: "https://i.ibb.co/7tQvZNfD/Yash-Gauba.jpg", 
     PhotoCutout:"https://i.ibb.co/b5bsHd2x/YG.png",
   },
@@ -1159,7 +1159,7 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ME",
 
-    LinkedInId: "https://www.linkedin.com/in/namrata-singh-043157327/",
+    LinkedInId: "/",
     InstaId: "/",
     Photo: "https://i.ibb.co/MxwVqys0/Akshansh-Shukla.jpg",
     PhotoCutout: "https://i.ibb.co/5Wxyr4RR/Akshansh-Shukla-removebg-preview.png",
@@ -1282,8 +1282,8 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "Civil",
 
-    LinkedInId: "https://linkedin.com/in/jagriti-singh-22bb742a0",
-    InstaId: "jagritiisingh_",
+    LinkedInId: "/",
+    InstaId: "/",
     Photo: "https://i.ibb.co/Cpj7hzQp/Akansha-Mishra.jpg",
     PhotoCutout: "https://i.ibb.co/GQtjRPB1/AM.png",
   },
