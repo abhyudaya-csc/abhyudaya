@@ -841,37 +841,41 @@ const teamsData = [
     Photo: "https://i.ibb.co/yF04HsQQ/Anurag-Dixit.jpg",
   },
   
-   {
+  {
     Position: "Executive member ",
     Name: "Ajay Kumar ",
-    Year: "2nd Year",
+    Year: "3rd Year",
     Branch: "CE",
-    EmailId: "aj3223743@gmail.com",
-    LinkedInId: "Ajay Kumar ",
+
+    LinkedInId: "https://www.linkedin.com",
     InstaId: "ajay_ak00",
-    Photo: "https://i.postimg.cc/W3kW30kJ/Ajay.jpg"
+    Photo: "https://i.ibb.co/rGyq0KJW/Ajay.jpg",
+    PhotoCutout: "https://i.ibb.co/W42fhR4g/Ajay-removebg-preview.png",
   },
   {
     Position: "Executive member ",
     Name: "Anju Mani",
-    Year: "2nd Year",
+    Year: "3rd Year",
     Branch: "ECE(IoT)",
-    EmailId: "mani.anju2005@gmail.com",
-    LinkedInId: "https://www.linkedin.com/in/anju-mani-50725827b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId: "https://www.instagram.com/anju_mani07?igsh=MWt4d3A2c2llcjh5",
-    Photo: "https://i.postimg.cc/3wy9S29b/Anju-Mani.jpg"
+
+    LinkedInId:
+      "https://www.linkedin.com/in/anju-mani-50725827b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    InstaId: "anju_mani07?igsh=MWt4d3A2c2llcjh5",
+    Photo: "https://i.postimg.cc/3wy9S29b/Anju-Mani.jpg",
+    PhotoCutout: "https://i.ibb.co/KcGdWBfD/Anju-Mani.png",
   },
+
   {
     Position: "Executive member ",
     Name: "Snehil Saxena ",
-    Year: "2nd Year",
+    Year: "3rd Year",
     Branch: "IT",
-    EmailId: "snehil2903@gmail.com",
+
     LinkedInId: "https://www.linkedin.com/in/snehil-saxena-b541a4264/",
     InstaId: "snehil341",
-    Photo: "https://i.postimg.cc/Rh3MqsTL/Snehil-Saxena.jpg"
+    Photo: "https://i.postimg.cc/Rh3MqsTL/Snehil-Saxena.jpg",
+    PhotoCutout: "https://i.ibb.co/yFJ4cRXg/Snehil-Saxena.png",
   },
-
   {
     Position: "Executive member ",
     Name: "Ritesh Srivastava ",
