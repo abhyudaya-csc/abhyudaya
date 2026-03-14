@@ -654,13 +654,13 @@ const teamsData = [
   },
   {
     Position: "Executive member ",
-    Name: "Snehil Saxena ",
+    Name: "Ajay Kumar ",
     Year: "2nd Year",
-    Branch: "IT",
-    EmailId: "snehilsaxena2903@gmail.com",
-    LinkedInId: "https://www.linkedin.com/in/snehil-saxena-b541a4264/",
-    InstaId: "snehil341",
-    Photo: "https://i.postimg.cc/Rh3MqsTL/Snehil-Saxena.jpg"
+    Branch: "CE",
+    EmailId: "aj3223743@gmail.com",
+    LinkedInId: "Ajay Kumar ",
+    InstaId: "ajay_ak00",
+    Photo: "https://i.postimg.cc/W3kW30kJ/Ajay.jpg"
   },
   {
     Position: "Executive member ",
@@ -674,14 +674,15 @@ const teamsData = [
   },
   {
     Position: "Executive member ",
-    Name: "Ajay Kumar ",
+    Name: "Snehil Saxena ",
     Year: "2nd Year",
-    Branch: "CE",
-    EmailId: "aj3223743@gmail.com",
-    LinkedInId: "Ajay Kumar ",
-    InstaId: "ajay_ak00",
-    Photo: "https://i.postimg.cc/W3kW30kJ/Ajay.jpg"
+    Branch: "IT",
+    EmailId: "snehilsaxena2903@gmail.com",
+    LinkedInId: "https://www.linkedin.com/in/snehil-saxena-b541a4264/",
+    InstaId: "snehil341",
+    Photo: "https://i.postimg.cc/Rh3MqsTL/Snehil-Saxena.jpg"
   },
+
   {
     Position: "Executive member ",
     Name: "Ritesh Srivastava ",
@@ -730,7 +731,7 @@ const teamsData = [
     Branch: "MECH",
     EmailId: "iamsengar1114@gmail.com",
     LinkedInId: "Shreyansh Singh Sengar ",
-    InstaId: "_.sengar.shreyansh06._",
+    InstaId: "_shreyssngr",
     Photo: "https://i.postimg.cc/cL7dK8f2/Shreyansh.jpg"
   },
   {
