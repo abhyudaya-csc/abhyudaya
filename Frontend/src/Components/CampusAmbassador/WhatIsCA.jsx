@@ -35,7 +35,7 @@ export default function WhatIsCA({ contentVariants, itemVariants, setActiveTab }
         {/* Intro */}
         <motion.div variants={itemVariants}>
           <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">
-            Become the Face of Abhyudaya&apos;25
+            Become the Face of Abhyudaya&apos;26
           </h2>
           <p className="text-blue-100/80 text-lg leading-relaxed mb-3">
             As a Campus Ambassador, you&apos;ll be the official representative of Abhyudaya&apos;26 at your
