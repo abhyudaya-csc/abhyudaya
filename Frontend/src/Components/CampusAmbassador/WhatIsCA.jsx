@@ -5,7 +5,7 @@ import CAApplicationPopup from './CAApplicationPopup';
 // import { useSelector } from 'react-redux'; // commented out - backend disabled
 
 const responsibilities = [
-  { icon: "📢", title: "Promote Events", desc: "Spread the word about Abhyudaya'25 events at your campus and drive excitement." },
+  { icon: "📢", title: "Promote Events", desc: "Spread the word about Abhyudaya'26 events at your campus and drive excitement." },
   { icon: "🎯", title: "Drive Registrations", desc: "Coordinate and boost participation from your college community." },
   { icon: "🎪", title: "Pre-Event Activities", desc: "Organise engaging warm-up activities before the main fest begins." },
   { icon: "📱", title: "Social Media", desc: "Create buzz and awareness through your social platforms and stories." },
