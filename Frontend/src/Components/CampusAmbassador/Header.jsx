@@ -19,7 +19,7 @@ export default function Header({ itemVariants }) {
         transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
       >
         <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-        Abhyudaya&apos;25 &bull; Applications Open
+        Abhyudaya&apos;26 &bull; Applications Open
       </motion.div>
 
       {/* Title */}
@@ -32,7 +32,7 @@ export default function Header({ itemVariants }) {
       </h1>
 
       <p className="text-lg sm:text-xl text-blue-200/70 max-w-2xl mx-auto mb-12 leading-relaxed">
-        Be the official face of Abhyudaya&apos;25 at your college. Lead, inspire,
+        Be the official face of Abhyudaya&apos;26 at your college. Lead, inspire,
         and unlock exclusive rewards while building real-world skills.
       </p>
 

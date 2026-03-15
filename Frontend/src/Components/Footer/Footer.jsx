@@ -15,7 +15,7 @@ const contacts = [
     name: "Shivam Rai",
     email: "abhyudaya.mmmut@gmail.com",
     phone: "+91-9151603350",
-    role: "Cultural Secretary",
+    role: "Convener",
     photo:
       "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
   },

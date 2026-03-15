@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
 import Routing from "./Components/Routing";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer/Footer";
 
 import api from "./api/axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,9 @@ function AppContent() {
         const res = await api.get("/users/me");
         dispatch(setUser(res.data.user));
       } catch (err) {
-        console.log("No logged-in user");
+        // 401 means there is no active session for a guest user.
+        if (err.response?.status === 401) return;
+        console.error("Failed to fetch current user", err);
       }
     };
 

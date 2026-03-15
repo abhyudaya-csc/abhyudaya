@@ -5,7 +5,7 @@ import CAApplicationPopup from './CAApplicationPopup';
 // import { useSelector } from 'react-redux'; // commented out - backend disabled
 
 const responsibilities = [
-  { icon: "📢", title: "Promote Events", desc: "Spread the word about Abhyudaya'25 events at your campus and drive excitement." },
+  { icon: "📢", title: "Promote Events", desc: "Spread the word about Abhyudaya'26 events at your campus and drive excitement." },
   { icon: "🎯", title: "Drive Registrations", desc: "Coordinate and boost participation from your college community." },
   { icon: "🎪", title: "Pre-Event Activities", desc: "Organise engaging warm-up activities before the main fest begins." },
   { icon: "📱", title: "Social Media", desc: "Create buzz and awareness through your social platforms and stories." },
@@ -35,10 +35,10 @@ export default function WhatIsCA({ contentVariants, itemVariants, setActiveTab }
         {/* Intro */}
         <motion.div variants={itemVariants}>
           <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">
-            Become the Face of Abhyudaya&apos;25
+            Become the Face of Abhyudaya&apos;26
           </h2>
           <p className="text-blue-100/80 text-lg leading-relaxed mb-3">
-            As a Campus Ambassador, you&apos;ll be the official representative of Abhyudaya&apos;25 at your
+            As a Campus Ambassador, you&apos;ll be the official representative of Abhyudaya&apos;26 at your
             college. Help spread the word, coordinate your peers, and connect talented students to
             the biggest technical fest in the region.
           </p>

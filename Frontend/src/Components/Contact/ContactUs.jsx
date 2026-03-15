@@ -212,7 +212,7 @@ const ContactUs = () => {
                 <HiOutlineMail className="text-lg" />
                 <span className="text-sm">Email us at</span>
               </div>
-              <p className="text-white font-medium text-lg">abhyudaya@mmmut.ac.in</p>
+              <p className="text-white font-medium text-lg">abhyudaya.csc@gmail.com</p>
             </motion.div>
 
             {/* Social Links with Animated Icons */}
