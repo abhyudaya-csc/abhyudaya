@@ -3,11 +3,10 @@ import toast from "react-hot-toast";
 import { IndianRupee } from "lucide-react";
 import { date } from "zod";
 import { useSelector } from "react-redux";
-
 const getQRCodeImage = (amount) => {
   const validAmounts = amount % 50 === 0 && amount <= 1500;
-  if (!validAmounts) return `/Payments/generic_123_alpha.png`;
-  return `/Payments/generic_${amount}_beta.jpg`;
+  if (!validAmounts) return `/QR/VMTQR.jpeg`;
+  return `/QR/VMTQR.jpeg`;
 };
 
 const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
