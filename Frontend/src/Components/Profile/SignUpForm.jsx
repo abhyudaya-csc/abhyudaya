@@ -56,7 +56,7 @@ function SignUpForm() {
   e.preventDefault();
   if (!validateForm()) return;
   try {
-    const res = await api.post(`${import.meta.env.VITE_BACKEND_API_URL}/users`, {
+    const res = await api.post("/users", {
       fullName: formData.name,
       email: formData.email,
       password: formData.password,
@@ -69,8 +69,20 @@ function SignUpForm() {
     dispatch(setUser(res.data.data));
     navigate("/SignInForm");
   } catch (err) {
-    console.log(err);
-    alert(err.response?.data?.message || "Registration failed");
+    const status = err.response?.status;
+    const backendMessage =
+      err.response?.data?.message || err.response?.data?.errorMessage;
+
+    if (status === 409) {
+      alert(
+        backendMessage ||
+          "An account with this email or phone number already exists."
+      );
+      return;
+    }
+
+    console.error("Registration failed", err);
+    alert(backendMessage || "Registration failed");
   }
 };
 
