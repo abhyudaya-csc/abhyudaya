@@ -43,11 +43,11 @@ const ProfileInfo = () => {
     <div className="w-full space-y-6 h-fit ">
       {/* Profile Header */}
       <div className="flex flex-col sm:flex-row items-center gap-4">
-        <img
-          src={user.profilePicture}
-          alt={user.fullName}
-          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-white/30 shadow-lg"
-        />
+        <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full border-4 border-white/30 shadow-lg bg-purple-600 flex items-center justify-center">
+          <span className="text-white text-5xl sm:text-6xl font-bold uppercase">
+            {user.fullName?.charAt(0)}
+          </span>
+        </div>
         <div className="text-center sm:text-left">
           <h1 className="text-lg sm:text-2xl font-bold text-white">
             {user.fullName}
