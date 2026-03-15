@@ -10,7 +10,7 @@ export const fetchEvents = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_API_URL}users/fetchEvents`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/users/fetchEvents`,
         {
           withCredentials: true, // Ensures cookies are sent
         }
@@ -35,44 +35,25 @@ export const fetchEvents = createAsyncThunk(
 );
 
 // ✅ Move Processing Events to Pending (Handle expired token)
+
 export const moveProcessingToPending = createAsyncThunk(
   "events/moveProcessingToPending",
-  async (transactionId, { getState, dispatch, rejectWithValue }) => {
+  async ({ trxnId, events }, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const processingEvents = state.events.processing;
-
-      if (!processingEvents.length) {
-        return rejectWithValue({ message: "No events in processing!" });
-      }
-
-      const trxnId = transactionId.trxnId;
-
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_API_URL}users/eventRegister`,
-        { trxnId, events: processingEvents },
+      const res = await api.post(
+        "/users/eventRegister",
         {
-          withCredentials: true, // Sends cookies to backend
+          trxnId,
+          events
+        },
+        {
+          withCredentials: true
         }
       );
 
-      dispatch(moveToPending({ trxnId, events: processingEvents }));
-      toast.success("Payment done!");
-
-      return response.data; // { trxnId, events }
-    } catch (error) {
-      console.log(error);
-      
-      // Handle expired token (401 Unauthorized)
-      if (error.response?.status === 401) {
-        toast.error("Session expired. Please log in again.");
-        dispatch(logout()); // Dispatch logout action
-      }
-
-      toast.error("Error processing payment.");
-      return rejectWithValue(
-        error.response?.data || { message: "Something went wrong!" }
-      );
+      return res.data.data.user;
+    } catch (err) {
+      return rejectWithValue(err.response?.data || "Registration failed");
     }
   }
 );

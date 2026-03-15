@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IndianRupee } from "lucide-react";
 import { date } from "zod";
+import { registerEvents } from "../../../api/eventApi";
 import { useSelector } from "react-redux";
 
+
 const getQRCodeImage = (amount) => {
+  const token = useSelector((state) => state.user.token);
+  const selectedEvents = useSelector((state) => state.events.selectedEvents);
   const validAmounts = amount % 50 === 0 && amount <= 1500;
-  if (!validAmounts) return `/Payments/generic_123_alpha.png`;
-  return `/Payments/generic_${amount}_beta.jpg`;
+  if (!validAmounts) return "src/assets/QR.png";
+  return "src/assets/QR.png";
 };
 
 const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
   const [transactionId, setTransactionId] = useState("");
-  const user = useSelector(state=>state.user);
+  const user = useSelector((state) => state.user);
 
   const qrCodeImage = getQRCodeImage(amount);
 
@@ -22,23 +26,30 @@ const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
       let transactionId = timestamp.padEnd(12, "0").slice(0, 12); // Ensure 12 digits
       setTransactionId(transactionId);
     }
-  }, [amount]); 
+  }, [amount]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      !transactionId.trim() ||
-      transactionId.length !== 12 ||
-      !/^\d{12}$/.test(transactionId) ||
-      isNaN(transactionId)
-    ) {
-      toast.error("Transaction ID must be exactly 12 digits.");
-      return;
-    }
-    onSubmit(transactionId); // Send transaction ID to parent
-    setTransactionId(""); // Reset input
-    onClose(); // Close modal
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (
+    !transactionId.trim() ||
+    transactionId.length !== 12 ||
+    !/^\d{12}$/.test(transactionId)
+  ) {
+    toast.error("Transaction ID must be exactly 12 digits.");
+    return;
+  }
+
+  try {
+    await registerEvents(transactionId, onSubmit); 
+    toast.success("Events registered successfully!");
+    setTransactionId("");
+    onClose();
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to register events");
+  }
+};
 
   if (!isOpen) return null; // Do not render if not open
 
@@ -53,7 +64,7 @@ const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
 
         {/* QR Code Image */}
 
-        {(amount === 0  )? (
+        {amount === 0 ? (
           <span className="text-center flex justify-center text-lg text-blue-500">
             This is an auto-generated UPI Id.{" "}
           </span>
@@ -70,7 +81,7 @@ const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
             <div className="flex justify-center mt-2">
               <a
                 href={qrCodeImage}
-                download="QR_Code.png"
+                download="QR.png"
                 className="bg-gray-800 text-black px-3 py-1 rounded-md text-sm hover:bg-gray-900 transition"
               >
                 Download QR Code
@@ -99,8 +110,9 @@ const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
 
         {/* Buttons */}
         <div className="mt-4 flex justify-end gap-2">
-          <form action="">
+          <form onSubmit={handleSubmit} type="button">
             <button
+              type="button"
               onClick={onClose}
               className="px-4 py-2 bg-gray-900 text-white rounded cursor-pointer"
             >
