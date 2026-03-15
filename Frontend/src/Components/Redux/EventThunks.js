@@ -10,7 +10,7 @@ export const fetchEvents = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_API_URL}users/fetchEvents`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/users/fetchEvents`,
         {
           withCredentials: true, // Ensures cookies are sent
         }
@@ -49,7 +49,7 @@ export const moveProcessingToPending = createAsyncThunk(
       const trxnId = transactionId.trxnId;
 
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_API_URL}users/eventRegister`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/users/eventRegister`,
         { trxnId, events: processingEvents },
         {
           withCredentials: true, // Sends cookies to backend
