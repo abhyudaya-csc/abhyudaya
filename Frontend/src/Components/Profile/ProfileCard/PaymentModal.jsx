@@ -4,12 +4,14 @@ import { IndianRupee } from "lucide-react";
 import { date } from "zod";
 import { registerEvents } from "../../../api/eventApi";
 import { useSelector } from "react-redux";
+
+
 const getQRCodeImage = (amount) => {
   const token = useSelector((state) => state.user.token);
   const selectedEvents = useSelector((state) => state.events.selectedEvents);
   const validAmounts = amount % 50 === 0 && amount <= 1500;
-  if (!validAmounts) return `/QR/VMTQR.jpeg`;
-  return `/QR/VMTQR.jpeg`;
+  if (!validAmounts) return "src/assets/QR.png";
+  return "src/assets/QR.png";
 };
 
 const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
