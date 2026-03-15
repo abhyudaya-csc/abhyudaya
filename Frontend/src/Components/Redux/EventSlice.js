@@ -60,11 +60,10 @@ const eventsSlice = createSlice({
       })
 
       .addCase(moveProcessingToPending.fulfilled, (state, action) => {
-  const user = action.payload;
-
-  state.eventsPending = user.eventsPending || {};
-  state.processing = [];
-});
+        const { trxnId, events } = action.payload;
+        state.eventsPending = { ...state.eventsPending, [trxnId]: events }; // ✅ Merging with existing
+        state.processing = [];
+      });
   },
 });
 

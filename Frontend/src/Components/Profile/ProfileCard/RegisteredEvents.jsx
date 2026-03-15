@@ -37,17 +37,15 @@ const RegisteredEvents = () => {
 
   // Handle Payment Submission
   const handleSubmitPayment = async (transactionId) => {
-  if (!transactionId.trim()) return;
-
-  dispatch(
-    moveProcessingToPending({
-      trxnId: transactionId,
-      events: processingEvents
-    })
-  );
-
-  setIsModalOpen(false);
-};
+    if (!transactionId.trim()) return;
+    dispatch(
+      moveProcessingToPending({
+        trxnId: transactionId,
+        events: processingEvents,
+      })
+    );
+    setIsModalOpen(false);
+  };
 
   // Render event boxes
   const renderEventBox = (events, title, currentState) => (

@@ -37,7 +37,6 @@ function AppContent() {
       <div className="flex">
         <Sidebar />
         <Routing />
-        
       </div>
       {!isLanding && <Footer />}
     </>
