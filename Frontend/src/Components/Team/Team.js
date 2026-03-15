@@ -596,6 +596,17 @@ const teamsData = [
   // },
   
   {
+    Position: "Core member",
+    Name: "Mayank Kumar Pathak",
+    Year: "Final Year",
+    Branch: "B.Tech",
+
+    LinkedInId: "https://in.linkedin.com/in/mayank-pathak-701a83294",
+    InstaId: "",
+    Photo: "https://i.ibb.co/qFBrRvkm/Mayank.jpg",
+    PhotoCutout: "https://i.ibb.co/HLyBRtX7/Mayank-removebg-preview.png",
+  },
+  {
     Position: "Core member ",
     Name: "Shivam Pal",
     Year: "Final Year",
@@ -1531,6 +1542,18 @@ const teamsData = [
      Photo: "https://i.ibb.co/20T4jYz5/IMG-20251106-013150-092-1-1-1-Ashish-Gupta.jpg",
     PhotoCutout: "https://i.ibb.co/PshHjLzj/IMG-20251106-013150-092-1-1-1-Photoroom-Ashish-Gupta.png",
   },
+  {
+    Position: "Executive member",
+    Name: "Shambhavi",
+    Year: "2nd Year",
+    Branch: "IT",
+    RollNo: "2024071056",
+    LinkedInId: "https://www.linkedin.com/in/shambhavi-yadav-a80b3b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    InstaId: "shambhavii04",
+    Photo: "https://i.ibb.co/mC8L4VV3/Shambhavi.jpg",
+    PhotoCutout: "https://i.ibb.co/jZkTVCgL/Shambhavi-removebg-preview.png",
+  },
+
 
 ];
 
