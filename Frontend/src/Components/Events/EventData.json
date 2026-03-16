@@ -713,51 +713,9 @@
                    "60% on content of the composition as judged by our specific judging team."
                ]
            },
-           {
-               "eventId": "art15",
-               "name": "Clay Modeling",
-               "link": "https://i.ibb.co/B583VPX0/Whats-App-Image-2026-03-12-at-23-49-05.jpg",
-               "description": "Description coming soon.",
-               "category": "Art",
-               "eventType": "Offline",
-               "teamType": "Individual",
-               "noOfRounds": 1,
-               "participationFee": 0,
-               "prizeMoney": 0,
-               "rules": [
-                   "Rules will be updated soon."
-               ]
-           },
-           {
-               "eventId": "art16",
-               "name": "Junk Art",
-               "link": "https://i.ibb.co/vvRhffwG/Whats-App-Image-2026-03-12-at-23-54-07.jpg",
-               "description": "Description coming soon.",
-               "category": "Art",
-               "eventType": "Offline",
-               "teamType": "Individual",
-               "noOfRounds": 1,
-               "participationFee": 0,
-               "prizeMoney": 0,
-               "rules": [
-                   "Rules will be updated soon."
-               ]
-           },
-           {
-               "eventId": "art17",
-               "name": "Tote Bag",
-               "link": "https://i.ibb.co/GQ26jth8/Whats-App-Image-2026-03-12-at-23-47-07.jpg",
-               "description": "Description coming soon.",
-               "category": "Art",
-               "eventType": "Offline",
-               "teamType": "Individual",
-               "noOfRounds": 1,
-               "participationFee": 0,
-               "prizeMoney": 0,
-               "rules": [
-                   "Rules will be updated soon."
-               ]
-           },
+           
+           
+           
            {
                "eventId": "dan05",
                "name": "Rising Star",
@@ -796,7 +754,7 @@
   ]
 },
 {
-  "eventId": "art10",
+  "eventId": "art15",
   "name": "Tote Bag Painting",
   "link": "https://i.ibb.co/GQ26jth8/Whats-App-Image-2026-03-12-at-23-47-07.jpg",
   "description": "A creative painting competition where participants design and decorate tote bags based on a theme or their own artistic ideas.",
@@ -817,7 +775,7 @@
   ]
 },
 {
-  "eventId": "art11",
+  "eventId": "art16",
   "name": "Clay Modelling",
   "link": "https://i.ibb.co/B583VPX0/Whats-App-Image-2026-03-12-at-23-49-05.jpg",
   "description": "A sculpting competition where participants use clay to create artistic models based on a theme announced during the event.",
