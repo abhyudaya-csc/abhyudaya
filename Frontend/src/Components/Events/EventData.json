@@ -773,6 +773,71 @@
                "rules": [
                    "Rules will be updated soon."
                ]
-           }
+           },
+           {
+  "eventId": "art09",
+  "name": "Junk Art",
+  "link": "https://i.ibb.co/vvRhffwG/Whats-App-Image-2026-03-12-at-23-54-07.jpg",
+  "description": "A creative competition where participants transform waste and scrap materials into artistic or functional products, promoting sustainability and innovation.",
+  "category": "Art",
+  "eventType": "Offline",
+  "teamType": "Team",
+  "noOfRounds": 1,
+  "participationFee": 100,
+  "prizeMoney": 0,
+  "rules": [
+    "The event will be conducted on a single day.",
+    "Participants will be provided with a variety of waste and scrap materials for creating their artwork.",
+    "Participation is allowed in teams of three members.",
+    "Participants must create an artistic or functional product using only the materials provided or approved by the organizers.",
+    "The time limit for completing the creation will be announced before the event begins.",
+    "After completing their work, participants must present their product and briefly explain its creativity, usability, and sustainability aspect.",
+    "The decision of the judging panel will be final."
+  ]
+},
+{
+  "eventId": "art10",
+  "name": "Tote Bag Painting",
+  "link": "https://i.ibb.co/GQ26jth8/Whats-App-Image-2026-03-12-at-23-47-07.jpg",
+  "description": "A creative painting competition where participants design and decorate tote bags based on a theme or their own artistic ideas.",
+  "category": "Art",
+  "eventType": "Offline",
+  "teamType": "Duet",
+  "noOfRounds": 1,
+  "participationFee": 100,
+  "prizeMoney": 0,
+  "rules": [
+    "The event will be conducted on a single day.",
+    "Participants will paint and design tote bags based on a given theme or an open creative category.",
+    "Participation is allowed in teams of two members.",
+    "Tote bags and basic painting materials will be provided by the organizers.",
+    "Participants must complete their artwork within the allotted time limit announced during the event.",
+    "After completion, participants will display their painted tote bags and briefly explain the concept and message behind their design.",
+    "The judges’ decision will be considered final."
+  ]
+},
+{
+  "eventId": "art11",
+  "name": "Clay Modelling",
+  "link": "https://i.ibb.co/B583VPX0/Whats-App-Image-2026-03-12-at-23-49-05.jpg",
+  "description": "A sculpting competition where participants use clay to create artistic models based on a theme announced during the event.",
+  "category": "Art",
+  "eventType": "Offline",
+  "teamType": "Individual",
+  "noOfRounds": 1,
+  "participationFee": 50,
+  "prizeMoney": 0,
+  "rules": [
+    "The event will take place on a single day.",
+    "A theme will be announced on the spot for all participants.",
+    "Participation is individual.",
+    "Participants must sculpt their models using the clay and basic tools provided by the organizers.",
+    "Participants must complete their models within the given time limit.",
+    "After completion, participants will present their creation and explain the idea, inspiration, and its relevance to the theme.",
+    "Judges or audience members may interact with participants regarding their work.",
+    "The decision of the judging panel will be final."
+  ]
+}
+
          
 ]
