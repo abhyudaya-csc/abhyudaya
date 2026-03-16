@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
 import Routing from "./Components/Routing";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer/Footer";
 
 import api from "./api/axios";
 import { useDispatch, useSelector } from "react-redux";

@@ -7,6 +7,7 @@ const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
   const [copied, setCopied] = useState(false);
   const dispatch = useDispatch();
+  const userInitial = user?.fullName?.trim()?.charAt(0)?.toUpperCase() || "?";
 
   
   const handleCopy = () => {
@@ -30,11 +31,12 @@ const ProfileInfo = () => {
     <div className="w-full space-y-6 h-fit ">
       {/* Profile Header */}
       <div className="flex flex-col sm:flex-row items-center gap-4">
-        <img
-          src={user.profilePicture}
-          alt={user.fullName}
-          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-white/30 shadow-lg"
-        />
+        <div
+          aria-label={user.fullName}
+          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full border-4 border-white/30 shadow-lg bg-white/20 flex items-center justify-center text-4xl sm:text-5xl font-bold text-white"
+        >
+          {userInitial}
+        </div>
         <div className="text-center sm:text-left">
           <h1 className="text-lg sm:text-2xl font-bold text-white">
             {user.fullName}
