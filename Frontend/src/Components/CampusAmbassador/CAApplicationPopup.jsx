@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux"; // commented out - backend disabled
-import { useNavigate } from "react-router-dom";         // commented out - backend disabled
-import { setUser } from "../Redux/UserSlice";           // commented out - backend disabled
-import api from "../../api/axios";                              // commented out - backend disabled
+// import { useDispatch, useSelector } from "react-redux"; // commented out - backend disabled
+// import { useNavigate } from "react-router-dom";         // commented out - backend disabled
+// import { setUser } from "../Redux/UserSlice";           // commented out - backend disabled
+// import axios from "axios";                              // commented out - backend disabled
 
 export default function CAApplicationPopup({ isOpen, onClose, onSuccess }) {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ fullName: "", email: "", college: "" });
 
-  const user = useSelector((state) => state.user);  // commented out - backend disabled
-  const navigate = useNavigate();                    // commented out - backend disabled
-  const dispatch = useDispatch();                    // commented out - backend disabled
+  // const user = useSelector((state) => state.user);  // commented out - backend disabled
+  // const navigate = useNavigate();                    // commented out - backend disabled
+  // const dispatch = useDispatch();                    // commented out - backend disabled
 
   if (!isOpen) return null;
 
@@ -22,42 +22,34 @@ export default function CAApplicationPopup({ isOpen, onClose, onSuccess }) {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  if (!formData.fullName || !formData.email || !formData.college) {
-    toast.error("Please fill in all fields.");
-    return;
-  }
-
-  try {
+    e.preventDefault();
+    if (!formData.fullName || !formData.email || !formData.college) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
     setLoading(true);
 
-    const res = await api.post(
-      "/users/request-ca",
-      {
-        fullName: formData.fullName,
-        email: formData.email,
-        institution: formData.college,
-      },
-      {
-        withCredentials: true,
-      }
-    );
+    // --- Backend API call commented out ---
+    // try {
+    //   const res = await axios.put(
+    //     `${import.meta.env.VITE_BACKEND_API_URL}users`,
+    //     { ABH_ID: user.ABH_ID, email: user.email, isCampusAmbassador: true },
+    //     { withCredentials: true }
+    //   );
+    //   dispatch(setUser({ ...user, isCampusAmbassador: true }));
+    // } catch (e) {
+    //   console.log(e);
+    //   toast.error("Please try again later");
+    // }
+    // --- End Backend API call ---
 
-    toast.success(res?.data?.message || "Application submitted!");
-
+    // Simulate submission
+    await new Promise((r) => setTimeout(r, 1200));
+    toast.success("🎉 Application received! We'll be in touch soon.");
+    setLoading(false);
     onSuccess?.();
     onClose();
-  } catch (err) {
-    console.error(err);
-
-    toast.error(
-      err?.response?.data?.message || "Failed to submit application"
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <AnimatePresence>
