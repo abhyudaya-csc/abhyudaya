@@ -4,6 +4,8 @@ import { moveToPending } from "./EventSlice";
 import { logout } from "./UserSlice"; // Import the logout action
 import toast from "react-hot-toast";
 
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 // ✅ Fetch all events (Handle expired token)
 export const fetchEvents = createAsyncThunk(
   "events/fetchEvents",
@@ -24,6 +26,7 @@ export const fetchEvents = createAsyncThunk(
       // Handle expired token (401 Unauthorized)
       if (error.response?.status === 401) {
         toast.error("Session expired. Please log in again.");
+        localStorage.removeItem(AUTH_SESSION_FLAG);
         dispatch(logout()); // Dispatch logout action
         window.location.reload();
 
@@ -66,6 +69,7 @@ export const moveProcessingToPending = createAsyncThunk(
       // Handle expired token (401 Unauthorized)
       if (error.response?.status === 401) {
         toast.error("Session expired. Please log in again.");
+        localStorage.removeItem(AUTH_SESSION_FLAG);
         dispatch(logout()); // Dispatch logout action
       }
 

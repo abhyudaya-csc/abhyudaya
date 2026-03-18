@@ -6,6 +6,8 @@ import { logout } from "../../Redux/UserSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
   const [copied, setCopied] = useState(false);
@@ -30,6 +32,7 @@ const ProfileInfo = () => {
       console.log("Logout API failed, clearing frontend state anyway");
     }
 
+    localStorage.removeItem(AUTH_SESSION_FLAG);
     dispatch(logout()); // clear redux
     navigate("/"); 
   };

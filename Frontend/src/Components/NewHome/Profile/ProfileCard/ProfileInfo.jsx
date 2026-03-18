@@ -3,6 +3,8 @@ import { Check, Copy, LogOut } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/UserSlice";
 
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
   const [copied, setCopied] = useState(false);
@@ -17,6 +19,7 @@ const ProfileInfo = () => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem(AUTH_SESSION_FLAG);
     dispatch(logout());
     window.location.reload();
   };

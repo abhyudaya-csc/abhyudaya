@@ -7,6 +7,9 @@ import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
 import { useNavigate } from "react-router-dom";
+
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +40,7 @@ function SignInForm() {
       );
 
       dispatch(setUser(res.data.data));
+  localStorage.setItem(AUTH_SESSION_FLAG, "1");
       navigate("/profile");
 
     } catch (err) {

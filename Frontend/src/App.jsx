@@ -9,6 +9,8 @@ import api from "./api/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "./Components/Redux/UserSlice";
 
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 function AppContent() {
   const { pathname } = useLocation();
   const isLanding = pathname === "/";
@@ -17,22 +19,36 @@ function AppContent() {
   const user = useSelector((state) => state.user);   
 
   useEffect(() => {
+    const shouldRestoreSession =
+      localStorage.getItem(AUTH_SESSION_FLAG) === "1";
+
+    if (user || !shouldRestoreSession) {
+      return;
+    }
+
+    let isMounted = true;
+
     const fetchUser = async () => {
       try {
         const res = await api.get("/users/me");
-        dispatch(setUser(res.data.user));
-      } catch (err) {
-        // A 401 here is expected for visitors without an active session.
-        if (err.response?.status !== 401) {
-          console.error("Failed to fetch current user", err);
+        if (isMounted) {
+          dispatch(setUser(res.data.user));
         }
+      } catch (err) {
+        if (err.response?.status === 401) {
+          localStorage.removeItem(AUTH_SESSION_FLAG);
+          return;
+        }
+
+        console.error("Failed to fetch current user", err);
       }
     };
 
-    // ⭐ Only fetch if Redux doesn't already have a user
-    if (!user) {
-      fetchUser();
-    }
+    fetchUser();
+
+    return () => {
+      isMounted = false;
+    };
   }, [user, dispatch]);
 
   return (

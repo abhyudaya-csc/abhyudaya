@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { fetchEvents } from "../Redux/EventThunks";
 
+const AUTH_SESSION_FLAG = "abh_session_active";
+
 const signInSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -35,6 +37,7 @@ function SignInForm() {
       );
       
       dispatch(setUser( res.data.data )); // Dispatch user data to Redux
+      localStorage.setItem(AUTH_SESSION_FLAG, "1");
       dispatch(fetchEvents());
       toast.success(`Welcome ${res.data.data.fullName}`);
     } catch (error) {
