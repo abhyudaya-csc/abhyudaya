@@ -44,7 +44,7 @@ function SignUpForm() {
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Invalid email";
     if (!formData.password.trim()) newErrors.password = "Password is required";
-    else if (formData.password.length < 8)
+    else if (formData.password.length < 6)
       newErrors.password = "Min 8 characters";
     if (!formData.institute.trim())
       newErrors.institute = "Institute is required";
@@ -156,7 +156,7 @@ function SignUpForm() {
             <div>
               <input
                 name="name"
-                placeholder="Full Name *"
+                placeholder="Full Name *(min 4 chacters)"
                 value={formData.name}
                 className={`w-full border ${errors.name ? "border-red-500" : "border-white/30"} bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500`}
                 onChange={handleChange}
