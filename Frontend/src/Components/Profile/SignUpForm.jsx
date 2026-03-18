@@ -20,6 +20,7 @@ function SignUpForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -53,26 +54,44 @@ function SignUpForm() {
 
  
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateForm()) return;
-  try {
-    const res = await api.post(`${import.meta.env.VITE_BACKEND_API_URL}/users`, {
-      fullName: formData.name,
-      email: formData.email,
-      password: formData.password,
-      institution: formData.institute,
-      phoneNumber: formData.phone,
-      referallId: formData.referral,
-      // gender: "Other", 
-      // course: "Others"
-    });
-    dispatch(setUser(res.data.data));
-    navigate("/SignInForm");
-  } catch (err) {
-    console.log(err);
-    alert(err.response?.data?.message || "Registration failed");
-  }
-};
+    e.preventDefault();
+    if (isSubmitting) return;
+    if (!validateForm()) return;
+
+    try {
+      setIsSubmitting(true);
+      const res = await api.post("/users", {
+        fullName: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        password: formData.password,
+        institution: formData.institute.trim(),
+        phoneNumber: formData.phone.trim(),
+        referralId: formData.referral.trim(),
+        // gender: "Other",
+        // course: "Others"
+      });
+
+      dispatch(setUser(res.data.data));
+      navigate("/SignInForm");
+    } catch (err) {
+      const serverMessage =
+        err.response?.data?.errorMessage || err.response?.data?.message;
+
+      if (err.response?.status === 409) {
+        alert(serverMessage || "Account already exists. Please sign in.");
+        return;
+      }
+
+      if (err.response?.status === 400) {
+        alert(serverMessage || "Please check your details and try again.");
+        return;
+      }
+
+      alert(serverMessage || "Registration failed");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -186,9 +205,10 @@ function SignUpForm() {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors mt-2"
             >
-              Register
+              {isSubmitting ? "Registering..." : "Register"}
             </button>
           </form>
 

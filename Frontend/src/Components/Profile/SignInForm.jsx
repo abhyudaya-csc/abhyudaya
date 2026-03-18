@@ -10,25 +10,57 @@ import { useNavigate } from "react-router-dom";
 function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return;
+
+    if (!email.trim() || !password.trim()) {
+      alert("Email and password are required.");
+      return;
+    }
+
     try {
-      const res = await api.post(`${import.meta.env.VITE_BACKEND_API_URL}/users/login`, {
-        email,
-        password,
-      },{
-          withCredentials: true, // This sends cookies to backend
-        });
+      setIsSubmitting(true);
+      const res = await api.post(
+        "/users/login",
+        {
+          email: email.trim().toLowerCase(),
+          password,
+        },
+        {
+          withCredentials: true,
+        },
+      );
 
       dispatch(setUser(res.data.data));
       navigate("/profile");
 
     } catch (err) {
-      console.log(err);
-      alert(err.response?.data?.message || "Login failed");
+      const serverMessage =
+        err.response?.data?.errorMessage || err.response?.data?.message;
+
+      if (err.response?.status === 400) {
+        alert(serverMessage || "Invalid email or password.");
+        return;
+      }
+
+      if (err.response?.status === 404) {
+        alert(serverMessage || "User not found. Please sign up first.");
+        return;
+      }
+
+      if (err.response?.status === 401) {
+        alert(serverMessage || "Unauthorized. Please login again.");
+        return;
+      }
+
+      alert(serverMessage || "Login failed");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -85,9 +117,10 @@ function SignInForm() {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg transition-colors"
             >
-              Sign In
+              {isSubmitting ? "Signing In..." : "Sign In"}
             </button>
           </form>
 

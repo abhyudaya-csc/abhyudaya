@@ -22,7 +22,10 @@ function AppContent() {
         const res = await api.get("/users/me");
         dispatch(setUser(res.data.user));
       } catch (err) {
-        console.log("No logged-in user");
+        // A 401 here is expected for visitors without an active session.
+        if (err.response?.status !== 401) {
+          console.error("Failed to fetch current user", err);
+        }
       }
     };
 

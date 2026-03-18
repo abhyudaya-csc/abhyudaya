@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import axios from "axios";
+import api from "../../../api/axios";
 import { Mail, Lock } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -26,12 +26,11 @@ function SignInForm() {
   const onSubmit = async (data) => {
     try {
       setClicked(true);
-      console.log(import.meta.env.VITE_BACKEND_API_URL);
-      const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_API_URL}users/login`,
+      const res = await api.post(
+        "/users/login",
         data,
         {
-          withCredentials: true, // This sends cookies to backend
+          withCredentials: true,
         }
       );
       
@@ -39,7 +38,15 @@ function SignInForm() {
       dispatch(fetchEvents());
       toast.success(`Welcome ${res.data.data.fullName}`);
     } catch (error) {
-      toast.error(error.response.data.errorMessage || "Sign In Failed");
+      const serverMessage =
+        error.response?.data?.errorMessage || error.response?.data?.message;
+
+      if (error.response?.status === 404) {
+        toast.error(serverMessage || "User not found. Please sign up first.");
+        return;
+      }
+
+      toast.error(serverMessage || "Sign In Failed");
     } finally {
       setClicked(false);
     }
