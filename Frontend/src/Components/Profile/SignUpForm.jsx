@@ -22,6 +22,8 @@ function SignUpForm() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const normalizePhone = (value) => value.replace(/\D/g, "");
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -35,6 +37,8 @@ function SignUpForm() {
 
   const validateForm = () => {
     const newErrors = {};
+    const normalizedPhone = normalizePhone(formData.phone);
+
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
@@ -45,7 +49,7 @@ function SignUpForm() {
     if (!formData.institute.trim())
       newErrors.institute = "Institute is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-    else if (!/^\d{10}$/.test(formData.phone))
+    else if (normalizedPhone.length !== 10)
       newErrors.phone = "Invalid phone (10 digits)";
 
     setErrors(newErrors);
@@ -60,16 +64,31 @@ function SignUpForm() {
 
     try {
       setIsSubmitting(true);
-      const res = await api.post("/users", {
+      const normalizedPhone = normalizePhone(formData.phone);
+
+      if (normalizedPhone.length !== 10) {
+        alert("Invalid phone number. Enter exactly 10 digits.");
+        return;
+      }
+
+      const payload = {
         fullName: formData.name.trim(),
         email: formData.email.trim().toLowerCase(),
         password: formData.password,
         institution: formData.institute.trim(),
-        phoneNumber: formData.phone.trim(),
-        referralId: formData.referral.trim(),
-        // gender: "Other",
-        // course: "Others"
-      });
+        phoneNumber: normalizedPhone,
+        // Keep defaults for fields expected by backend in some deployments.
+        gender: "Other",
+        course: "Others",
+      };
+
+      const referralId = formData.referral.trim();
+      if (referralId) {
+        payload.referralId = referralId;
+        payload.referallId = referralId;
+      }
+
+      const res = await api.post("/users", payload);
 
       dispatch(setUser(res.data.data));
       navigate("/SignInForm");
@@ -84,6 +103,14 @@ function SignUpForm() {
 
       if (err.response?.status === 400) {
         alert(serverMessage || "Please check your details and try again.");
+        return;
+      }
+
+      if (err.response?.status === 500) {
+        alert(
+          serverMessage ||
+            "Server error while creating account. Please try again in a moment.",
+        );
         return;
       }
 
