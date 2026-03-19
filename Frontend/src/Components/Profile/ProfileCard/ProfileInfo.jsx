@@ -37,12 +37,6 @@ const ProfileInfo = () => {
     navigate("/"); 
   };
 
-  // const dob = new Date(user.dob).toLocaleDateString("en-US", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // });
-
   return (
     <div className="w-full space-y-6 h-fit ">
       {/* Profile Header */}
@@ -84,8 +78,8 @@ const ProfileInfo = () => {
         {[
           { label: "Email", value: user.email },
           { label: "Phone", value: user.phoneNumber },
-          { label: "Course", value: user.course },
-          { label: "Gender", value: user.gender },
+          // { label: "Course", value: user.course },
+          // { label: "Gender", value: user.gender },
           { label: "Institution", value: user.institution },
           // { label: "Date of Birth", value: dob },
         ].map(({ label, value }) => (

@@ -54,9 +54,14 @@ const PaymentModal = ({ amount, isOpen, onClose, onSubmit }) => {
         {/* QR Code Image */}
 
         {(amount === 0  )? (
+          <>
           <span className="text-center flex justify-center text-lg text-blue-500">
-            This is an auto-generated UPI Id.{" "}
+            This is an auto-generated UPI Id .{" "}
           </span>
+          <span className="text-center flex justify-center text-lg text-blue-500">
+            for FREE events
+          </span>
+          </>
         ) : (
           <>
             <div className="flex justify-center">
