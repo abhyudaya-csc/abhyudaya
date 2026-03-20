@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import authBg from "../../assets/Landing/authBg.jpg";
 import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
-import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function SignUpForm() {
@@ -18,22 +17,52 @@ function SignUpForm() {
     phone: "",
     referral: "",
   });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // fix: add missing password toggle state
   const [showPassword, setShowPassword] = useState(false);
+
+  // OTP state (required)
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [signupToken, setSignupToken] = useState("");
+  const [retryAfter, setRetryAfter] = useState(0);
+  const [isOtpLoading, setIsOtpLoading] = useState(false);
 
   const normalizePhone = (value) => value.replace(/\D/g, "");
 
+  useEffect(() => {
+    if (!retryAfter) return;
+    const timer = setInterval(() => {
+      setRetryAfter((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [retryAfter]);
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // if email changes, invalidate previous OTP verification
+    if (name === "email") {
+      setOtp("");
+      setOtpSent(false);
+      setOtpVerified(false);
+      setSignupToken("");
+      setRetryAfter(0);
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
-    // Clear error when user starts typing
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: "" });
+
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
     }
   };
 
@@ -58,11 +87,69 @@ function SignUpForm() {
     return Object.keys(newErrors).length === 0;
   };
 
- 
+  const handleSendOtp = async () => {
+    const email = formData.email.trim().toLowerCase();
+    if (!email) {
+      alert("Enter email first.");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert("Enter a valid email.");
+      return;
+    }
+
+    try {
+      setIsOtpLoading(true);
+      const res = await api.post("/verify/send-signup-otp", { email });
+      setOtpSent(true);
+      setOtpVerified(false);
+      setSignupToken("");
+      setRetryAfter(60);
+      alert(res.data?.message || "OTP sent successfully.");
+    } catch (err) {
+      const wait = err.response?.data?.retryAfter;
+      if (wait) setRetryAfter(wait);
+      alert(err.response?.data?.message || "Failed to send OTP.");
+    } finally {
+      setIsOtpLoading(false);
+    }
+  };
+
+  const handleVerifyOtp = async () => {
+    const email = formData.email.trim().toLowerCase();
+    if (!otp.trim()) {
+      alert("Enter OTP first.");
+      return;
+    }
+
+    try {
+      setIsOtpLoading(true);
+      const res = await api.post("/verify/confirm-signup-otp", {
+        email,
+        otp: otp.trim(),
+      });
+
+      setOtpVerified(true);
+      setSignupToken(res.data?.signupToken || "");
+      alert("OTP verified successfully.");
+    } catch (err) {
+      setOtpVerified(false);
+      setSignupToken("");
+      alert(err.response?.data?.message || "OTP verification failed.");
+    } finally {
+      setIsOtpLoading(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
     if (!validateForm()) return;
+
+    if (!otpVerified || !signupToken) {
+      alert("Please verify OTP before registering.");
+      return;
+    }
 
     try {
       setIsSubmitting(true);
@@ -79,9 +166,9 @@ function SignUpForm() {
         password: formData.password,
         institution: formData.institute.trim(),
         phoneNumber: normalizedPhone,
-        // Keep defaults for fields expected by backend in some deployments.
         gender: "Other",
         course: "Others",
+        signupToken, // required by backend OTP-protected signup
       };
 
       const referralId = formData.referral.trim();
@@ -124,18 +211,13 @@ function SignUpForm() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* BACKGROUND IMAGE */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{ backgroundImage: `url(${pageBg})` }}
       ></div>
-
-      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* SIGNUP CARD */}
-      <div className="relative z-10 w-[75%] sm:w-[700px] backdrop-blur-[4px] rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
-        {/* LEFT IMAGE PANEL (hidden on mobile) */}
+      <div className="relative z-10 w-[75%] sm:w-175 backdrop-blur-xs rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
         <div className="w-1/2 relative hidden sm:block">
           <img
             src={authBg}
@@ -150,7 +232,6 @@ function SignUpForm() {
           />
         </div>
 
-        {/* RIGHT FORM PANEL */}
         <div className="w-full sm:w-1/2 p-6 sm:p-8 flex flex-col items-center overflow-y-auto bg-white/10 backdrop-blur-md">
           <h2 className="text-2xl font-bold text-center text-white">Sign Up</h2>
 
@@ -238,6 +319,44 @@ function SignUpForm() {
                 className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 onChange={handleChange}
               />
+            </div>
+
+            {/* OTP actions */}
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={handleSendOtp}
+                disabled={isOtpLoading || retryAfter > 0}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white py-2 rounded-lg transition-colors"
+              >
+                {retryAfter > 0
+                  ? `Resend OTP in ${retryAfter}s`
+                  : "Send OTP"}
+              </button>
+
+              {otpSent && (
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter OTP"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleVerifyOtp}
+                    disabled={isOtpLoading || !otp.trim()}
+                    className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white"
+                  >
+                    Verify
+                  </button>
+                </div>
+              )}
+
+              {otpVerified && (
+                <p className="text-emerald-300 text-sm">OTP verified</p>
+              )}
             </div>
 
             <button
