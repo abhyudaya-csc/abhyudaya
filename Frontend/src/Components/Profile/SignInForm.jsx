@@ -7,12 +7,14 @@ import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
 
 function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -111,13 +113,23 @@ function SignInForm() {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full border border-white/30 bg-white/20 text-white placeholder-white/70 rounded-lg px-4 py-3 pr-20 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-base text-white/80 hover:text-white"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
 
             <button
               type="submit"

@@ -1,199 +1,199 @@
 const teamsData = [
-//   {
-//     Position: "Convenor",
-//     Name: "Aryan Singh",
-//     Year: "Final Year",
-//     Branch: "CSE",
+  //   {
+  //     Position: "Convenor",
+  //     Name: "Aryan Singh",
+  //     Year: "Final Year",
+  //     Branch: "CSE",
 
-//     LinkedInId: "https://www.linkedin.com/in/aryan-singh-7b1b3b228",
-//     InstaId: "aryansingh_07?igshid=1v6c4l0c5s6j7",
+  //     LinkedInId: "https://www.linkedin.com/in/aryan-singh-7b1b3b228",
+  //     InstaId: "aryansingh_07?igshid=1v6c4l0c5s6j7",
 
-//     Photo: "https://i.postimg.cc/nhpG3Zmg/AryanSingh.jpg",   // original with background
-//     PhotoCutout: "/team/Aryan.png",  // background removed PNG
-  
-//   },
-//   {
-//     Position: "Co-Convenor ",
-//     Name: "Ishan Mishra",
-//     Year: "Final Year",
-//     Branch: "E.E",
+  //     Photo: "https://i.postimg.cc/nhpG3Zmg/AryanSingh.jpg",   // original with background
+  //     PhotoCutout: "/team/Aryan.png",  // background removed PNG
 
-//     LinkedInId: "https://www.linkedin.com/in/ishan-mishra-ab108b228/",
-//     InstaId: "i.mishra",
-//     Photo: "https://i.postimg.cc/ZqKDdRPP/Ishan_Mishra.jpg",
-//     PhotoCutout: "/team/Ishan-Mishra.png", 
-//   },
-//   {
-//     Position: "Technical Head",
-//     Name: "Shreyas Kumar",
-//     Year: "Final Year",
-//     Branch: "CSE",
+  //   },
+  //   {
+  //     Position: "Co-Convenor ",
+  //     Name: "Ishan Mishra",
+  //     Year: "Final Year",
+  //     Branch: "E.E",
 
-//     LinkedInId:
-//       "https://www.linkedin.com/in/shreyas-kumar-416093230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-//     InstaId:
-//       "shreyas_kumar_411?igsh=MTRubzhld2Mxcng5Mw==",
-//     Photo: "https://i.postimg.cc/0QXkkR7N/Shreyas-Kumar.jpg",
-//   },
-//   {
-//     Position: "Technical Head",
-//     Name: "Pritish Tomar",
-//     Year: "Final Year",
-//     Branch: "IT",
+  //     LinkedInId: "https://www.linkedin.com/in/ishan-mishra-ab108b228/",
+  //     InstaId: "i.mishra",
+  //     Photo: "https://i.postimg.cc/ZqKDdRPP/Ishan_Mishra.jpg",
+  //     PhotoCutout: "/team/Ishan-Mishra.png",
+  //   },
+  //   {
+  //     Position: "Technical Head",
+  //     Name: "Shreyas Kumar",
+  //     Year: "Final Year",
+  //     Branch: "CSE",
 
-//     LinkedInId: "https://www.linkedin.com/in/pritish-tomar/",
-//     InstaId: "pritiish.tomar/",
-//     Photo: "https://i.postimg.cc/YqZvNgGS/Pritish-tomar.jpg",
-//     PhotoCutout: "/team/Pritish-tomar.png",
-//   },
-//   {
-//     Position: "Media & Publicity Head ",
-//     Name: "Ankur Vansha ",
-//     Year: "Final Year",
-//     Branch: "E.E",
+  //     LinkedInId:
+  //       "https://www.linkedin.com/in/shreyas-kumar-416093230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  //     InstaId:
+  //       "shreyas_kumar_411?igsh=MTRubzhld2Mxcng5Mw==",
+  //     Photo: "https://i.postimg.cc/0QXkkR7N/Shreyas-Kumar.jpg",
+  //   },
+  //   {
+  //     Position: "Technical Head",
+  //     Name: "Pritish Tomar",
+  //     Year: "Final Year",
+  //     Branch: "IT",
 
-//     LinkedInId: "",
-//     InstaId: "a.vansha",
-//     Photo: "https://i.postimg.cc/gjKKXskr/Ankur-Vansha.jpg",
-//   },
-//   {
-//     Position: "Public Relations Head",
-//     Name: "Aryan Raj Pandey",
-//     Year: "Final Year",
-//     Branch: "CE",
+  //     LinkedInId: "https://www.linkedin.com/in/pritish-tomar/",
+  //     InstaId: "pritiish.tomar/",
+  //     Photo: "https://i.postimg.cc/YqZvNgGS/Pritish-tomar.jpg",
+  //     PhotoCutout: "/team/Pritish-tomar.png",
+  //   },
+  //   {
+  //     Position: "Media & Publicity Head ",
+  //     Name: "Ankur Vansha ",
+  //     Year: "Final Year",
+  //     Branch: "E.E",
 
-//     LinkedInId: "",
-//     InstaId: "/",
-//     Photo: "https://i.postimg.cc/m28wTm55/Aryan-Raj-Pandey.jpg",
-//   },
+  //     LinkedInId: "",
+  //     InstaId: "a.vansha",
+  //     Photo: "https://i.postimg.cc/gjKKXskr/Ankur-Vansha.jpg",
+  //   },
+  //   {
+  //     Position: "Public Relations Head",
+  //     Name: "Aryan Raj Pandey",
+  //     Year: "Final Year",
+  //     Branch: "CE",
 
-//  /*  {
-//     Position: "Public Relations Head",
-//     Name: "Satish kumar ",
-//     Year: "Final Year",
-//     Branch: "EE",
+  //     LinkedInId: "",
+  //     InstaId: "/",
+  //     Photo: "https://i.postimg.cc/m28wTm55/Aryan-Raj-Pandey.jpg",
+  //   },
 
-//     LinkedInId: "https://linkedin.com/in/satishkumar-263290235",
-//     InstaId: "Satish8569kumar ",
-//     Photo: "https://i.postimg.cc/k59Xwyn7/Satish-Kumar.jpg",
-//   },*/
-//   {
-//     Position: "Techincal Head",
-//     Name: "Rahul Singh",
-//     Year: "Final Year",
-//     Branch: "CSE",
+  //  /*  {
+  //     Position: "Public Relations Head",
+  //     Name: "Satish kumar ",
+  //     Year: "Final Year",
+  //     Branch: "EE",
 
-//     LinkedInId: "https://linkedin.com/in/rahulsingh108",
-//     InstaId: "rahulunscripted_",
-//     Photo: "https://i.postimg.cc/xdyqS4sk/Rahul-Singh.jpg",
-//   },
-//   {
-//     Position: "Design Head",
-//     Name: "Tushar Gupta",
-//     Year: "Final Year",
-//     Branch: "ECE",
+  //     LinkedInId: "https://linkedin.com/in/satishkumar-263290235",
+  //     InstaId: "Satish8569kumar ",
+  //     Photo: "https://i.postimg.cc/k59Xwyn7/Satish-Kumar.jpg",
+  //   },*/
+  //   {
+  //     Position: "Techincal Head",
+  //     Name: "Rahul Singh",
+  //     Year: "Final Year",
+  //     Branch: "CSE",
 
-//     LinkedInId: "https://www.linkedin.com/in/tushar-gupta-s/",
-//     InstaId: "_tushargupta/",
-//     Photo:
-//       "https://i.ibb.co/bgkXZ07c/Whats-App-Image-2025-03-10-at-15-58-08-43dc2cbf.jpg",
-//   },
-//   {
-//     Position: "Design Head",
-//     Name: "Srishti",
-//     Year: "Final Year",
-//     Branch: "ECE",
+  //     LinkedInId: "https://linkedin.com/in/rahulsingh108",
+  //     InstaId: "rahulunscripted_",
+  //     Photo: "https://i.postimg.cc/xdyqS4sk/Rahul-Singh.jpg",
+  //   },
+  //   {
+  //     Position: "Design Head",
+  //     Name: "Tushar Gupta",
+  //     Year: "Final Year",
+  //     Branch: "ECE",
 
-//     LinkedInId: "https://www.linkedin.com/in/srishti-665766229/",
-//     InstaId: "srishtis045",
-//     Photo: "https://i.postimg.cc/XJKJvV8S/Srishti.jpg",
-//   },
-//   {
-//     Position: "Content Head",
-//     Name: "Akshat Saxena",
-//     Year: "Final Year",
-//     Branch: "IT",
+  //     LinkedInId: "https://www.linkedin.com/in/tushar-gupta-s/",
+  //     InstaId: "_tushargupta/",
+  //     Photo:
+  //       "https://i.ibb.co/bgkXZ07c/Whats-App-Image-2025-03-10-at-15-58-08-43dc2cbf.jpg",
+  //   },
+  //   {
+  //     Position: "Design Head",
+  //     Name: "Srishti",
+  //     Year: "Final Year",
+  //     Branch: "ECE",
 
-//     LinkedInId:
-//       "https://www.linkedin.com/in/akshat-saxena-26073a229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-//     InstaId:
-//       "i.akshatsaxena?igsh=MXMwYzlzYW9xcTZjYg==",
-//     Photo: "https://i.postimg.cc/MKxP6MKv/Akshat-saxena.jpg",
-//   },
+  //     LinkedInId: "https://www.linkedin.com/in/srishti-665766229/",
+  //     InstaId: "srishtis045",
+  //     Photo: "https://i.postimg.cc/XJKJvV8S/Srishti.jpg",
+  //   },
+  //   {
+  //     Position: "Content Head",
+  //     Name: "Akshat Saxena",
+  //     Year: "Final Year",
+  //     Branch: "IT",
 
-//   {
-//     Position: "Content Head",
-//     Name: "Vanshika Verma",
-//     Year: "Final Year",
-//     Branch: "B.pharma",
+  //     LinkedInId:
+  //       "https://www.linkedin.com/in/akshat-saxena-26073a229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  //     InstaId:
+  //       "i.akshatsaxena?igsh=MXMwYzlzYW9xcTZjYg==",
+  //     Photo: "https://i.postimg.cc/MKxP6MKv/Akshat-saxena.jpg",
+  //   },
 
-//     LinkedInId: "https://www.linkedin.com/in/vanshika-verma-115323230/",
-//     InstaId: "vanshiika.verma",
-//     Photo: "https://i.postimg.cc/c1VKww8L/Vanshika-Verma.jpg",
-//   },
+  //   {
+  //     Position: "Content Head",
+  //     Name: "Vanshika Verma",
+  //     Year: "Final Year",
+  //     Branch: "B.pharma",
 
-//   // {
-//   //   Position: "Events Head ",
-//   //   Name: "Jayant Lal ",
-//   //   Year: "Final Year",
-//   //   Branch: "CSE",
+  //     LinkedInId: "https://www.linkedin.com/in/vanshika-verma-115323230/",
+  //     InstaId: "vanshiika.verma",
+  //     Photo: "https://i.postimg.cc/c1VKww8L/Vanshika-Verma.jpg",
+  //   },
 
-//   //   LinkedInId: "linkedin.com/in/jayant24dec",
-//   //   InstaId: "jayant24dec",
-//   //   Photo: "https://i.postimg.cc/dQndCLj7/Jayant-Lal.jpg"
-//   // },
-//   {
-//     Position: "Treasurer",
-//     Name: "Prakhar Sachan",
-//     Year: "Final Year",
-//     Branch: "IT",
+  //   // {
+  //   //   Position: "Events Head ",
+  //   //   Name: "Jayant Lal ",
+  //   //   Year: "Final Year",
+  //   //   Branch: "CSE",
 
-//     LinkedInId: "",
-//     InstaId: "/",
-//     Photo: "",
-//   },
-//   {
-//     Position: "Events Head",
-//     Name: "Shreya Singh",
-//     Year: "Final Year",
-//     Branch: "",
+  //   //   LinkedInId: "linkedin.com/in/jayant24dec",
+  //   //   InstaId: "jayant24dec",
+  //   //   Photo: "https://i.postimg.cc/dQndCLj7/Jayant-Lal.jpg"
+  //   // },
+  //   {
+  //     Position: "Treasurer",
+  //     Name: "Prakhar Sachan",
+  //     Year: "Final Year",
+  //     Branch: "IT",
 
-//     LinkedInId: "https://www.linkedin.com/in/",
-//     InstaId: "/",
-//     Photo: "https://i.postimg.cc/zB61sz21/Shreys-Singh.jpg",
-//   },
+  //     LinkedInId: "",
+  //     InstaId: "/",
+  //     Photo: "",
+  //   },
+  //   {
+  //     Position: "Events Head",
+  //     Name: "Shreya Singh",
+  //     Year: "Final Year",
+  //     Branch: "",
 
-//   {
-//     Position: "Sponsorship Head",
-//     Name: "Arsh Ranjan Singh",
-//     Year: "Final Year",
-//     Branch: "",
+  //     LinkedInId: "https://www.linkedin.com/in/",
+  //     InstaId: "/",
+  //     Photo: "https://i.postimg.cc/zB61sz21/Shreys-Singh.jpg",
+  //   },
 
-//     LinkedInId: "https://www.linkedin.com/in/",
-//     InstaId: "/",
-//     Photo: "",
-//   },
+  //   {
+  //     Position: "Sponsorship Head",
+  //     Name: "Arsh Ranjan Singh",
+  //     Year: "Final Year",
+  //     Branch: "",
 
-//   // {
-//   //   Position: "Executive member ",
-//   //   Name: "MAYANK JAISWAL",
-//   //   Year: "Final Year",
-//   //   Branch: "EE",
+  //     LinkedInId: "https://www.linkedin.com/in/",
+  //     InstaId: "/",
+  //     Photo: "",
+  //   },
 
-//   //   LinkedInId: "https://www.linkedin.com/in/mayank-jaiswal-071b47255",
-//   //   InstaId: "mayankjaiswal0308",
-//   //   Photo: "https://i.postimg.cc/TP8Wxmfs/Mayank-Jaiswal.jpg"
-//   // },
-//   {
-//     Position: "Executive member ",
-//     Name: "Akshay kumar",
-//     Year: "Final Year",
-//     Branch: "EE",
+  //   // {
+  //   //   Position: "Executive member ",
+  //   //   Name: "MAYANK JAISWAL",
+  //   //   Year: "Final Year",
+  //   //   Branch: "EE",
 
-//     LinkedInId: "https://www.linkedin.com",
-//     InstaId: "ax.shayy__",
-//     Photo: "https://i.postimg.cc/sxPTPyKj/Akshay-Kumar.jpg",
-//   },
+  //   //   LinkedInId: "https://www.linkedin.com/in/mayank-jaiswal-071b47255",
+  //   //   InstaId: "mayankjaiswal0308",
+  //   //   Photo: "https://i.postimg.cc/TP8Wxmfs/Mayank-Jaiswal.jpg"
+  //   // },
+  //   {
+  //     Position: "Executive member ",
+  //     Name: "Akshay kumar",
+  //     Year: "Final Year",
+  //     Branch: "EE",
+
+  //     LinkedInId: "https://www.linkedin.com",
+  //     InstaId: "ax.shayy__",
+  //     Photo: "https://i.postimg.cc/sxPTPyKj/Akshay-Kumar.jpg",
+  //   },
 
   // {
   //   Position: "Executive member ",
@@ -276,8 +276,10 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/shivam-rai-a64b84298",
     InstaId: "shivam_rai_2299?igsh=dm5scjJpOHYwOGdx",
-    Photo: "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
-    PhotoCutout: "https://i.ibb.co/qLqQ596v/Whats-App-Image-2026-03-12-at-1-06-48-PM-removebg-preview.png"
+    Photo:
+      "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/qLqQ596v/Whats-App-Image-2026-03-12-at-1-06-48-PM-removebg-preview.png",
   },
   {
     Position: "Co-Convener",
@@ -288,9 +290,9 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com",
     InstaId: "richa.mishra",
     Photo: "https://i.postimg.cc/VkfHn917/Richa-Mishra.jpg",
-        PhotoCutout: "https://i.ibb.co/j9yWc25c/Richa-Mishra.png"
+    PhotoCutout: "https://i.ibb.co/j9yWc25c/Richa-Mishra.png",
   },
-{
+  {
     Position: "Treasurer",
     Name: "Amar Yadav ",
     Year: "Final Year",
@@ -298,8 +300,10 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com",
     InstaId: "amaryadav7146",
-    Photo: "https://i.ibb.co/zh5CXxsJ/Whats-App-Image-2026-03-12-at-1-05-05-PM.jpg",
-        PhotoCutout: "https://i.ibb.co/SDV6Qsjs/Whats-App-Image-2026-03-12-at-1-05-05-PM-removebg-preview.png"
+    Photo:
+      "https://i.ibb.co/zh5CXxsJ/Whats-App-Image-2026-03-12-at-1-05-05-PM.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/SDV6Qsjs/Whats-App-Image-2026-03-12-at-1-05-05-PM-removebg-preview.png",
   },
   {
     Position: "Treasurer",
@@ -310,11 +314,11 @@ const teamsData = [
     LinkedInId:
       "https://www.linkedin.com/in/vivek-mani-tripathy-429177223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "iamvmt?igsh=MTVzYjMxb3Rra3JjMw==",
-    Photo: "https://i.postimg.cc/5t09Z2Fr/VMT.jpg",
-    PhotoCutout: "https://i.ibb.co/TBMnZpPV/VMT.png"
+    Photo: "https://i.ibb.co/kgzZrjHK/VMTsir.jpg",
+
+    PhotoCutout: "https://i.ibb.co/gbNqCp9x/VMTsir-removebg-preview.png",
   },
   {
-  
     Position: "Sponsorship Head",
     Name: "Aastha Singh",
     Year: "Final Year",
@@ -323,8 +327,7 @@ const teamsData = [
     LinkedInId: "https://in.linkedin.com/",
     InstaId: "accounts/login/?hl=en",
     Photo: "https://i.ibb.co/7NKL0Msn/Astha-singh.jpg",
-    PhotoCutout: "https://i.ibb.co/ZzJf3P1D/Astha-singh-removebg-preview.png"
-    
+    PhotoCutout: "https://i.ibb.co/ZzJf3P1D/Astha-singh-removebg-preview.png",
   },
   {
     Position: "Sponsorship Head",
@@ -335,7 +338,7 @@ const teamsData = [
     LinkedInId: "temporarily restricted",
     InstaId: "Vidhi__8479",
     Photo: "https://i.postimg.cc/fW3tVByP/Vidhi-Gupta.jpg",
-    PhotoCutout:"https://i.ibb.co/hFm97cWt/Vidhi-Gupta-removebg-preview.png"
+    PhotoCutout: "https://i.ibb.co/hFm97cWt/Vidhi-Gupta-removebg-preview.png",
   },
   {
     Position: "Sponsorship Head",
@@ -346,7 +349,8 @@ const teamsData = [
     LinkedInId: "temporarily restricted",
     InstaId: "/",
     Photo: "https://i.ibb.co/RTtT9R0R/Manmohan-Shukla.jpg",
-    PhotoCutout:"https://i.ibb.co/mrGnTfjY/Manmohan-Shukla-removebg-preview.png"
+    PhotoCutout:
+      "https://i.ibb.co/mrGnTfjY/Manmohan-Shukla-removebg-preview.png",
   },
   {
     Position: "Public Relation Head",
@@ -357,7 +361,7 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/jayant-singh-a36a96266",
     InstaId: "",
     Photo: "https://i.postimg.cc/8ck63SNP/Jayant-Singh.jpg",
-    PhotoCutout: "https://i.ibb.co/LdsYsxkZ/Jayant-Singh.png"
+    PhotoCutout: "https://i.ibb.co/LdsYsxkZ/Jayant-Singh.png",
   },
   {
     Position: "Public Relation Head",
@@ -369,7 +373,7 @@ const teamsData = [
       "https://www.linkedin.com/in/ritika-rao-a6a447257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "ritikarao2352?igsh=emk5Mmdrbmxncmdm",
     Photo: "https://i.postimg.cc/htmf2jT1/Ritika-rao.jpg",
-        PhotoCutout: "https://i.ibb.co/wNGSVZw7/Ritika-rao.png",
+    PhotoCutout: "https://i.ibb.co/wNGSVZw7/Ritika-rao.png",
   },
   {
     Position: "Content Head ",
@@ -379,8 +383,10 @@ const teamsData = [
 
     LinkedInId: "www.linkedin.com",
     InstaId: "_nan_dinii",
-    Photo: "https://i.ibb.co/tM6wDFYf/Whats-App-Image-2026-03-12-at-1-04-52-PM.jpg",
-    PhotoCutout: "https://i.ibb.co/6RZZBVZY/Whats-App-Image-2026-03-12-at-1-04-52-PM-removebg-preview.png",
+    Photo:
+      "https://i.ibb.co/tM6wDFYf/Whats-App-Image-2026-03-12-at-1-04-52-PM.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/6RZZBVZY/Whats-App-Image-2026-03-12-at-1-04-52-PM-removebg-preview.png",
   },
   {
     Position: "Content Head ",
@@ -403,7 +409,7 @@ const teamsData = [
       "https://www.linkedin.com/in/ashish-raj-482a47255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "ashishraj6219?igsh=Zmp3anhzY3RudTQ5",
     Photo: "https://i.ibb.co/7xKs8LKT/Ashish-Raj.jpg",
-    PhotoCutout: "https://i.ibb.co/3msLz643/Ashish-Raj-removebg-preview.png"
+    PhotoCutout: "https://i.ibb.co/3msLz643/Ashish-Raj-removebg-preview.png",
   },
   {
     Position: "Online Head ",
@@ -414,7 +420,8 @@ const teamsData = [
     LinkedInId: "www.linkedin.com",
     InstaId: "aadreeeka ",
     Photo: "https://i.ibb.co/SDQLtxjF/20250812-053144-Aadreeka-Barnwal.jpg",
-    PhotoCutout: "https://i.ibb.co/s9H3p6NY/20250812-053144-Aadreeka-Barnwal-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/s9H3p6NY/20250812-053144-Aadreeka-Barnwal-removebg-preview.png",
   },
   {
     Position: "Technical Head",
@@ -425,7 +432,8 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/anas-kausar/",
     InstaId: "https://www.instagram.com/anaskausar.psd/",
     Photo: "https://i.ibb.co/fdbpz5y9/IMG-20250331-WA0032-Anas-Kausar.jpg",
-    PhotoCutout: "https://i.ibb.co/gLH9Fb86/IMG-20250331-WA0032-Anas-Kausar-removebg-preview.png"
+    PhotoCutout:
+      "https://i.ibb.co/gLH9Fb86/IMG-20250331-WA0032-Anas-Kausar-removebg-preview.png",
   },
   {
     Position: "Technical Head",
@@ -436,7 +444,7 @@ const teamsData = [
     LinkedInId: "http://www.linkedin.com/in/harshit-pandit",
     InstaId: "harshit__panditt",
     Photo: "https://i.ibb.co/4gs8vg6k/Harshit-Pandey.png",
-    PhotoCutout: "https://i.ibb.co/fzz1NrDG/Harshit-pandey.png"
+    PhotoCutout: "https://i.ibb.co/fzz1NrDG/Harshit-pandey.png",
   },
   {
     Position: "Media & Publicity Head",
@@ -447,7 +455,7 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/madhur-gaur-mmmut/",
     InstaId: "madhurgaur_",
     Photo: "https://i.postimg.cc/FRNdd4fg/MPSG.jpg",
-    PhotoCutout:"https://i.ibb.co/FNj8FkR/MPSG-removebg-preview.png"
+    PhotoCutout: "https://i.ibb.co/FNj8FkR/MPSG-removebg-preview.png",
   },
   {
     Position: "Technical Executive",
@@ -458,11 +466,9 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com",
     InstaId: "heyyvishu",
     Photo: "https://i.postimg.cc/bvBY8fxw/vishwadeep-singh.jpg",
-    PhotoCutout: "https://i.ibb.co/cS2nvGsw/vishwadeep-singh.png"
+    PhotoCutout: "https://i.ibb.co/cS2nvGsw/vishwadeep-singh.png",
   },
-  
 
-  
   {
     Position: "Design & Devlopment Head",
     Name: "Divyansh Gupta ",
@@ -471,10 +477,11 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/divyansh-gupta-b9a435249",
     InstaId: "_the_divyansh123_",
-    Photo: "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
-    PhotoCutout: "https://i.ibb.co/HftgF41t/Whats-App-Image-2026-03-12-at-1-07-04-PM-removebg-preview.png"
+    Photo:
+      "https://i.ibb.co/qYB2PQ11/Whats-App-Image-2026-03-12-at-1-07-04-PM.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/HftgF41t/Whats-App-Image-2026-03-12-at-1-07-04-PM-removebg-preview.png",
   },
-  
 
   /*{
     Position: "Executive member ",
@@ -497,7 +504,7 @@ const teamsData = [
   //   InstaId: "Kotak.vishal__",
   //   Photo: "https://i.postimg.cc/fTnLJs63/Vishal-Kotak.jpg"
   // },
- /* {
+  /* {
     Position: "Executive member ",
     Name: "Harsh singh",
     Year: "3rd Year",
@@ -517,7 +524,8 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/arun-kumar-508722276",
     InstaId: "arukumar6094",
     Photo: "https://i.ibb.co/bMQzBFhK/IMG-20251014-WA0080-Arun-Kumar.jpg",
-    PhotoCutout: "https://i.ibb.co/Wpc96797/IMG-20251014-WA0080-Arun-Kumar-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/Wpc96797/IMG-20251014-WA0080-Arun-Kumar-removebg-preview.png",
   },
   /*{
     Position: "PR Coordinator",
@@ -551,7 +559,8 @@ const teamsData = [
     LinkedInId: "www.linkedin.com ",
     InstaId: "_.akshita._1409",
     Photo: "https://i.ibb.co/0p3swfZv/Snapchat-1974554297-Akshita-Upadhyay.jpg",
-    PhotoCutout: "https://i.ibb.co/C5ghbFsM/Snapchat-1974554297-Akshita-Upadhyay-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/C5ghbFsM/Snapchat-1974554297-Akshita-Upadhyay-removebg-preview.png",
   },
   // {
   //   Position: "Executive member ",
@@ -563,7 +572,7 @@ const teamsData = [
   //   InstaId: "/",
   //   Photo: "https://i.postimg.cc/XqwnwZTr/Yash-Pratap-Singh.jpg"
   // },
- /* {
+  /* {
     Position: "Executive member ",
     Name: "Dipendra Singh",
     Year: "3rd Year",
@@ -594,7 +603,7 @@ const teamsData = [
   //   InstaId: "prishaaa_agrawal",
   //   Photo: "hhttps://i.postimg.cc/2jHb6gCh/Prisha-Agrawal.jpg"
   // },
-  
+
   {
     Position: "Core member",
     Name: "Mayank Kumar Pathak",
@@ -615,7 +624,7 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/shivampalofficial13",
     InstaId: "/",
     Photo: "https://i.postimg.cc/2jXymvxx/Shivam-Pal.jpg",
-        PhotoCutout: "https://i.ibb.co/hJRds14v/Shivam-Pal.png",
+    PhotoCutout: "https://i.ibb.co/hJRds14v/Shivam-Pal.png",
   },
   // {
   //   Position: "Executive member ",
@@ -637,8 +646,7 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/yashi-kardam-81288a25b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "yashiiii24_/profilecard/?igsh=ZDlmNjE5Yjl4czc0",
+    InstaId: "yashiiii24_/profilecard/?igsh=ZDlmNjE5Yjl4czc0",
     Photo: "https://i.ibb.co/1tRqVdS7/Yashi-ma-am.jpg",
     PhotoCutout: "https://i.ibb.co/Gvm6gSM5/Yashi-ma-am-removebg-preview.png",
   },
@@ -664,10 +672,11 @@ const teamsData = [
       "https://www.linkedin.com/in/dipendra-singh-573446264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "justt.samyak",
     Photo: "https://i.ibb.co/ZpfWZSbL/IMG-20260312-143125-Dipendra-Singh.jpg",
-    PhotoCutout: "https://i.ibb.co/b5k4dHN3/IMG-20260312-143125-Dipendra-Singh-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/b5k4dHN3/IMG-20260312-143125-Dipendra-Singh-removebg-preview.png",
   },
 
- {
+  {
     Position: "Executive member ",
     Name: "Sonu Kumar ",
     Year: "Final  Year",
@@ -675,8 +684,9 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com",
     InstaId: "ace._.sonu07",
-    Photo:"https://i.ibb.co/dskj1Dyn/IMG-20240121-160355-sonu-kumar.jpg",
-    PhotoCutout:"https://i.ibb.co/fVmMCGP1/IMG-20240121-160355-sonu-kumar-removebg-preview.png",
+    Photo: "https://i.ibb.co/dskj1Dyn/IMG-20240121-160355-sonu-kumar.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/fVmMCGP1/IMG-20240121-160355-sonu-kumar-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -686,8 +696,7 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/aditi-sharma-2a01a3308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "aditi.rs.3112?igsh=MXNqa3BmcWM3eDFnZw==",
+    InstaId: "aditi.rs.3112?igsh=MXNqa3BmcWM3eDFnZw==",
     Photo: "https://i.postimg.cc/TPhNzz20/Aditi-Sharma.jpg",
     PhotoCutout: "https://i.ibb.co/tTB6Gcwd/Aditi-Sharma.png",
   },
@@ -722,8 +731,9 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/alok-kumar-6374aa299",
     InstaId: "alok_k.775",
-     Photo: "https://i.ibb.co/hxdyJXPw/IMG-20260312-205903-Alok-kumar.jpg",
-    PhotoCutout: "https://i.ibb.co/SGV1LqX/IMG-20260312-205903-Alok-kumar-removebg-preview.png",
+    Photo: "https://i.ibb.co/hxdyJXPw/IMG-20260312-205903-Alok-kumar.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/SGV1LqX/IMG-20260312-205903-Alok-kumar-removebg-preview.png",
   },
 
   {
@@ -734,8 +744,7 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/vinayak-yadav-79a6a0294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "vinayak_y0/profilecard/?igsh=MTNlNnpzdm1jZDE3Zg==",
+    InstaId: "vinayak_y0/profilecard/?igsh=MTNlNnpzdm1jZDE3Zg==",
     Photo: "https://i.postimg.cc/8PM7HchB/VINAYAK-YADAV.jpg",
     PhotoCutout: "https://i.ibb.co/WJZRnmV/VINAYAK-YADAV.png",
   },
@@ -760,7 +769,8 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com",
     InstaId: "shatakshi.srivastava188",
     Photo: "https://i.ibb.co/1Y12H74T/Sataakshi-Srivastava.jpgg",
-    PhotoCutout: "https://i.ibb.co/7dWX5hJL/Sataakshi-Srivastava-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/7dWX5hJL/Sataakshi-Srivastava-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -846,12 +856,13 @@ const teamsData = [
     Year: "3rd Year",
     Branch: "ECE(IoT)",
 
-    LinkedInId: "https://www.linkedin.com/in/anurag-dixit-585910294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/anurag-dixit-585910294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "https://www.instagram.com/anuraagx001/",
     PhotoCutout: "https://i.ibb.co/pB6VmbkT/Anurag-Dixit-removebg-preview.png",
     Photo: "https://i.ibb.co/yF04HsQQ/Anurag-Dixit.jpg",
   },
-  
+
   {
     Position: "Executive member ",
     Name: "Ajay Kumar ",
@@ -895,8 +906,7 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/ritesh-srivastava-59825626b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "_riteshsrivastava_?igsh=eWZkZG82a3h6djNy",
+    InstaId: "_riteshsrivastava_?igsh=eWZkZG82a3h6djNy",
     Photo: "https://i.postimg.cc/MG8XNSY2/Ritesh-Srivastava.jpg",
     PhotoCutout: "https://i.ibb.co/BHCP6f6d/Ritesh-Srivastava.png",
   },
@@ -931,7 +941,8 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com ",
     InstaId: "_anrggg1",
     Photo: "https://i.ibb.co/5Xqyw9zW/Anurag-Gangwar.png",
-    PhotoCutout: "https://i.ibb.co/Wv3mTg8c/Anurag-Gangwar-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/Wv3mTg8c/Anurag-Gangwar-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -951,8 +962,10 @@ const teamsData = [
     Branch: "CE",
     InstaId: "muskansingh_.26",
     LinkedInId: "-https://www.linkedin.com/in/muskan-singh-920155368",
-    Photo: "https://i.ibb.co/MD0xWQnk/Whats-App-Image-2026-03-12-at-9-41-45-PM.jpg",
-    PhotoCutout: "https://i.ibb.co/Tx4qc4ZQ/Whats-App-Image-2026-03-12-at-9-41-45-PM-removebg-preview.png",
+    Photo:
+      "https://i.ibb.co/MD0xWQnk/Whats-App-Image-2026-03-12-at-9-41-45-PM.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/Tx4qc4ZQ/Whats-App-Image-2026-03-12-at-9-41-45-PM-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -962,8 +975,7 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/pranav-mishra-8a7908294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "er._pranav_mishra?igsh=MXR1bjc3MGU4bzR4MA==",
+    InstaId: "er._pranav_mishra?igsh=MXR1bjc3MGU4bzR4MA==",
     Photo: "https://i.postimg.cc/C56zQncm/Pranav-Mishra.png",
     PhotoCutout: "https://i.ibb.co/whMN2jmF/Pranav-Mishra.png",
   },
@@ -987,9 +999,10 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com",
     InstaId: "utkarsh.pandey18",
     Photo: "https://i.ibb.co/dwr5VrfS/Uttkars-Pandey.jpg",
-    PhotoCutout: "https://i.ibb.co/nNB9S3B7/Uttkars-Pandey-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/nNB9S3B7/Uttkars-Pandey-removebg-preview.png",
   },
- {
+  {
     Position: "Executive member ",
     Name: "Shristi Pandey ",
     Year: "3rd Year",
@@ -997,10 +1010,11 @@ const teamsData = [
 
     LinkedInId:
       "https://www.linkedin.com/in/shristi-pandey-452078294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId:
-      "hey.shristii_?igsh=MWwyMWtrcGVueWg1cA==",
-    Photo: "https://i.ibb.co/cKDLZh88/Whats-App-Image-2026-03-14-at-10-06-55.jpg",
-    PhotoCutout: "https://i.ibb.co/HDW35B6h/Whats-App-Image-2026-03-14-at-10-06-55-removebg-preview.png",
+    InstaId: "hey.shristii_?igsh=MWwyMWtrcGVueWg1cA==",
+    Photo:
+      "https://i.ibb.co/cKDLZh88/Whats-App-Image-2026-03-14-at-10-06-55.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/HDW35B6h/Whats-App-Image-2026-03-14-at-10-06-55-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1069,7 +1083,8 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com",
     InstaId: "/",
     Photo: "https://i.ibb.co/PsL8tsMc/SAVE-20251229-162501-jpg.jpg",
-    PhotoCutout: "https://i.ibb.co/mC1xw2N3/SAVE-20251229-162501-jpg-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/mC1xw2N3/SAVE-20251229-162501-jpg-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1101,8 +1116,7 @@ const teamsData = [
     Branch: "ECE",
 
     LinkedInId: "https://www.linkedin.com",
-    InstaId:
-      "shrestha_30.09?igsh=MTZ4bnZicDNub25kNQ==",
+    InstaId: "shrestha_30.09?igsh=MTZ4bnZicDNub25kNQ==",
     Photo: "https://i.postimg.cc/rmwy2F0b/Shrestha-Gupta.jpg",
     PhotoCutout: "https://i.ibb.co/bMv2nT5g/Shrestha-Gupta.png",
   },
@@ -1118,7 +1132,7 @@ const teamsData = [
     PhotoCutout: "https://i.ibb.co/RWMJzw6/Jagriti.png",
   },
 
-//111111111111
+  //111111111111
 
   {
     Position: "Executive member ",
@@ -1126,10 +1140,11 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "EE",
 
-    LinkedInId: "https://www.linkedin.com/in/yash-gauba-7a1bb9328?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/yash-gauba-7a1bb9328?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "https://www.instagram.com/yash_gauba?igsh=Z2l2YzFkcjY2aW5za",
-    Photo: "https://i.ibb.co/7tQvZNfD/Yash-Gauba.jpg", 
-    PhotoCutout:"https://i.ibb.co/b5bsHd2x/YG.png",
+    Photo: "https://i.ibb.co/7tQvZNfD/Yash-Gauba.jpg",
+    PhotoCutout: "https://i.ibb.co/b5bsHd2x/YG.png",
   },
   {
     Position: "Executive member ",
@@ -1140,7 +1155,8 @@ const teamsData = [
     LinkedInId: "/",
     InstaId: "anshiyadav255",
     Photo: "https://i.ibb.co/YBzXRjGx/IMG-20251223-WA0049-ANSHI-YADAV.jpg",
-    PhotoCutout: "https://i.ibb.co/dwKNzG0J/IMG-20251223-WA0049-ANSHI-YADAV-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/dwKNzG0J/IMG-20251223-WA0049-ANSHI-YADAV-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1161,7 +1177,7 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/anurag-banerjee007",
     InstaId: "0.anurag.0",
-     Photo: "https://i.ibb.co/kgbDBfFQ/Anurag-Banerjee.jpg",
+    Photo: "https://i.ibb.co/kgbDBfFQ/Anurag-Banerjee.jpg",
     PhotoCutout: "https://i.ibb.co/LXWXWs4S/AB.png",
   },
   {
@@ -1173,21 +1189,23 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/namrata-singh-043157327/",
     InstaId: "/",
     Photo: "https://i.ibb.co/MxwVqys0/Akshansh-Shukla.jpg",
-    PhotoCutout: "https://i.ibb.co/5Wxyr4RR/Akshansh-Shukla-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/5Wxyr4RR/Akshansh-Shukla-removebg-preview.png",
   },
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Puneet Shukla",
     Year: "2nd Year",
     Branch: "CHE",
 
-    LinkedInId: "ttps://www.linkedin.com/in/puneet-shukla-61b17b327?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "ttps://www.linkedin.com/in/puneet-shukla-61b17b327?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "_puneet.shukla_",
-     Photo: "https://i.ibb.co/8JHPsHn/IMG-20260305-WA0010-Puneet-Shukla.jpg",
-    PhotoCutout: "https://i.ibb.co/Pvdrg9c6/IMG-20260307-WA0007-Puneet-Shukla-removebg-preview.png",
+    Photo: "https://i.ibb.co/8JHPsHn/IMG-20260305-WA0010-Puneet-Shukla.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/Pvdrg9c6/IMG-20260307-WA0007-Puneet-Shukla-removebg-preview.png",
   },
-  
-  
+
   {
     Position: "Executive member ",
     Name: "Nishant Kasana",
@@ -1197,28 +1215,31 @@ const teamsData = [
     LinkedInId: "https://www.linkedin.com/in/nishant-kasana -05289537a",
     InstaId: "nish4nt_2412",
     Photo: "https://i.ibb.co/BKZL0wc3/Nishant-Kasana.jpg",
-    PhotoCutout: "https://i.ibb.co/YFx5s93R/Nishant-Kasana-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/YFx5s93R/Nishant-Kasana-removebg-preview.png",
   },
-    {
+  {
     Position: "Executive member ",
     Name: "Shashwat Singh",
     Year: "2nd Year",
     Branch: "EE",
 
-    LinkedInId: "https://www.linkedin.com/in/shashwatsingh2005?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/shashwatsingh2005?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "Sshashwat_0102",
     Photo: "https://i.ibb.co/hF1jKrCR/Shashwat-Singh.jpg",
     PhotoCutout: "https://i.ibb.co/ZQWg99F/SS.png",
   },
-   {
-      Position: "Executive member ",
+  {
+    Position: "Executive member ",
     Name: "Ritesh Yadav",
     Year: "2nd Year",
     Branch: "CSE",
 
-    LinkedInId: "https://www.linkedin.com/in/riteshydv05?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/riteshydv05?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "/",
-     Photo: "https://i.ibb.co/0yXcBNfw/Ritesh-Yadav.jpg",
+    Photo: "https://i.ibb.co/0yXcBNfw/Ritesh-Yadav.jpg",
     PhotoCutout: "https://i.ibb.co/xKKPyYMm/RY.png",
   },
   {
@@ -1229,7 +1250,7 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/priyanshu-saroj-476661332/",
     InstaId: "wtfff_priyanshu",
-     Photo: "https://i.ibb.co/JjNKnxcz/PRIYANSHU-SAROJ.jpg",
+    Photo: "https://i.ibb.co/JjNKnxcz/PRIYANSHU-SAROJ.jpg",
     PhotoCutout: "https://i.ibb.co/vvqDpy9w/PSA.png",
   },
   {
@@ -1238,8 +1259,10 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/divyanand-chauhan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    InstaId: "https://www.instagram.com/lights.camera.divyanand?igsh=MTZrcm8yNHN1Mzd6Zw==",
+    LinkedInId:
+      "https://www.linkedin.com/in/divyanand-chauhan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    InstaId:
+      "https://www.instagram.com/lights.camera.divyanand?igsh=MTZrcm8yNHN1Mzd6Zw==",
     Photo: "https://i.ibb.co/p6z9pvKh/Divyanand-Chauhan.jpg",
     PhotoCutout: "https://i.ibb.co/S44pn369/DC.png",
   },
@@ -1254,18 +1277,19 @@ const teamsData = [
     Photo: "https://i.ibb.co/0pCGgWGQ/Balaji-Mishra.jpg",
     PhotoCutout: "https://i.ibb.co/70GMQP0/BM.png",
   },
-   {
-      Position: "Executive member ",
+  {
+    Position: "Executive member ",
     Name: "Vageesha Gautam",
     Year: "2nd Year",
     Branch: "ECE",
 
     LinkedInId: "https://www.linkedin.com/in/vageesha-gautam-484148303",
     InstaId: "moonv__07",
-     Photo: "https://i.ibb.co/gLdwvXCL/Vageesha-Gautam.jpg",
-    PhotoCutout: "https://i.ibb.co/chDjYCvF/Vageesha-Gautam-removebg-preview.png",
+    Photo: "https://i.ibb.co/gLdwvXCL/Vageesha-Gautam.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/chDjYCvF/Vageesha-Gautam-removebg-preview.png",
   },
-   {
+  {
     Position: "Executive member ",
     Name: "Namrata Singh",
     Year: "2nd Year",
@@ -1304,10 +1328,12 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/vipul-gupta-44931233a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/vipul-gupta-44931233a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "krishu_2000_x",
     Photo: "https://i.ibb.co/twSZm2Pg/Vipul-Gupta.jpg",
-    PhotoCutout: "https://i.ibb.co/60S1PZVb/IMG-20251223-035200-Vipul-Gupta-removebg-preview.png",
+    PhotoCutout:
+      "https://i.ibb.co/60S1PZVb/IMG-20251223-035200-Vipul-Gupta-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1317,8 +1343,9 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/gautam-kansal-82a641376/",
     InstaId: "_gautam_kansal_",
-     Photo: "https://i.ibb.co/jZfFbWL2/Screenshot-2026-03-09-144452.png",
-    PhotoCutout: "https://i.ibb.co/kgFTwqvr/Screenshot-2026-03-09-144452-removebg-preview.png",
+    Photo: "https://i.ibb.co/jZfFbWL2/Screenshot-2026-03-09-144452.png",
+    PhotoCutout:
+      "https://i.ibb.co/kgFTwqvr/Screenshot-2026-03-09-144452-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1326,7 +1353,8 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/alok-kumar-a854981a6?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    LinkedInId:
+      "https://www.linkedin.com/in/alok-kumar-a854981a6?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
     InstaId: "/",
     Photo: "https://i.ibb.co/Fqc3mXrd/Alok-kumar.jpg",
     PhotoCutout: "https://i.ibb.co/tTvc1R3M/AK.png",
@@ -1339,8 +1367,8 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/anushka-shukla-185053327/",
     InstaId: "anushka.shukla11.11",
-   Photo: "https://i.ibb.co/mrfWRNC5/Anushka-Shukla.jpg",
-   PhotoCutout: "https://i.ibb.co/prdyS5pz/AS.png",
+    Photo: "https://i.ibb.co/mrfWRNC5/Anushka-Shukla.jpg",
+    PhotoCutout: "https://i.ibb.co/prdyS5pz/AS.png",
   },
   {
     Position: "Executive member ",
@@ -1370,7 +1398,8 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "B.Pharm.",
 
-    LinkedInId: "https://www.linkedin.com/in/mohit-pandey-a145913b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/mohit-pandey-a145913b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "https://www.instagram.com/_mohit.77?igsh=M2ZsMHVwZTl3Y2V2",
     Photo: "https://i.ibb.co/4RZQtK8d/Mohit-pandey.jpg",
     PhotoCutout: "https://i.ibb.co/Q7RWN96n/MP.png",
@@ -1394,7 +1423,7 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/25anushka-mall",
     InstaId: "its_me_artist25",
-     Photo: "https://i.ibb.co/gZ0yDXL6/ANUSHKA-MALL.jpg",
+    Photo: "https://i.ibb.co/gZ0yDXL6/ANUSHKA-MALL.jpg",
     PhotoCutout: "https://i.ibb.co/yB6MsX7L/AMA.png",
   },
   {
@@ -1405,7 +1434,7 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/siddharth-singh-0b97bb32b/",
     InstaId: "siddharthsingh345",
-     Photo: "https://i.ibb.co/7xSMf5QS/Siddharth-Singh.jpg",
+    Photo: "https://i.ibb.co/7xSMf5QS/Siddharth-Singh.jpg",
     PhotoCutout: "https://i.ibb.co/JF3ttd7c/Sid.png",
   },
   {
@@ -1414,9 +1443,10 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/ayush-kumar-29b7a63b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/ayush-kumar-29b7a63b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "_ayush725",
-     Photo: "https://i.ibb.co/zHSf60xc/AYUSH-KUMAR.jpg",
+    Photo: "https://i.ibb.co/zHSf60xc/AYUSH-KUMAR.jpg",
     PhotoCutout: "https://i.ibb.co/bgDQRptL/Aku.png",
   },
   {
@@ -1425,10 +1455,13 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/abhay-gautam-8ab977324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/abhay-gautam-8ab977324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "_abhay_gautam778",
-     Photo: "https://i.ibb.co/3YCZhzqr/Whats-App-Image-2026-03-13-at-00-40-05.jpg",
-    PhotoCutout: "https://i.ibb.co/ZRwyPBMc/Screenshot-2026-03-13-012219-removebg-preview.png",
+    Photo:
+      "https://i.ibb.co/3YCZhzqr/Whats-App-Image-2026-03-13-at-00-40-05.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/ZRwyPBMc/Screenshot-2026-03-13-012219-removebg-preview.png",
   },
   {
     Position: "Executive member ",
@@ -1438,7 +1471,7 @@ const teamsData = [
 
     LinkedInId: "https://www.linkedin.com/in/subhanika-sharma-9a063036a",
     InstaId: "subhanika_sharma16",
-     Photo: "https://i.ibb.co/v417twQT/Subhanika-Sharma.jpg",
+    Photo: "https://i.ibb.co/v417twQT/Subhanika-Sharma.jpg",
     PhotoCutout: "https://i.ibb.co/mr62GJkW/SSH.png",
   },
   {
@@ -1449,10 +1482,11 @@ const teamsData = [
 
     LinkedInId: "https://linkedin.com/in/jagriti-singh-22bb742a0",
     InstaId: "/",
-     Photo: "https://i.ibb.co/DDH8p6gn/1000123203-jpg.jpg",
-    PhotoCutout: "https://i.ibb.co/vvVKbhqG/1000123203-jpg-removebg-preview-1.png",
+    Photo: "https://i.ibb.co/DDH8p6gn/1000123203-jpg.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/vvVKbhqG/1000123203-jpg-removebg-preview-1.png",
   },
-   {
+  {
     Position: "Executive member ",
     Name: "Siddhant Singh",
     Year: "2nd Year",
@@ -1460,87 +1494,100 @@ const teamsData = [
 
     LinkedInId: "/",
     InstaId: "/",
-     Photo: "https://i.ibb.co/BVvx9QKM/Siddhant-singh.jpg",
-    PhotoCutout: "https://i.ibb.co/8LRQRYWt/Siddhant-singh-removebg-preview.png",
+    Photo: "https://i.ibb.co/BVvx9QKM/Siddhant-singh.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/8LRQRYWt/Siddhant-singh-removebg-preview.png",
   },
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Mahi Mall",
     Year: "2nd Year",
     Branch: "BBA",
 
-    LinkedInId: "https://www.linkedin.com/in/mahi-mall-356557397?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/mahi-mall-356557397?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "@mahiiiverse",
-     Photo: "https://i.ibb.co/XfLHQQRk/Mahi-Mall.jpg",
+    Photo: "https://i.ibb.co/XfLHQQRk/Mahi-Mall.jpg",
     PhotoCutout: "https://i.ibb.co/TSfwrxc/Mahi-Mall-removebg-preview.png",
   },
 
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Swaraj Kumar",
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/swaraj-kumar-413542330?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/swaraj-kumar-413542330?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "the_hawkeye001",
-     Photo: "https://i.ibb.co/SXhgdVdx/IMG-20251210-191758-858-SWARAJ-KUMAR.webp",
-    PhotoCutout: "https://i.ibb.co/Gvk5V1Rv/1000723524-499-499-SWARAJ-KUMAR.png",
+    Photo:
+      "https://i.ibb.co/SXhgdVdx/IMG-20251210-191758-858-SWARAJ-KUMAR.webp",
+    PhotoCutout:
+      "https://i.ibb.co/Gvk5V1Rv/1000723524-499-499-SWARAJ-KUMAR.png",
   },
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Krishna Jee",
     Year: "2nd Year",
     Branch: "ECE",
 
     LinkedInId: "https://www.linkedin.com/in/krishna-jee-7b3a5a33a/",
     InstaId: "pain_au_chocolat._",
-     Photo: "https://i.ibb.co/Ld2SrV6T/IMG-20260301-134650-Krishna-Jee.avif",
-    PhotoCutout: "https://i.ibb.co/ccdZb3Mg/Picsart-26-03-07-12-23-22-612-Krishna-Jee-removebg-preview.png",
+    Photo: "https://i.ibb.co/Ld2SrV6T/IMG-20260301-134650-Krishna-Jee.avif",
+    PhotoCutout:
+      "https://i.ibb.co/ccdZb3Mg/Picsart-26-03-07-12-23-22-612-Krishna-Jee-removebg-preview.png",
   },
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Nancy Singh",
     Year: "2nd Year",
     Branch: "CE",
 
     LinkedInId: "www.linkedin.com/in/ nancy-singh-0765b3325",
     InstaId: "/",
-     Photo: "https://i.ibb.co/7NppDLTr/IMG-20260302-213937-Nancy-Singh.jpg",
-    PhotoCutout: "https://i.ibb.co/mC84sN5R/IMG-20260307-WA0002-Nancy-Singh-removebg-preview.png",
+    Photo: "https://i.ibb.co/7NppDLTr/IMG-20260302-213937-Nancy-Singh.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/mC84sN5R/IMG-20260307-WA0002-Nancy-Singh-removebg-preview.png",
   },
- 
+
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Naman Pandey",
     Year: "2nd Year",
     Branch: "EE",
 
     LinkedInId: "https://www.linkedin.com/in/naman-pandey-b41393313/",
     InstaId: "a.breed_apart",
-     Photo: "https://i.ibb.co/nvn2gWs/IMG-20250727-WA0074-Naman-Pandey.jpg",
-    PhotoCutout: "https://i.ibb.co/Pk73wMV/108503-removebg-preview-Naman-Pandey.png",
+    Photo: "https://i.ibb.co/nvn2gWs/IMG-20250727-WA0074-Naman-Pandey.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/Pk73wMV/108503-removebg-preview-Naman-Pandey.png",
   },
   {
-      Position: "Executive member ",
+    Position: "Executive member ",
     Name: "Kislay Dubey",
     Year: "2nd Year",
     Branch: "CSE",
 
-    LinkedInId: "https://www.linkedin.com/in/kislay-dubey-6ba9a83b5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/kislay-dubey-6ba9a83b5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "/",
-     Photo: "https://i.ibb.co/r27Qc9Qf/IMG-20260304-WA0079-Kislay-Dubey.jpg",
-    PhotoCutout: "https://i.ibb.co/Vc4nxp6v/1000120527-removebg-preview-Kislay-Dubey.png",
+    Photo: "https://i.ibb.co/r27Qc9Qf/IMG-20260304-WA0079-Kislay-Dubey.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/Vc4nxp6v/1000120527-removebg-preview-Kislay-Dubey.png",
   },
-   {
-      Position: "Executive member ",
+  {
+    Position: "Executive member ",
     Name: "Ashish Kumar",
     Year: "2nd Year",
     Branch: "ECE",
 
-    LinkedInId: "https://www.linkedin.com/in/ashish-kumar-240053362?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    LinkedInId:
+      "https://www.linkedin.com/in/ashish-kumar-240053362?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     InstaId: "ashish__yg1234",
-     Photo: "https://i.ibb.co/20T4jYz5/IMG-20251106-013150-092-1-1-1-Ashish-Gupta.jpg",
-    PhotoCutout: "https://i.ibb.co/PshHjLzj/IMG-20251106-013150-092-1-1-1-Photoroom-Ashish-Gupta.png",
+    Photo:
+      "https://i.ibb.co/20T4jYz5/IMG-20251106-013150-092-1-1-1-Ashish-Gupta.jpg",
+    PhotoCutout:
+      "https://i.ibb.co/PshHjLzj/IMG-20251106-013150-092-1-1-1-Photoroom-Ashish-Gupta.png",
   },
   {
     Position: "Executive member",
@@ -1548,13 +1595,12 @@ const teamsData = [
     Year: "2nd Year",
     Branch: "IT",
     RollNo: "2024071056",
-    LinkedInId: "https://www.linkedin.com/in/shambhavi-yadav-a80b3b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    LinkedInId:
+      "https://www.linkedin.com/in/shambhavi-yadav-a80b3b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     InstaId: "shambhavii04",
     Photo: "https://i.ibb.co/mC8L4VV3/Shambhavi.jpg",
     PhotoCutout: "https://i.ibb.co/jZkTVCgL/Shambhavi-removebg-preview.png",
   },
-
-
 ];
 
 export default teamsData;
