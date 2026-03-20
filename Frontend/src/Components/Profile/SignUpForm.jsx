@@ -22,7 +22,7 @@ function SignUpForm() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // OTP states
+  // OTP state (required)
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otpVerified, setOtpVerified] = useState(false);
