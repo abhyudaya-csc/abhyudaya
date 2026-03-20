@@ -23,6 +23,9 @@ function SignUpForm() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // fix: add missing password toggle state
+  const [showPassword, setShowPassword] = useState(false);
+
   // OTP state (required)
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
