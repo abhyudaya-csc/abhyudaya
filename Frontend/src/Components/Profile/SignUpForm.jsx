@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authBg from "../../assets/Landing/authBg.jpg";
 import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
-import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -22,7 +21,14 @@ function SignUpForm() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+
+  // OTP states
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [signupToken, setSignupToken] = useState("");
+  const [retryAfter, setRetryAfter] = useState(0);
+  const [isOtpLoading, setIsOtpLoading] = useState(false);
 
   const normalizePhone = (value) => value.replace(/\D/g, "");
 
