@@ -6,7 +6,6 @@ import logo from "../../assets/Landing/White.png";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
-import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function SignUpForm() {
