@@ -15,7 +15,7 @@ const contacts = [
     name: "Shivam Rai",
     email: "abhyudaya.mmmut@gmail.com",
     phone: "+91-9151603350",
-    role: "Cultural Secretary",
+    role: "Convener",
     photo:
       "https://i.ibb.co/6CBYSWz/Whats-App-Image-2026-03-12-at-1-06-48-PM.jpg",
   },
@@ -26,20 +26,6 @@ const contacts = [
     role: "Co-Convener",
     photo: "https://i.postimg.cc/VkfHn917/Richa-Mishra.jpg",
   },
-  // {
-  //   name: "Aastha Singh",
-  //   email: "abhyudaya.mmmut@gmail.com",
-  //   phone: "+91-7754825697",
-  //   role: "Sponsorship Head",
-  //   photo: "https://i.postimg.cc/NjdPPstL/Aastha-Singh.jpg",
-  // },
-  // {
-  //   name: "Jayant Singh",
-  //   email: "abhyudaya.mmmut@gmail.com",
-  //   phone: "+91-9696148767",
-  //   role: "Public Relations Head",
-  //   photo: "https://i.postimg.cc/8ck63SNP/Jayant-Singh.jpg",
-  // },
   {
     name: "Divyansh Gupta",
     email: "abhyudaya.mmmut@gmail.com",
