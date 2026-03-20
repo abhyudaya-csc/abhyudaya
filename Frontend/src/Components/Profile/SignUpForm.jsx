@@ -213,7 +213,7 @@ function SignUpForm() {
       ></div>
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative z-10 w-[75%] sm:w-[700px] backdrop-blur-[4px] rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
+      <div className="relative z-10 w-[75%] sm:w-175 backdrop-blur-xs rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
         <div className="w-1/2 relative hidden sm:block">
           <img
             src={authBg}
