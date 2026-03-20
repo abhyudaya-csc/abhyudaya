@@ -4,15 +4,15 @@ import toast from "react-hot-toast";
 
 // Helper function to check if an event already exists in the processing list
 const eventExists = (events, eventId) => {
-  return events.some((event) => event.eventId === eventId);
+  return events.some((event) => String(event.eventId) === String(eventId));
 };
 
 const eventsSlice = createSlice({
   name: "events",
   initialState: {
-    processing: [], // New events before registration
-    eventsPending: null, // { trxnId: { all events data } }
-    eventsPaid: null, // { trxnId: { all events data } }
+    processing: [],
+    eventsPending: {}, // changed from null
+    eventsPaid: {},    // changed from null
     status: "idle",
     error: null,
   },
@@ -21,7 +21,6 @@ const eventsSlice = createSlice({
       if (!eventExists(state.processing, action.payload.eventId)) {
         state.processing.push(action.payload);
         toast.success("Added to wishlist! \n Visit profile to complete registration.");
-        
       } else {
         toast.error("Already registered!");
       }
@@ -29,23 +28,26 @@ const eventsSlice = createSlice({
 
     removeEvent: (state, action) => {
       state.processing = state.processing.filter(
-        (event) => event.eventId !== action.payload.eventId
+        (event) => String(event.eventId) !== String(action.payload.eventId)
       );
     },
 
     moveToPending: (state, action) => {
       const { trxnId, events } = action.payload;
-      state.eventsPending = {  [trxnId]: events , ...state.eventsPending}; // ✅ Merging instead of overwriting
+      state.eventsPending = {
+        ...(state.eventsPending || {}),
+        [trxnId]: events,
+      };
       state.processing = [];
     },
 
     updateEventStatus: (state, action) => {
       const { trxnId, status } = action.payload;
 
-      if (status === "Paid") {
+      if (status === "Paid" && state.eventsPending?.[trxnId]) {
         state.eventsPaid = {
-          
-          [trxnId]: state.eventsPending[trxnId],...state.eventsPaid
+          ...(state.eventsPaid || {}),
+          [trxnId]: state.eventsPending[trxnId],
         };
         delete state.eventsPending[trxnId];
       }
@@ -54,14 +56,38 @@ const eventsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(fetchEvents.fulfilled, (state, action) => {
-        state.eventsPending = action.payload.events.eventsPending; // ✅ Now properly nested
-        state.eventsPaid = action.payload.events.eventsPaid;
+      .addCase(fetchEvents.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
       })
+      .addCase(fetchEvents.fulfilled, (state, action) => {
+        state.status = "succeeded";
 
+        // supports multiple response shapes
+        const payload =
+          action.payload?.events ??
+          action.payload?.data?.events ??
+          action.payload?.data ??
+          action.payload ??
+          {};
+
+        state.eventsPending = payload.eventsPending || {};
+        state.eventsPaid = payload.eventsPaid || {};
+      })
+      .addCase(fetchEvents.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload || action.error?.message || "Failed to fetch events";
+      })
       .addCase(moveProcessingToPending.fulfilled, (state, action) => {
-        const { trxnId, events } = action.payload;
-        state.eventsPending = { ...state.eventsPending, [trxnId]: events }; // ✅ Merging with existing
+        const data = action.payload?.data || action.payload || {};
+        const { trxnId, events } = data;
+
+        if (trxnId && events) {
+          state.eventsPending = {
+            ...(state.eventsPending || {}),
+            [trxnId]: events,
+          };
+        }
         state.processing = [];
       });
   },

@@ -1,9 +1,12 @@
 import axios from "axios";
 
+const baseURL =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_BACKEND_API_URL;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_API_URL,
-  withCredentials: true
+  baseURL,
+  withCredentials: true,
 });
 
-export { api };
 export default api;

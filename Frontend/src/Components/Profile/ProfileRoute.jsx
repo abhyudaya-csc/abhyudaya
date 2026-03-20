@@ -1,9 +1,17 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileCard from "./ProfileCard";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchEvents } from "../Redux/EventThunks";
 
+const ProfileRoute = () => {
+  const dispatch = useDispatch();
 
-function ProfileRoute() {
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, [dispatch]);
+
   const user = useSelector((state) => state.user);
 
   // If user is not logged in → redirect to signin
@@ -13,6 +21,6 @@ function ProfileRoute() {
 
   // If user exists → show profile page
   return <ProfileCard />;
-}
+};
 
 export default ProfileRoute;
