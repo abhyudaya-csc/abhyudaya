@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authBg from "../../assets/Landing/authBg.jpg";
 import pageBg from "../../assets/Landing/pageBg.jpg";
 import logo from "../../assets/Landing/White.png";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/UserSlice";
-import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function SignUpForm() {
@@ -23,7 +22,14 @@ function SignUpForm() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+
+  // OTP state (required)
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [signupToken, setSignupToken] = useState("");
+  const [retryAfter, setRetryAfter] = useState(0);
+  const [isOtpLoading, setIsOtpLoading] = useState(false);
 
   const normalizePhone = (value) => value.replace(/\D/g, "");
 
@@ -208,7 +214,7 @@ function SignUpForm() {
       ></div>
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative z-10 w-[75%] sm:w-[700px] backdrop-blur-[4px] rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
+      <div className="relative z-10 w-[75%] sm:w-175 backdrop-blur-xs rounded-xl shadow-lg flex flex-col sm:flex-row overflow-hidden border border-white/20">
         <div className="w-1/2 relative hidden sm:block">
           <img
             src={authBg}
