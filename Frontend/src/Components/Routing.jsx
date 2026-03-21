@@ -17,6 +17,8 @@ const Sponsors = lazy(() => import("./Sponsors/Sponsors"));
 const Herox = lazy(() => import("./NewHome/Herox"));
 const SignInForm = lazy(() => import("./Profile/SignInForm"));
 const SignUpForm = lazy(() => import("./Profile/SignUpForm"));
+const ForgotPasswordForm = lazy(() => import("./Profile/ForgotPasswordForm"));
+const ResetPasswordForm = lazy(() => import("./Profile/ResetPasswordForm"));
 
 // Loading spinner component
 const PageLoader = () => (
@@ -65,6 +67,11 @@ function Routing() {
           <Route path="/profile" element={<ProfileRoute />} />
           <Route path="/SignInForm" element={<SignInForm />} />
           <Route path="/SignUpForm" element={<SignUpForm />} />
+          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+          <Route path="/reset-password" element={<ResetPasswordForm />} />
+          <Route path="/reset-password/:token" element={<ResetPasswordForm />} />
+          <Route path="/resetPassword" element={<ResetPasswordForm />} />
+          <Route path="/resetPassword/:token" element={<ResetPasswordForm />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<EventDetail />} />

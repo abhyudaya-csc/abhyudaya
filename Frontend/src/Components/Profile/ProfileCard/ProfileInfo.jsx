@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Check, Copy, LogOut } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Redux/UserSlice";
+import { logout, setUser } from "../../Redux/UserSlice";
 
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../../api/axios";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
 
 const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
   const [copied, setCopied] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [editData, setEditData] = useState({
+    fullName: user?.fullName || "",
+    institution: user?.institution || "",
+  });
   const dispatch = useDispatch();
   const userInitial = user?.fullName?.trim()?.charAt(0)?.toUpperCase() || "?";
 
@@ -21,13 +27,99 @@ const ProfileInfo = () => {
   };
   const navigate = useNavigate();
 
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleStartEdit = () => {
+    setEditData({
+      fullName: user?.fullName || "",
+      institution: user?.institution || "",
+    });
+    setIsEditing(true);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditData({
+      fullName: user?.fullName || "",
+      institution: user?.institution || "",
+    });
+  };
+
+  const handleSaveProfile = async () => {
+    if (isSaving) return;
+
+    const trimmedName = editData.fullName.trim();
+    const trimmedInstitution = editData.institution.trim();
+
+    if (!trimmedName) {
+      alert("Full name is required.");
+      return;
+    }
+
+    if (!trimmedInstitution) {
+      alert("Institution is required.");
+      return;
+    }
+
+    const payload = {
+      fullName: trimmedName,
+      institution: trimmedInstitution,
+    };
+
+    const updateEndpoints = [
+      "/users/me",
+      "/users/profile",
+      "/users/update-profile",
+      "/users/update",
+    ];
+
+    try {
+      setIsSaving(true);
+
+      let updatedUser = null;
+      let lastError = null;
+
+      for (const endpoint of updateEndpoints) {
+        try {
+          const res = await api.patch(endpoint, payload);
+          updatedUser = res.data?.user || res.data?.data || null;
+          break;
+        } catch (err) {
+          lastError = err;
+
+          if (err.response?.status !== 404) {
+            throw err;
+          }
+        }
+      }
+
+      if (!updatedUser) {
+        if (lastError) {
+          throw lastError;
+        }
+        throw new Error("Profile update failed");
+      }
+
+      dispatch(setUser(updatedUser));
+      setIsEditing(false);
+      alert("Profile updated successfully.");
+    } catch (err) {
+      const message =
+        err.response?.data?.errorMessage ||
+        err.response?.data?.message ||
+        "Could not update profile. Please try again.";
+      alert(message);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const handleLogout = async () => {
     try {
-      await axios.post(
-        `${import.meta.env.VITE_BACKEND_API_URL}/users/logout`,
-        {},
-        { withCredentials: true },
-      );
+      await api.post("/users/logout", {});
     } catch (err) {
       console.log("Logout API failed, clearing frontend state anyway");
     }
@@ -75,22 +167,45 @@ const ProfileInfo = () => {
 
       {/* Profile Details */}
       <div className="space-y-3 text-xs sm:text-sm">
-        {[
-          { label: "Email", value: user.email },
-          { label: "Phone", value: user.phoneNumber },
-          // { label: "Course", value: user.course },
-          // { label: "Gender", value: user.gender },
-          { label: "Institution", value: user.institution },
-          // { label: "Date of Birth", value: dob },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            className="bg-white/10 p-2 sm:p-3 rounded-xl flex justify-between items-center text-xs sm:text-base"
-          >
-            <span className="text-white/80">{label}</span>
-            <span className="text-white font-medium">{value}</span>
-          </div>
-        ))}
+        <div className="bg-white/10 p-2 sm:p-3 rounded-xl flex justify-between items-center text-xs sm:text-base">
+          <span className="text-white/80">Email</span>
+          <span className="text-white font-medium">{user.email}</span>
+        </div>
+
+        <div className="bg-white/10 p-2 sm:p-3 rounded-xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-base">
+          <span className="text-white/80">Full Name</span>
+          {isEditing ? (
+            <input
+              name="fullName"
+              value={editData.fullName}
+              onChange={handleEditChange}
+              className="w-full sm:w-64 bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="Full Name"
+            />
+          ) : (
+            <span className="text-white font-medium">{user.fullName}</span>
+          )}
+        </div>
+
+        <div className="bg-white/10 p-2 sm:p-3 rounded-xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-base">
+          <span className="text-white/80">Phone</span>
+          <span className="text-white font-medium">{user.phoneNumber}</span>
+        </div>
+
+        <div className="bg-white/10 p-2 sm:p-3 rounded-xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-base">
+          <span className="text-white/80">Institution</span>
+          {isEditing ? (
+            <input
+              name="institution"
+              value={editData.institution}
+              onChange={handleEditChange}
+              className="w-full sm:w-64 bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="Institution"
+            />
+          ) : (
+            <span className="text-white font-medium">{user.institution}</span>
+          )}
+        </div>
 
         {/* Payment Status */}
         <div className="bg-white/10 p-2 sm:p-3 rounded-xl flex justify-between items-center">
@@ -105,6 +220,34 @@ const ProfileInfo = () => {
             {user.paymentStatus ? "Paid" : "Unpaid"}
           </span>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {isEditing ? (
+          <>
+            <button
+              onClick={handleCancelEdit}
+              disabled={isSaving}
+              className="w-full bg-white/15 hover:bg-white/25 text-white font-semibold py-2 px-4 rounded-xl transition-all text-sm sm:text-base"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSaveProfile}
+              disabled={isSaving}
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-xl transition-all text-sm sm:text-base"
+            >
+              {isSaving ? "Saving..." : "Save Changes"}
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={handleStartEdit}
+            className="w-full sm:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition-all text-sm sm:text-base"
+          >
+            Edit Profile
+          </button>
+        )}
       </div>
 
       {/* Logout Button */}

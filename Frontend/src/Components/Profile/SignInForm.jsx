@@ -18,6 +18,7 @@ function SignInForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,19 +31,52 @@ function SignInForm() {
 
     try {
       setIsSubmitting(true);
-      const res = await api.post(
-        "/users/login",
-        {
-          email: email.trim().toLowerCase(),
-          password,
-        },
-        {
-          withCredentials: true,
-        },
-      );
 
-      dispatch(setUser(res.data.data));
-  localStorage.setItem(AUTH_SESSION_FLAG, "1");
+      const payload = {
+        email: email.trim().toLowerCase(),
+        password,
+      };
+
+      const loginEndpoints = [
+        "/users/login",
+        "/users/signin",
+        "/auth/login",
+        "/auth/signin",
+        "/login",
+      ];
+
+      let res = null;
+      let lastError = null;
+
+      for (const endpoint of loginEndpoints) {
+        try {
+          res = await api.post(endpoint, payload, { withCredentials: true });
+          break;
+        } catch (err) {
+          lastError = err;
+
+          if (err.response?.status !== 404) {
+            throw err;
+          }
+        }
+      }
+
+      if (!res) {
+        throw lastError || new Error("Login endpoint not found");
+      }
+
+      const userData =
+        res.data?.data ||
+        res.data?.user ||
+        res.data?.data?.user ||
+        null;
+
+      if (!userData) {
+        throw new Error("Login succeeded but user payload missing");
+      }
+
+      dispatch(setUser(userData));
+      localStorage.setItem(AUTH_SESSION_FLAG, "1");
       navigate("/profile");
 
     } catch (err) {
@@ -55,7 +89,10 @@ function SignInForm() {
       }
 
       if (err.response?.status === 404) {
-        alert(serverMessage || "User not found. Please sign up first.");
+        alert(
+          serverMessage ||
+            "Login route not found on backend. Please verify backend login endpoint.",
+        );
         return;
       }
 
@@ -129,6 +166,15 @@ function SignInForm() {
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
+            </div>
+
+            <div className="flex justify-end">
+              <Link
+                to="/forgot-password"
+                className="text-sm text-white/80 hover:text-white"
+              >
+                Forgot Password?
+              </Link>
             </div>
 
             <button
