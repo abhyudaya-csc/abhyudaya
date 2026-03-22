@@ -447,7 +447,7 @@ const teamsData = [
     PhotoCutout: "https://i.ibb.co/fzz1NrDG/Harshit-pandey.png",
   },
   {
-    Position: "Media & Publicity Head",
+    Position: "Technical Head",
     Name: "Madhur Pratap Singh",
     Year: "Final Year",
     Branch: "CSE",
