@@ -32,6 +32,14 @@ const Members = () => {
     setActiveCard((prev) => (prev === id ? null : id));
   };
 
+  const shivamIndex = teamsData.findIndex(
+    (person) => person?.Name?.trim().toLowerCase() === "shivam rai"
+  );
+  const shivamMember = shivamIndex >= 0 ? teamsData[shivamIndex] : null;
+  const remainingMembers = teamsData
+    .map((person, index) => ({ person, index }))
+    .filter(({ index }) => index !== shivamIndex);
+
   return (
     <div className="min-h-screen bg-[#120c0f]">
 
@@ -69,7 +77,7 @@ const Members = () => {
 
         {/* Sub Leaders */}
         <div className="flex justify-center mt-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12">
+          <div className="flex flex-nowrap gap-10 mt-12 overflow-x-auto pb-2">
             {subleaderData.map((leader, index) => (
               <SubLeaderCard key={index} faculty={leader} />
             ))}
@@ -84,8 +92,20 @@ const Members = () => {
         </h2>
 
         {/* Team Cards */}
+        {shivamMember && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8">
+            <div className="animate-fade-up col-span-2 sm:col-span-1 sm:col-start-2 md:col-start-2 lg:col-start-3">
+              <TeamCards
+                member={shivamMember}
+                isOpen={activeCard === shivamIndex}
+                onClick={() => handleCardClick(shivamIndex)}
+              />
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
-          {teamsData.map((person, index) => (
+          {remainingMembers.map(({ person, index }) => (
             <div
               key={index}
               className="animate-fade-up"

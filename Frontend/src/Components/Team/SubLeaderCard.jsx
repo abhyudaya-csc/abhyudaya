@@ -2,7 +2,7 @@ import React from "react";
 
 function SubLeaderCard({ faculty }) {
   return (
-    <div className="max-w-sm bg-white rounded-xl shadow-lg overflow-hidden text-center">
+    <div className="w-64 flex-shrink-0 bg-white rounded-xl shadow-lg overflow-hidden text-center">
       
       {/* Image Section */}
       <img
