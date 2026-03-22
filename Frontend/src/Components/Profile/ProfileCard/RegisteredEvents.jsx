@@ -7,6 +7,7 @@ import PaymentModal from "./PaymentModal";
 
 const RegisteredEvents = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const processingEvents = useSelector((state) => state.events.processing);
   const eventsPending = useSelector((state) => state.events.eventsPending);
   const eventsPaid = useSelector((state) => state.events.eventsPaid);
@@ -16,8 +17,9 @@ const RegisteredEvents = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
+    if (!user) return;
     dispatch(fetchEvents());
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   // Calculate total amount for processing events
   useEffect(() => {

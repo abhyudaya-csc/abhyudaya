@@ -7,12 +7,12 @@ import { fetchEvents } from "../Redux/EventThunks";
 
 const ProfileRoute = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
+    if (!user) return;
     dispatch(fetchEvents());
-  }, [dispatch]);
-
-  const user = useSelector((state) => state.user);
+  }, [dispatch, user]);
 
   // If user is not logged in → redirect to signin
   if (!user) {
