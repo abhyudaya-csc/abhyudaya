@@ -5,6 +5,7 @@ import { logout } from "./UserSlice"; // Import the logout action
 import toast from "react-hot-toast";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
+const AUTH_TOKEN_KEY = "abh_auth_token";
 
 // ✅ Fetch all events (Handle expired token)
 export const fetchEvents = createAsyncThunk(
@@ -20,6 +21,7 @@ export const fetchEvents = createAsyncThunk(
     } catch (error) {
       if (error.response?.status === 401) {
         localStorage.removeItem(AUTH_SESSION_FLAG);
+        localStorage.removeItem(AUTH_TOKEN_KEY);
         dispatch(logout());
       }
       return rejectWithValue(error.response?.data || "Failed to fetch events");
@@ -61,6 +63,7 @@ export const moveProcessingToPending = createAsyncThunk(
       if (error.response?.status === 401) {
         toast.error("Session expired. Please log in again.");
         localStorage.removeItem(AUTH_SESSION_FLAG);
+        localStorage.removeItem(AUTH_TOKEN_KEY);
         dispatch(logout());
       }
 

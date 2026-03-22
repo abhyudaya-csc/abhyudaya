@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
+const AUTH_TOKEN_KEY = "abh_auth_token";
 
 function SignInForm() {
   const [email, setEmail] = useState("");
@@ -70,6 +71,10 @@ function SignInForm() {
         res.data?.user ||
         res.data?.data?.user ||
         null;
+      const authToken =
+        res.data?.token ||
+        res.data?.data?.token ||
+        null;
 
       if (!userData) {
         throw new Error("Login succeeded but user payload missing");
@@ -77,6 +82,9 @@ function SignInForm() {
 
       dispatch(setUser(userData));
       localStorage.setItem(AUTH_SESSION_FLAG, "1");
+      if (authToken) {
+        localStorage.setItem(AUTH_TOKEN_KEY, authToken);
+      }
       navigate("/profile");
 
     } catch (err) {

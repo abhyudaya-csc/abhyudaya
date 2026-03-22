@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "./Components/Redux/UserSlice";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
+const AUTH_TOKEN_KEY = "abh_auth_token";
 
 function AppContent() {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ function AppContent() {
       } catch (err) {
         if (err.response?.status === 401) {
           localStorage.removeItem(AUTH_SESSION_FLAG);
+          localStorage.removeItem(AUTH_TOKEN_KEY);
           return;
         }
 

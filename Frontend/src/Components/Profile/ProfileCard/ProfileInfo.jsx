@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../../api/axios";
 
 const AUTH_SESSION_FLAG = "abh_session_active";
+const AUTH_TOKEN_KEY = "abh_auth_token";
 
 const ProfileInfo = () => {
   const user = useSelector((state) => state.user);
@@ -125,6 +126,7 @@ const ProfileInfo = () => {
     }
 
     localStorage.removeItem(AUTH_SESSION_FLAG);
+    localStorage.removeItem(AUTH_TOKEN_KEY);
     dispatch(logout()); // clear redux
     navigate("/"); 
   };
