@@ -607,8 +607,42 @@
             "Judging Criteria: Team Coordination, Expressions and Gestures, Originality and Content, Overall Impact Props and Music: Allowed with organizer approval, no fluids, flames, powders etc.",
             "Vulgarity or obscenity at any point is strictly prohibited and may lead to immediate disqualification. Dialogues and themes should be chosen accordingly.",
             "Performers must clear the stage within the allotted time after their performance; failure to do so may result in penalties.The decision of the judges will be final and binding."
-            
-
+        ]
+    },
+    {
+        "eventId": "dra06",
+        "name": "Improvmania",
+        "link": "https://www.shsdrama.org/uploads/6/8/0/9/68092811/248703_orig.jpg",
+        "description": "No script, no preparation, only pure spontaneity. Improvmania challenges participants to create engaging scenes on the spot using wit, imagination, and quick thinking. At Abhyudaya ’26, step onto the stage and prove that the most memorable performances are born in the momen",
+        "category": "Dramatics",
+        "eventType": "Offline",
+        "teamType": "Team",
+        "noOfRounds": 1,
+        "participationFee": 150,
+        "prizeMoney": 0,
+        "rules": [
+            "Unnecessary use of props is discouraged. Face painting and costumes would not be considered as a prop. The act should not contain any dialogues, or lip syncs.",
+            "Background music is allowed. However, it must not contain any words (sound representing any living form is not allowed). Negative points for exceeding the time limit. The decision of judges will be final and binding.",
+            "Any fluid/flame is not allowed. No act shall contain any obscene, disrespectful actions or gestures. The act will immediately be stopped, and entry will be disqualified if these instructions are not followed. No dialogue or backstage voiceover/narration of any sort is allowed in the performancer x",
+            "A clear and good depiction of message/situation is encouraged. Performance may comprise multiple scenes and hence have blackouts."
+        ]
+    },
+    {
+        "eventId": "dra07",
+        "name": "Curtain Chaos",
+        "link": "https://www.shsdrama.org/uploads/6/8/0/9/68092811/3665231_orig.jpg",
+        "description": "As the curtains rise, Curtain Chaos brings two performers into the spotlight,blending drama, humor, and spontaneity through their coordination. Abhyudaya ’26 presents this duo act where partnership meets performance and every moment unfolds with vibrant energy",
+        "category": "Dramatics",
+        "eventType": "Offline",
+        "teamType": "Team",
+        "noOfRounds": 2,
+        "participationFee": 100,
+        "prizeMoney": 0,
+        "rules": [
+"Time limit is 5 to 10 mins. The act must be performed by two participants on stage. Usage of props is allowed but unnecessary use is discouraged. Props must be brought by the participants themselves.",
+"Background music or sound effects are allowed if required for the act. Any loss or damage to props will not be the responsibility of the organizers. Negative points will be given for exceeding the time limit.",
+"Any kind of fluid, flame, powders, glitters, heavy or sharp objects, or materials that may damage the stage are strictly not allowed. No act should contain any obscene, vulgar, or disrespectful actions or gestures. Violation will lead to immediate disqualification",
+"Strong coordination and interaction between the performers is encouraged. The stage must be cleared within the allotted time after the performance. The decision of the judges will be final and binding"
         ]
     },
     {
