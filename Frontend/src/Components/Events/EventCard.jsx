@@ -25,6 +25,7 @@ const categoryGradients = {
 
 const EventCard = ({ event, index = 0 }) => {
   const { eventId, name, description, category, eventType, link } = event;
+  const eventRouteId = encodeURIComponent(String(eventId ?? "").trim());
   const isOnline = eventType === "Online";
   const icon = categoryIcons[category] || categoryIcons.default;
   const gradient = categoryGradients[category] || categoryGradients.default;
@@ -33,7 +34,7 @@ const EventCard = ({ event, index = 0 }) => {
 
   return (
     <Link
-      to={`/events/${eventId}`}
+      to={`/events/${eventRouteId}`}
       className="block animate-[fadeUp_0.45s_ease-out_both] group"
       style={{ animationDelay: `${(index % 9) * 60}ms` }}
     >

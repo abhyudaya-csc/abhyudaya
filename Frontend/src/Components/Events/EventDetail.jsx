@@ -23,6 +23,11 @@ const EventDetail = () => {
 
   const navigate = useNavigate();
 
+  const normalizeEventId = (value) =>
+    decodeURIComponent(String(value ?? ""))
+      .trim()
+      .toLowerCase();
+
   useEffect(() => {
     let isMounted = true;
 
@@ -31,8 +36,9 @@ const EventDetail = () => {
         setLoading(true);
         setError(null);
 
+        const routeEventId = normalizeEventId(id);
         const found = allEventsData.find(
-          e => String(e.eventId) === String(id)
+          (e) => normalizeEventId(e.eventId) === routeEventId
         );
 
         if (isMounted) {

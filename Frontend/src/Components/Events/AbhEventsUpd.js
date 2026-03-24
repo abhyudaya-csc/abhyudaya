@@ -622,7 +622,7 @@ const event =[
         "name": "Farmaiye Huzoor",
         "link": "",
         "description": "Description coming soon.",
-        "category": "Music",
+        "category": "Other",
         "eventType": "Online",
         "teamType": "Individual",
         "noOfRounds": 1,
