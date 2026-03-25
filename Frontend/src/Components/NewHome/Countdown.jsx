@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 const Countdown = () => {
-  const festivalDate = new Date(2026, 2, 26, 0, 0, 0);
+  const festivalDate = new Date(2026, 2, 27, 0, 0, 0);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
