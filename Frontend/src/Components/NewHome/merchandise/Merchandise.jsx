@@ -105,7 +105,7 @@ const MerchCard = ({
               ₹250/- (first 50 orders)
             </p>
             <a 
-              href="https://forms.gle/PDNFEp92rBMiLqxQ8" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLScp7Rh7GPUFRA4YVrq_GSOI9oRym2x_2CZDdC_Jn0EwWRPZgw/viewform" 
               target="_blank" 
               rel="noreferrer"
               className="block w-full text-center py-2 sm:py-3 rounded-xl bg-white text-black font-bold tracking-widest uppercase text-[10px] sm:text-xs hover:bg-gray-200 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]"
@@ -127,7 +127,7 @@ const FlipCard = () => {
     black: {
       id: 'black',
       title: 'Black T-Shirt',
-      image: 'https://i.postimg.cc/MT9wsgV4/black-tee.png',
+      image: 'https://i.ibb.co/603GJhHf/Black-Tee.jpg',
       accentColor: '#b388eb', // Purple glow
       features: [
         '100% Premium Cotton',
@@ -139,7 +139,7 @@ const FlipCard = () => {
     white: {
       id: 'white',
       title: 'White T-Shirt',
-      image: 'https://i.postimg.cc/bJy89qDk/white-tee.png',
+      image: 'https://i.ibb.co/8nsQ7dKK/mock-WT-Recovered.jpg',
       accentColor: '#e8b5d6', // Pink glow
       features: [
         'Exclusive Premium Design',
