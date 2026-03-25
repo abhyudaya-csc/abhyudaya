@@ -1,29 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ProfileInfo from "./ProfileCard/ProfileInfo";
 import RegisteredEvents from "./ProfileCard/RegisteredEvents";
 import { useSelector } from "react-redux";
 import Abhyudaya from "../../assets/Logo-images/Abhyudaya-combined.png";
 import { Navigate } from "react-router-dom";
 
-
-import toast from "react-hot-toast";
-
 const ProfileCard = () => {
   const user = useSelector((state) => state.user);
-
-
-  useEffect(() => {
-    const done =()=>{
-
-      if (!user) {
-        window.location.reload();
-        return <Navigate to="/" replace />;
-      }
-    }
-
-
-    done()
-  }, [user]); // ✅ Include navigate in dependency array
   
   if(!user)
   {
