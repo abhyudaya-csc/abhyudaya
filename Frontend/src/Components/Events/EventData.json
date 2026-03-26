@@ -504,7 +504,7 @@
         "eventType": "Offline",
         "teamType": "Solo or Group",
         "noOfRounds": 3,
-        "participationFee": 100,
+        "participationFee": 80,
         "prizeMoney": 0,
         "rules": [
             "Prelims - description: All registered participants perform a solo rap piece. TimeLimit: 2 minutes",
