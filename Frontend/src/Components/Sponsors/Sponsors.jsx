@@ -1,7 +1,7 @@
 import React from "react";
 import sponsorsData from "./SponsorData";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import CurrSpons from "./CurrSpons";
+import currentSpons from "./CurrSpons";
 
 const Sponsors = () => {
   return (
@@ -30,7 +30,7 @@ const Sponsors = () => {
 </div>*/}
 
       <div className="p-8 grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {CurrSpons.map((sponsor, index) => (
+        {currentSpons.map((sponsor, index) => (
           <div
             key={index}
             className="rounded-lg bg-gradient-to-r from-black via-gray-900 to-gray-800 p-4 w-[90%] text-center transition-transform duration-300 hover:scale-105 hover:shadow-md hover:shadow-white mx-auto"
