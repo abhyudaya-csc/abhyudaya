@@ -441,7 +441,7 @@
         "eventType": "Offline",
         "teamType": "Team",
         "noOfRounds": 1,
-        "participationFee": 50,
+        "participationFee": 100,
         "prizeMoney": 0,
         "rules": [
             "Each team can have up to 2 participants.",
@@ -504,7 +504,7 @@
         "eventType": "Offline",
         "teamType": "Solo or Group",
         "noOfRounds": 3,
-        "participationFee": 80,
+        "participationFee": 100,
         "prizeMoney": 0,
         "rules": [
             "Prelims - All registered participants perform a solo rap piece (provide your own pre-recorded beats). TimeLimit: 2 minutes",
