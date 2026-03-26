@@ -24,12 +24,13 @@ const Aftermovies = lazy(() => import("./Aftermovies"));
 const Marchandise = lazy(() => import("./merchandise/Merchandise"));
 const Hero2Section = lazy(() => import("./About"));
 const Slider = lazy(() => import("./slider/Slider"));
-const X = lazy(() => import("./Countdown"));
+const X = lazy(() => import("./abhyudayalive"));
 
 import firstSceneLinksRaw from "./1st.json?raw";
 import secondSceneLinksRaw from "./2nd.json?raw";
 import thirdSceneLinksRaw from "./3rd.json?raw";
 import fourthSceneLinksRaw from "./4th.json?raw";
+import AbhyudayaLive from "./abhyudayalive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -684,7 +685,7 @@ export function Hero() {
             />*/}
             <div className="absolute scene-content inset-0 flex items-center justify-center">
               <Suspense fallback={<ComponentLoader />}>
-                <X />
+                <AbhyudayaLive />
               </Suspense>
             </div>
           </section>
