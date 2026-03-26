@@ -441,7 +441,7 @@
         "eventType": "Offline",
         "teamType": "Team",
         "noOfRounds": 1,
-        "participationFee": 50,
+        "participationFee": 100,
         "prizeMoney": 0,
         "rules": [
             "Each team can have up to 2 participants.",
@@ -507,12 +507,12 @@
         "participationFee": 100,
         "prizeMoney": 0,
         "rules": [
-            "Prelims - description: All registered participants perform a solo rap piece. TimeLimit: 2 minutes",
-            "Round 2 -  description: Qualified participants and winners of Rising Stars will compete. Rappers will be given a beat and 30 minutes to prepare before performing TimeLimit-3 minutes",
+            "Prelims - All registered participants perform a solo rap piece (provide your own pre-recorded beats). TimeLimit: 2 minutes",
+            "Round 2 - Qualified participants and winners of Rising Stars will compete. Rappers will be given a beat and 5-10 minutes to prepare before performing TimeLimit-3 minutes",
             "Finals - description: The top 2 participants from Round 2 will compete in a final showcase round. TimeLimit - 3 minutes",
             "Participants can opt for a beatboxer or bring their beats/rhythm on a pen drive or mobile phone.",
-            "Lyrics must be respectful and avoid offensive or sensitive topics.",
-            "Content should not target individuals or communities in a negative manner."
+            "Content should not target individuals or communities in a negative manner.",
+            "Rap Cipher will be held before or after the competition"
         ]
     },
     {
