@@ -2,18 +2,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import SponsorSlider from "./SponsorSlider";
 
 const AbhyudayaLive = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="relative w-full px-4 sm:px-6 lg:px-8"
-    >
-      <div className="relative mx-auto w-full max-w-6xl overflow-hidden rounded-[2.4rem] border border-[#e5d7b5]/30 bg-[linear-gradient(180deg,rgba(14,13,24,0.08)_0%,rgba(11,10,19,0.38)_26%,rgba(8,8,14,0.72)_60%,rgba(5,5,10,0.86)_100%)] px-4 py-12 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-7 sm:py-14 lg:px-10 lg:py-16">
+    <section className="relative w-full px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative w-full min-h-[50vh]"
+        >
+          <div className="relative flex h-full min-h-[50vh] w-full items-center overflow-hidden rounded-[2.4rem] border border-[#e5d7b5]/30 bg-[linear-gradient(180deg,rgba(14,13,24,0.08)_0%,rgba(11,10,19,0.38)_26%,rgba(8,8,14,0.72)_60%,rgba(5,5,10,0.86)_100%)] px-4 py-12 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-7 sm:py-14 lg:px-10 lg:py-16">
         {/* Animated background effects */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(229,215,181,0.15),transparent_24%),radial-gradient(circle_at_center,rgba(229,215,181,0.08),transparent_42%)]" />
@@ -48,14 +51,7 @@ const AbhyudayaLive = () => {
           </motion.h1>
 
           {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-lg md:text-xl text-[#dfd4b4] mb-8 max-w-2xl leading-relaxed"
-          >
-            Experience the magic of culture, innovation, and celebration. Abhyudaya is now live and ready to enthrall you with unforgettable moments and incredible experiences.
-          </motion.p>
+          
 
           {/* Animated Button */}
           <motion.button
@@ -90,8 +86,14 @@ const AbhyudayaLive = () => {
             <Sparkles className="h-5 w-5 text-[#e5d7b5]/60" />
           </motion.div>
         </div>
+          </div>
+        </motion.section>
+
+        <div className="relative flex h-full min-h-[50vh] w-full items-center overflow-hidden rounded-[2.4rem] border border-[#e5d7b5]/30 bg-[linear-gradient(180deg,rgba(14,13,24,0.08)_0%,rgba(11,10,19,0.38)_26%,rgba(8,8,14,0.72)_60%,rgba(5,5,10,0.86)_100%)] px-2 shadow-[0_24px_90px_rgba(0,0,0,0.52)] backdrop-blur-[10px] sm:px-4 lg:px-6">
+          <SponsorSlider />
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
