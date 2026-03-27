@@ -459,7 +459,7 @@
         "eventType": "Offline",
         "teamType": "Individual",
         "noOfRounds": 2,
-        "participationFee": 150,
+        "participationFee": 80,
         "prizeMoney": 0,
         "rules": [
             "In the Prelims, participants are required to prepare a routine of the given time limit. The shortlisted participants/teams move to the Face-off.",
@@ -546,7 +546,7 @@
         "eventType": "Offline",
         "teamType": "Duet",
         "noOfRounds": 1,
-        "participationFee": 0,
+        "participationFee": 100,
         "prizeMoney": 0,
         "rules": [
             "Participants should use more than one song in their performance.",
